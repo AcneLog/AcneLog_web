@@ -1,0 +1,34 @@
+const fontSize = {
+  xxs: '1.2rem',
+  xs: '1.6rem',
+  //   sm: '2rem',
+  //   base: '2.5rem',
+  //   m: '3rem',
+  //   md: '3.5rem',
+  //   ml: '4.375rem',
+  //   l: '5rem',
+  //   lg: '5.625rem',
+  //   xl: '6.25rem',
+  //   xlg: '6.875rem',
+} as const;
+
+const colorSystem = {};
+
+const defaultfont = {
+  blueFont: '#4E8CFF',
+  redFont1: '#FF2D57',
+  redFont2: '#FF0000',
+  greyFont1: '#737373',
+  greyFont2: '#767676',
+};
+
+const theme = {
+  fontSize,
+  ...colorSystem,
+  ...defaultfont,
+} as const;
+
+export default theme;
+
+// ${({ theme }) => theme.Pink}
+// ${({ theme }) => theme.fontSize.Main1}
