@@ -12,7 +12,12 @@ const fontSize = {
   //   xlg: '6.875rem',
 } as const;
 
-const colorSystem = {};
+const colorSystem = {
+  mainBlue: '4E8CFF',
+  mainGrey: 'E9E9E9',
+  subGrey: '676767',
+  roundBlue: '3988F5',
+};
 
 const defaultfont = {
   blueFont: '#4E8CFF',
