@@ -1,7 +1,7 @@
 import * as S from './Footer.styles';
 import Home from '../assets/footerHome.svg';
 import My from '../assets/footerMy.svg';
-import useCustomNavigate from '../hooks/useNavigate';
+import useCustomNavigate from '../../hooks/useNavigate';
 
 function Footer() {
   const goToPage = useCustomNavigate();
