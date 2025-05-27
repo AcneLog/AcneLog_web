@@ -12,6 +12,8 @@ export const FooterContainer = styled.footer`
   transform: translateX(-50%);
   max-width: 600px;
   display: flex;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 `;
 
 export const ContainerBox = styled.div`
