@@ -42,8 +42,9 @@ export const PeoplesLogItm = styled.div`
 `;
 export const PostCountText = styled.p`
   font-size: 0.75rem;
-  color: #555;
+  color: #737373;
   margin-left: -2.5rem;
+  margin-top: -0.4rem;
 `;
 
 export const TodaysYoutubeSection = styled.div`
