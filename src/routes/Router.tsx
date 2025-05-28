@@ -7,6 +7,7 @@ import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Diagnosis from '../pages/Diagnosis';
 import PeoplesLog from '../home/PeoplesLog';
+import My from '../pages/My';
 
 function AppRouter() {
   return (
@@ -22,6 +23,7 @@ function AppRouter() {
           <Route element={<PrivateRoute />}>
             <Route path="/mylog" element={<MyLog />} />
             <Route path="/diagnosis" element={<Diagnosis />} />
+            <Route path="/my" element={<My />} />
           </Route>
         </Route>
 

@@ -24,20 +24,21 @@ function Home() {
             <img src="img/여드름관리.svg" width="100%" />
             <p>
               <img src="img/샵아이콘.svg" width="20%" /> 화농성 여드름
-              <br />
-              <p>게시글 10개</p>
+              <S.PostCountText>게시글 10개</S.PostCountText>
             </p>
           </S.PeoplesLogItm>
           <S.PeoplesLogItm>
             <img src="img/여드름2.svg" width="100%" />
             <p>
               <img src="img/샵아이콘.svg" width="20%" /> 염증성 여드름
+              <S.PostCountText>게시글 15개</S.PostCountText>
             </p>
           </S.PeoplesLogItm>
           <S.PeoplesLogItm>
             <img src="img/여드름3.svg" width="100%" />
             <p>
               <img src="img/샵아이콘.svg" width="20%" /> 좁쌀 여드름
+              <S.PostCountText>게시글 10개</S.PostCountText>
             </p>
           </S.PeoplesLogItm>
         </S.PeoplesLogList>
