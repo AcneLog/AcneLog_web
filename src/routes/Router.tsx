@@ -6,6 +6,7 @@ import MyLog from '../pages/MyLog';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Diagnosis from '../pages/Diagnosis';
+import PeoplesLog from '../home/PeoplesLog';
 
 function AppRouter() {
   return (
@@ -15,6 +16,7 @@ function AppRouter() {
           {/* 로그인 없이 접근 가능한 공통 Layout 라우트 */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/peoplesLog" element={<PeoplesLog />} />
 
           {/* 로그인한 사람만 접근 가능한 라우트 */}
           <Route element={<PrivateRoute />}>
