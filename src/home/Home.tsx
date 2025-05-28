@@ -11,7 +11,7 @@ function Home() {
       </S.BannerSection>
       <S.PeoplesLogSection>
         <S.PeoplesLogHeader>
-          <h1>피플즈 로그</h1>
+          <h2>피플즈 로그</h2>
           <button
             style={{ cursor: 'pointer', color: 'gray' }}
             onClick={() => goToPage('/peoplesLog')}
@@ -22,30 +22,48 @@ function Home() {
         <S.PeoplesLogList>
           <S.PeoplesLogItm>
             <img src="img/여드름관리.svg" width="100%" />
-            <p>
-              <img src="img/샵아이콘.svg" width="20%" /> 화농성 여드름
-              <S.PostCountText>게시글 10개</S.PostCountText>
-            </p>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+              }}
+            >
+              <img src="img/샵아이콘.svg" width="20%" /> <span>화농성 여드름</span>
+            </div>
+            <S.PostCountText>게시글 10개</S.PostCountText>
           </S.PeoplesLogItm>
           <S.PeoplesLogItm>
             <img src="img/여드름2.svg" width="100%" />
-            <p>
-              <img src="img/샵아이콘.svg" width="20%" /> 염증성 여드름
-              <S.PostCountText>게시글 15개</S.PostCountText>
-            </p>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+              }}
+            >
+              <img src="img/샵아이콘.svg" width="20%" /> <span>염증성 여드름</span>
+            </div>
+            <S.PostCountText>게시글 15개</S.PostCountText>
           </S.PeoplesLogItm>
           <S.PeoplesLogItm>
             <img src="img/여드름3.svg" width="100%" />
-            <p>
-              <img src="img/샵아이콘.svg" width="20%" /> 좁쌀 여드름
-              <S.PostCountText>게시글 10개</S.PostCountText>
-            </p>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+              }}
+            >
+              <img src="img/샵아이콘.svg" width="20%" /> <span>좁쌀 여드름</span>
+            </div>
+            <S.PostCountText>게시글 10개</S.PostCountText>
           </S.PeoplesLogItm>
         </S.PeoplesLogList>
       </S.PeoplesLogSection>
       <S.TodaysYoutubeSection>
         <S.TodaysYoutubeHeader>
-          <h1>오늘의 유튜브</h1>
+          <h2>오늘의 유튜브</h2>
         </S.TodaysYoutubeHeader>
         <S.TodaysYoutubeList>
           <S.TodaysYoutubeItm>
@@ -64,7 +82,7 @@ function Home() {
       </S.TodaysYoutubeSection>
       <S.TodaysItemSection>
         <S.TodaysItemHeader>
-          <h1>오늘의 추천템</h1>
+          <h2>오늘의 추천템</h2>
         </S.TodaysItemHeader>
         <S.TodaysItemList>
           <S.TodaysItemItm>

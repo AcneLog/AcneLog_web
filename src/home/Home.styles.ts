@@ -16,11 +16,6 @@ export const PeoplesLogHeader = styled.div`
   align-items: center;
   margin-bottom: 0.75rem;
 
-  h2 {
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
   button {
     background: none;
     border: none;
@@ -39,18 +34,18 @@ export const PeoplesLogList = styled.div`
 export const PeoplesLogItm = styled.div`
   font-size: 1rem;
   width: 100%;
-
+  text-align: center;
   img {
     padding: 0.2rem;
     border-radius: 0.75rem;
   }
 `;
 export const PostCountText = styled.p`
-  font-size: 0.75rem; // 예: 12px
-  color: #666;
-  margin-top: 0.25rem;
-  text-align: center;
+  font-size: 0.75rem;
+  color: #555;
+  margin-left: -2.5rem;
 `;
+
 export const TodaysYoutubeSection = styled.div`
   padding: 1rem;
   width: 100%;
@@ -59,13 +54,7 @@ export const TodaysYoutubeSection = styled.div`
 export const TodaysYoutubeHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 0.75rem;
-
-  h2 {
-    font-size: 1rem;
-    font-weight: bold;
-  }
 `;
 
 export const TodaysYoutubeList = styled.div`
@@ -95,11 +84,6 @@ export const TodaysItemHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.75rem;
-
-  h2 {
-    font-size: 1rem;
-    font-weight: bold;
-  }
 `;
 
 export const TodaysItemList = styled.div`
@@ -116,6 +100,5 @@ export const TodaysItemItm = styled.div`
     padding: 0.2rem;
     border-radius: 0.75rem;
   }
-
   margin-bottom: 6.25rem;
 `;
