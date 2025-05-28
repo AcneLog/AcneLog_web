@@ -11,8 +11,8 @@ export const HeaderContainer = styled.header`
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   font-size: ${({ theme }) => theme.fontSize.xs};
-  position: sticky;
-  top: 0;
+  // position: sticky;
+  // top: 0;
   z-index: 10;
 `;
 

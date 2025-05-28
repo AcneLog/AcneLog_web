@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import * as S from './Header.styles';
-import useCustomNavigate from '../hooks/useNavigate';
+import useCustomNavigate from '../../hooks/useNavigate';
 
 function Header() {
   const location = useLocation();

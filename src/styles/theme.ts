@@ -13,10 +13,10 @@ const fontSize = {
 } as const;
 
 const colorSystem = {
-  mainBlue: '4E8CFF',
-  mainGrey: 'E9E9E9',
-  subGrey: '676767',
-  roundBlue: '3988F5',
+  mainBlue: '#4E8CFF',
+  mainGrey: '#E9E9E9',
+  subGrey: '#676767',
+  roundBlue: '#3988F5',
 };
 
 const defaultfont = {
