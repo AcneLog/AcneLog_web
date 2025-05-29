@@ -1,5 +1,6 @@
 const fontSize = {
   xxs: '1.2rem',
+  xms: '1.4rem',
   xs: '1.6rem',
   //   sm: '2rem',
   //   base: '2.5rem',

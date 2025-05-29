@@ -6,7 +6,7 @@ import MyLog from '../pages/MyLog';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Diagnosis from '../pages/Diagnosis';
-import My from '../pages/My';
+import My from '../pages/My/My';
 
 function AppRouter() {
   return (
