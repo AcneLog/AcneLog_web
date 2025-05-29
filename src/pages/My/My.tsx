@@ -4,7 +4,7 @@ import useCustomNavigate from '../../hooks/useNavigate';
 import Switch from '@mui/material/Switch';
 
 function My() {
-  const isLoggedIn = true; // [TODO] 사용자 로그인 여부
+  const isLoggedIn = false; // [TODO] 사용자 로그인 여부
   const goToPage = useCustomNavigate();
 
   // [TODO] api: 사용자 피부타입
@@ -33,7 +33,7 @@ function My() {
               <div>
                 {/* [TODO] api: 피부타입 검사일 */}
                 <S.blackBoxText>최근 검사일 2025-04-11</S.blackBoxText>
-                <S.blackBox>나의 피부 타입 진단하기</S.blackBox>
+                <S.blackBox onClick={() => goToPage('/skin')}>나의 피부 타입 진단하기</S.blackBox>
               </div>
             </>
           )}
@@ -43,19 +43,29 @@ function My() {
       <S.SidebarContainer_2>
         {!isLoggedIn ? (
           <>
-            <p>나의 진단로그</p>
-            <p>나의 피부 타입 진단하기</p>
-            <p>공지사항</p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/mylog')}>
+              나의 진단로그
+            </p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/skin')}>
+              나의 피부 타입 진단하기
+            </p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/notice')}>
+              공지사항
+            </p>
           </>
         ) : (
           <>
-            <p>나의 진단로그</p>
-            <p>공지사항</p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/mylog')}>
+              나의 진단로그
+            </p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/notice')}>
+              공지사항
+            </p>
             <S.switchBar>
               <p>알림 수신 여부</p>
-              <Switch defaultChecked />
+              <Switch />
             </S.switchBar>
-            <p>개인정보보호처리방침</p>
+            <p style={{ cursor: 'pointer' }}>개인정보보호처리방침</p>
           </>
         )}
       </S.SidebarContainer_2>
