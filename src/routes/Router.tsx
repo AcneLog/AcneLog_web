@@ -3,7 +3,7 @@ import Home from '../pages/Home';
 import DefaultLayout from '../layout/DefaultLayout';
 import PrivateRoute from './PrivateRoute';
 import MyLog from '../pages/MyLog';
-import Login from '../pages/Login';
+import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound';
 import Diagnosis from '../pages/Diagnosis';
 import My from '../pages/My/My';
