@@ -1,10 +1,9 @@
 import * as S from './My.styles';
-import Line from '../../assets/Line.svg';
 import useCustomNavigate from '../../hooks/useNavigate';
 import Switch from '@mui/material/Switch';
 
 function My() {
-  const isLoggedIn = false; // [TODO] 사용자 로그인 여부
+  const isLoggedIn = true; // [TODO] 사용자 로그인 여부
   const goToPage = useCustomNavigate();
 
   // [TODO] api: 사용자 피부타입
@@ -29,7 +28,7 @@ function My() {
                   '
                 </p>
               </S.GreyBoxLogin>
-              <img src={Line} alt="Dotted-line" />
+              <S.dashedLine />
               <div>
                 {/* [TODO] api: 피부타입 검사일 */}
                 <S.blackBoxText>최근 검사일 2025-04-11</S.blackBoxText>
@@ -38,8 +37,8 @@ function My() {
             </>
           )}
         </S.GreyBox>
-        <img src={Line} alt="Dotted-line" />
       </S.SidebarContainer_1>
+      <S.dashedLine />
       <S.SidebarContainer_2>
         {!isLoggedIn ? (
           <>

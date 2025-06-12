@@ -117,3 +117,9 @@ export const switchBar = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+// 점선
+export const dashedLine = styled.div`
+  border-top: 0.05rem dashed black;
+  width: 100%;
+`;

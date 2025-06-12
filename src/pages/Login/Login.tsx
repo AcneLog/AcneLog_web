@@ -19,7 +19,7 @@ function Login() {
         </S.LoginBtn>
         <S.LoginBtn type="google" isSmall={isSmall}>
           <img src={Google} alt="google" />
-          <span>{isSmall ? '구글 로그인하기' : '구글로 3초만에 로그인하기'}</span>
+          <span>{isSmall ? '구글 로그인하기' : '구글 계정으로 3초만에 로그인하기'}</span>
         </S.LoginBtn>
       </S.BtnContainer>
     </S.MainContainer>
