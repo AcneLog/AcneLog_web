@@ -5,7 +5,12 @@ import PrivateRoute from './PrivateRoute';
 import MyLog from '../pages/MyLog';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
+<<<<<<< Updated upstream
 import Diagnosis from '../pages/Diagnosis';
+=======
+import Diagnosis from '../diagnosis/Diagnosis';
+import PeoplesLog from '../home/PeoplesLog';
+>>>>>>> Stashed changes
 import My from '../pages/My';
 
 function AppRouter() {
