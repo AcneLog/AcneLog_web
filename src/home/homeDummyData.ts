@@ -43,19 +43,19 @@ export const youtubeThumbnails = [
 export const productRecommendations = [
   {
     id: 1,
-    title: '여드름 전용 클렌저',
+    title: '여드름 압출 도구',
     src: 'src/assets/img/쿠팡1.svg',
     url: 'https://link.coupang.com/product1',
   },
   {
     id: 2,
-    title: '진정 앰플 추천',
+    title: '스팟 패치 베스트 셀러',
     src: 'src/assets/img/쿠팡2.svg',
     url: 'https://link.coupang.com/product2',
   },
   {
     id: 3,
-    title: '스팟 패치 베스트셀러',
+    title: '여드름 전용 클렌저',
     src: 'src/assets/img/쿠팡3.svg',
     url: 'https://link.coupang.com/product3',
   },
