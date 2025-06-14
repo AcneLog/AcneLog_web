@@ -16,7 +16,7 @@ export const Header = styled.div`
 //리스트 공통
 export const List = styled.div`
   display: flex;
-  gap: 0.75rem;
+  gap: 0.55rem;
   overflow-x: auto;
 `;
 //전체보기 버튼
@@ -34,8 +34,7 @@ export const Itm = styled.div`
   width: 100%;
   text-align: center;
   img {
-    padding: 0.2rem;
-    border-radius: 0.75rem;
+    border-radius: 0.35rem;
   }
 `;
 
