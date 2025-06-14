@@ -1,5 +1,5 @@
+import useCustomNavigate from '../../hooks/useNavigate';
 import * as S from './Home.styles';
-import useCustomNavigate from '../hooks/useNavigate';
 import { acneImages, youtubeThumbnails, productRecommendations } from './homeDummyData';
 
 function Home() {

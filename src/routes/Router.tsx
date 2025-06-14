@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '../home/Home';
 import DefaultLayout from '../layout/DefaultLayout';
 import PrivateRoute from './PrivateRoute';
 import MyLog from '../pages/MyLog';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound';
-import Diagnosis from '../diagnosis/Diagnosis';
 import My from '../pages/My/My';
 import SkinDiagnosis from '../pages/SkinDiagnosis';
 import Notice from '../pages/Notice';
-import PeoplesLog from '../pages/PeoplesLog';
+import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
+import Home from '../pages/home/Home';
+import Diagnosis from '../pages/diagnosis/Diagnosis';
 
 function AppRouter() {
   return (
