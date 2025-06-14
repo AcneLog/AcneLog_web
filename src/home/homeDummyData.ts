@@ -55,7 +55,7 @@ export const productRecommendations = [
   },
   {
     id: 3,
-    title: '여드름 전용 클렌저',
+    title: '여드름 전용 세럼',
     src: 'src/assets/img/쿠팡3.svg',
     url: 'https://link.coupang.com/product3',
   },
