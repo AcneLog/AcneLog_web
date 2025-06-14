@@ -49,9 +49,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button, input, textarea, select {
-     font-family: 'Pretendard', sans-serif;
-     font-weight: 600;
-   }
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+  }
      
   #root {
     background-color: #fcfcfc;
