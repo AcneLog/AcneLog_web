@@ -46,6 +46,7 @@ const Diagnosis: React.FC = () => {
       )}
 
       <S.GuideBox>
+        <h3 style={{ marginBottom: '0.5rem' }}>☝🏻 피부 이미지 업로드 가이드</h3>
         <ul>
           <li>밝고 자연광이 있는 곳에서 촬영해주세요.</li>
           <li>특정 부위를 명확히 촬영해 붉은 정도를 인식해주세요.</li>

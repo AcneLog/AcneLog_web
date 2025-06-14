@@ -70,12 +70,13 @@ export const GuideBox = styled.div`
   border: 1px solid #eee;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  color: #555;
+  color: ${({ theme }) => theme.greyFont1};
   margin-bottom: 1.5rem;
 
   ul {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     list-style: disc;
+    font-weight: normal;
   }
 `;
 
