@@ -48,6 +48,11 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  button, input, textarea, select {
+     font-family: 'Pretendard', sans-serif;
+     font-weight: 600;
+   }
+     
   #root {
     background-color: #fcfcfc;
     margin: 0 auto;

@@ -7,6 +7,7 @@ import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Diagnosis from '../pages/Diagnosis';
 import My from '../pages/My';
+import PeoplesLog from '../pages/PeoplesLog';
 
 function AppRouter() {
   return (
@@ -17,6 +18,7 @@ function AppRouter() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/my" element={<My />} />
+          <Route path="/peoplesLog" element={<PeoplesLog />} />
 
           {/* 로그인한 사람만 접근 가능한 라우트 */}
           <Route element={<PrivateRoute />}>
