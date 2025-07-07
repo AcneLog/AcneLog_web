@@ -3,7 +3,7 @@ import useCustomNavigate from '../../hooks/useNavigate';
 import Switch from '@mui/material/Switch';
 
 function My() {
-  const isLoggedIn = true; // [TODO] 사용자 로그인 여부
+  const isLoggedIn = false; // [TODO] 사용자 로그인 여부
   const goToPage = useCustomNavigate();
 
   // [TODO] api: 사용자 피부타입

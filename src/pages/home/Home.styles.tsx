@@ -33,6 +33,7 @@ export const Itm = styled.div`
   font-size: 1rem;
   width: 100%;
   text-align: center;
+  cursor: pointer;
   img {
     border-radius: 0.35rem;
   }

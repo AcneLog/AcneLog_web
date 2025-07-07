@@ -1,5 +1,5 @@
 import * as S from './Home.styles';
-import useCustomNavigate from '../hooks/useNavigate';
+import useCustomNavigate from '../../hooks/useNavigate';
 import { acneImages, youtubeThumbnails, productRecommendations } from './homeDummyData';
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       <S.HomeSection>
-        <img src="src/assets/img/배너.svg" width="100%" />
+        <img src="src/assets/banner.svg" width="100%" style={{ cursor: 'pointer' }} />
       </S.HomeSection>
       <S.HomeSection>
         <S.Header>

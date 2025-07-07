@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './Diagnosis.styles';
-import useCustomNavigate from '../hooks/useNavigate';
+import useCustomNavigate from '../../hooks/useNavigate';
 
 const Diagnosis: React.FC = () => {
   const [image, setImage] = useState<string | null>(null);

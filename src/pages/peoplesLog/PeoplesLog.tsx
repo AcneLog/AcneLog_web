@@ -1,6 +1,7 @@
 import * as S from './PeoplesLog.styles';
 import Pagination from '@mui/material/Pagination';
 import React, { useState } from 'react';
+import useCustomNavigate from '../../hooks/useNavigate';
 import {
   dummyData,
   diagnosisNameMap,
@@ -10,6 +11,7 @@ import {
 } from './peoplesLogDummyData';
 
 function PeoplesLog() {
+  const goToPage = useCustomNavigate();
   const [page, setPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const categories = ['전체', '화농성', '염증성', '좁쌀'];
@@ -45,7 +47,11 @@ function PeoplesLog() {
 
       <S.LogList>
         {logList.map((log, idx) => (
-          <S.LogItem name={log.name as 'A' | 'B' | 'C'} key={idx}>
+          <S.LogItem
+            name={log.name as 'A' | 'B' | 'C'}
+            key={idx}
+            onClick={() => goToPage('/peoplesLogDetail')}
+          >
             <S.LogImage src={log.image} alt={log.name} />
             <S.LogBox>
               <S.LogName type="name">
