@@ -1,6 +1,7 @@
-import * as S from './Home.styles';
 import useCustomNavigate from '../../hooks/useNavigate';
+import * as S from './Home.styles';
 import { acneImages, youtubeThumbnails, productRecommendations } from './homeDummyData';
+import Banner from '../../assets/banner.svg';
 
 function Home() {
   const goToPage = useCustomNavigate();
@@ -8,7 +9,7 @@ function Home() {
   return (
     <div>
       <S.HomeSection>
-        <img src="src/assets/banner.svg" width="100%" style={{ cursor: 'pointer' }} />
+        <img src={Banner} alt="Banner" width={'100%'} />
       </S.HomeSection>
       <S.HomeSection>
         <S.Header>
