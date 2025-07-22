@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       <S.HomeSection>
-        <img src={Banner} alt="Banner" width={'100%'} />
+        <img src={Banner} alt="Banner" width={'100%'} style={{ cursor: 'pointer' }} />
       </S.HomeSection>
       <S.HomeSection>
         <S.Header>

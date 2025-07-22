@@ -8,8 +8,9 @@ import My from '../pages/My/My';
 import SkinDiagnosis from '../pages/SkinDiagnosis';
 import Notice from '../pages/Notice';
 import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
-import Home from '../pages/home/Home';
-import Diagnosis from '../pages/diagnosis/Diagnosis';
+import Home from '../pages/Home/Home';
+import Diagnosis from '../pages/Diagnosis/Diagnosis';
+import PeoplesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
 
 function AppRouter() {
   return (
@@ -21,8 +22,8 @@ function AppRouter() {
           <Route path="/login" element={<Login />} />
           <Route path="/my" element={<My />} />
           <Route path="/peoplesLog" element={<PeoplesLog />} />
+          <Route path="/peoplesLogDetail/:id" element={<PeoplesLogDetail />} />
           <Route path="/notice" element={<Notice />} />
-          <Route path="/peoplesLog" element={<PeoplesLog />} />
 
           {/* 로그인한 사람만 접근 가능한 라우트 */}
           <Route element={<PrivateRoute />}>
