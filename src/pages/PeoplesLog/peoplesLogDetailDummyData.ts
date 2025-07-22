@@ -63,17 +63,20 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
       {
         id: 'p1',
         name: '라로슈포제 에빠끌라 클렌징폼',
-        imageUrl: '...',
+        imageUrl:
+          'https://thumbnail8.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/666d/7b8ec5ba3043d0a0f6f1e6d1312ed2a8b98c530aa09255006bf5afc1468c.jpg',
       },
       {
         id: 'p2',
         name: '센텔리안24 마데카 크림',
-        imageUrl: '...',
+        imageUrl:
+          'https://thumbnail8.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/666d/7b8ec5ba3043d0a0f6f1e6d1312ed2a8b98c530aa09255006bf5afc1468c.jpg',
       },
       {
         id: 'p11',
         name: '이니스프리 비자 시카 밤',
-        imageUrl: 'https://example.com/product-p11.jpg',
+        imageUrl:
+          'https://thumbnail8.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/666d/7b8ec5ba3043d0a0f6f1e6d1312ed2a8b98c530aa09255006bf5afc1468c.jpg',
       },
     ],
     recommendedVideos: [
