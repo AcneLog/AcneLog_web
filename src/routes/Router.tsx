@@ -11,6 +11,7 @@ import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import Home from '../pages/Home/Home';
 import Diagnosis from '../pages/Diagnosis/Diagnosis';
 import PeoplesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
+import MyLogDetail from '../pages/MyLogDetail/MyLogDetail';
 
 function AppRouter() {
   return (
@@ -30,6 +31,7 @@ function AppRouter() {
             <Route path="/mylog" element={<MyLog />} />
             <Route path="/diagnosis" element={<Diagnosis />} />
             <Route path="/skin" element={<SkinDiagnosis />} />
+            <Route path="/myLogDetail/:id" element={<MyLogDetail />} />
           </Route>
         </Route>
 
