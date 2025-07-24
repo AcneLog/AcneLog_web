@@ -10,6 +10,7 @@ import Notice from '../pages/Notice';
 import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import Home from '../pages/Home/Home';
 import Diagnosis from '../pages/Diagnosis/Diagnosis';
+import Result from '../pages/Diagnosis/Result';
 import PeoplesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
 import MyLogDetail from '../pages/MyLogDetail/MyLogDetail';
 
@@ -31,6 +32,7 @@ function AppRouter() {
             <Route path="/mylog" element={<MyLog />} />
             <Route path="/diagnosis" element={<Diagnosis />} />
             <Route path="/skin" element={<SkinDiagnosis />} />
+            <Route path="/result/:id" element={<Result />} />
             <Route path="/myLogDetail/:id" element={<MyLogDetail />} />
           </Route>
         </Route>
