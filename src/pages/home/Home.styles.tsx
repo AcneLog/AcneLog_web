@@ -33,6 +33,7 @@ export const Itm = styled.div`
   font-size: 1rem;
   width: 100%;
   text-align: center;
+  cursor: pointer;
   img {
     border-radius: 0.35rem;
   }
@@ -49,7 +50,7 @@ export const PostCountText = styled.p`
 export const TodaysItemItm = styled.div`
   font-size: 1rem;
   width: 100%;
-
+  cursor: pointer;
   img {
     padding: 0.2rem;
     border-radius: 0.75rem;

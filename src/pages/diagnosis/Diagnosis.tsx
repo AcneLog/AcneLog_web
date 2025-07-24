@@ -17,15 +17,13 @@ const Diagnosis: React.FC = () => {
   const handleCancel = () => {
     setImage(null);
   };
-
-  const handleSubmit = () => {
-    if (image) {
-      alert('진단을 시작합니다.');
-    }
+  const handleDiagnose = () => {
+    if (!image) return;
+    const generatedId = 'log1'; // 여기서 AI 결과에 따라 동적으로 지정 가능
+    localStorage.setItem('uploadedImage', image);
+    goToPage(`/result/${generatedId}`);
   };
-
   const goToPage = useCustomNavigate();
-
   return (
     <S.UploadBox>
       <S.Title>
@@ -55,7 +53,7 @@ const Diagnosis: React.FC = () => {
       </S.GuideBox>
 
       <S.ButtonGroup>
-        <S.ActionButton primary disabled={!image} onClick={handleSubmit}>
+        <S.ActionButton primary disabled={!image} onClick={handleDiagnose}>
           진단하기
         </S.ActionButton>
         <S.ActionButton onClick={() => goToPage('/')}>취소하기</S.ActionButton>

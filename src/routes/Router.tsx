@@ -10,6 +10,9 @@ import Notice from '../pages/Notice/Notice';
 import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import Home from '../pages/home/Home';
 import Diagnosis from '../pages/diagnosis/Diagnosis';
+import Result from '../pages/diagnosis/Result';
+import PeoplesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
+import MyLogDetail from '../pages/MyLogDetail/MyLogDetail';
 import NoticeDetail from '../pages/Notice/NoticeDetail';
 import SkinDiagnosisResult from '../pages/SkinDiagnosis/SkinDiagnosisResult';
 
@@ -23,9 +26,9 @@ function AppRouter() {
           <Route path="/login" element={<Login />} />
           <Route path="/my" element={<My />} />
           <Route path="/peoplesLog" element={<PeoplesLog />} />
+          <Route path="/peoplesLogDetail/:id" element={<PeoplesLogDetail />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/notice/:id" element={<NoticeDetail />} />
-          <Route path="/peoplesLog" element={<PeoplesLog />} />
 
           {/* 로그인한 사람만 접근 가능한 라우트 */}
           <Route element={<PrivateRoute />}>
@@ -33,6 +36,8 @@ function AppRouter() {
             <Route path="/diagnosis" element={<Diagnosis />} />
             <Route path="/skin" element={<SkinDiagnosis />} />
             <Route path="/skin/result" element={<SkinDiagnosisResult />} />
+            <Route path="/result/:id" element={<Result />} />
+            <Route path="/myLogDetail/:id" element={<MyLogDetail />} />
           </Route>
         </Route>
 
