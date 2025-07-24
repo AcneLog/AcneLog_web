@@ -6,10 +6,11 @@ import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound';
 import My from '../pages/My/My';
 import SkinDiagnosis from '../pages/SkinDiagnosis';
-import Notice from '../pages/Notice';
+import Notice from '../pages/Notice/Notice';
 import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import Home from '../pages/home/Home';
 import Diagnosis from '../pages/diagnosis/Diagnosis';
+import NoticeDetail from '../pages/Notice/NoticeDetail';
 
 function AppRouter() {
   return (
@@ -22,6 +23,7 @@ function AppRouter() {
           <Route path="/my" element={<My />} />
           <Route path="/peoplesLog" element={<PeoplesLog />} />
           <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/:id" element={<NoticeDetail />} />
           <Route path="/peoplesLog" element={<PeoplesLog />} />
 
           {/* 로그인한 사람만 접근 가능한 라우트 */}
