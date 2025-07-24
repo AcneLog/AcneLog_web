@@ -5,12 +5,13 @@ import MyLog from '../pages/MyLog';
 import Login from '../pages/Login/Login';
 import NotFound from '../pages/NotFound';
 import My from '../pages/My/My';
-import SkinDiagnosis from '../pages/SkinDiagnosis';
+import SkinDiagnosis from '../pages/SkinDiagnosis/SkinDiagnosis';
 import Notice from '../pages/Notice/Notice';
 import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import Home from '../pages/home/Home';
 import Diagnosis from '../pages/diagnosis/Diagnosis';
 import NoticeDetail from '../pages/Notice/NoticeDetail';
+import SkinDiagnosisResult from '../pages/SkinDiagnosis/SkinDiagnosisResult';
 
 function AppRouter() {
   return (
@@ -31,6 +32,7 @@ function AppRouter() {
             <Route path="/mylog" element={<MyLog />} />
             <Route path="/diagnosis" element={<Diagnosis />} />
             <Route path="/skin" element={<SkinDiagnosis />} />
+            <Route path="/skin/result" element={<SkinDiagnosisResult />} />
           </Route>
         </Route>
 

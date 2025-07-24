@@ -60,7 +60,6 @@ export const TableLayout = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 0.2rem;
-  background: red;
 `;
 
 // 개별 행

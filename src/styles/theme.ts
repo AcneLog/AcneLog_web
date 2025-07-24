@@ -3,7 +3,7 @@ const fontSize = {
   xms: '1.4rem',
   xs: '1.6rem',
   sm: '1.8rem',
-  //   base: '2.5rem',
+  base: '2rem',
   //   m: '3rem',
   //   md: '3.5rem',
   //   ml: '4.375rem',
