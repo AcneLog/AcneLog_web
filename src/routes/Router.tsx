@@ -8,8 +8,9 @@ import My from '../pages/My/My';
 import SkinDiagnosis from '../pages/SkinDiagnosis';
 import Notice from '../pages/Notice';
 import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
-import Home from '../pages/home/Home';
-import Diagnosis from '../pages/diagnosis/Diagnosis';
+import Home from '../pages/Home/Home';
+import Diagnosis from '../pages/Diagnosis/Diagnosis';
+import Result from '../pages/Diagnosis/Result';
 
 function AppRouter() {
   return (
@@ -29,6 +30,7 @@ function AppRouter() {
             <Route path="/mylog" element={<MyLog />} />
             <Route path="/diagnosis" element={<Diagnosis />} />
             <Route path="/skin" element={<SkinDiagnosis />} />
+            <Route path="/result/:id" element={<Result />} />
           </Route>
         </Route>
 
