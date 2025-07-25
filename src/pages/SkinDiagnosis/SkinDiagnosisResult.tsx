@@ -15,11 +15,6 @@ function SkinDiagnosisResult() {
     setModalOpen(true); // 모달 열기
   };
 
-  const handleConfirm = () => {
-    setModalOpen(false);
-    navigate('/'); // 홈으로 이동
-  };
-
   return (
     <S.Layout>
       <S.TitleLayout>
@@ -45,7 +40,13 @@ function SkinDiagnosisResult() {
           홈
         </S.Btn>
       </S.BtnLayout>
-      <BasicModal open={modalOpen} onClose={() => setModalOpen(false)} onConfirm={handleConfirm} />
+      <BasicModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        message="저장하시겠습니까?"
+        confirmLink="/"
+        confirmText="저장"
+      />
     </S.Layout>
   );
 }

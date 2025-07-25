@@ -5,12 +5,12 @@ interface CategoryProps {
 }
 
 interface LogTextProps {
-  type: 'name' | 'date';
+  type: 'black' | 'gray';
 }
 
-// [TODO] 실제 enum 타입으로 변경
-interface LogItemProps {
-  name: 'A' | 'B' | 'C';
+// 박스 안 라운드 타입
+interface BoxType {
+  type: 'name' | 'date' | 'show';
 }
 
 // 전체 레이아웃
@@ -21,9 +21,9 @@ export const Layout = styled.div`
   gap: 1.2rem;
 `;
 
-// 피플즈로그 타이틀
+// 타이틀
 export const Title = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.xs};
+  font-size: ${({ theme }) => theme.fontSize.xxs};
 `;
 
 // 카테고리 박스
@@ -54,20 +54,8 @@ export const LogList = styled.ul`
 
 // 각 아이템 박스
 // [TODO] 실제 enum 타입으로 변경
-export const LogItem = styled.li<LogItemProps>`
-  border: 2px solid
-    ${({ name }) => {
-      switch (name) {
-        case 'A':
-          return '#FFBFBF';
-        case 'B':
-          return '#A6E0FF';
-        case 'C':
-          return '#C9C9C9';
-        default:
-          return '#ccc';
-      }
-    }};
+export const LogItem = styled.li`
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 1rem;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -83,7 +71,7 @@ export const LogItem = styled.li<LogItemProps>`
 export const LogBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.5rem;
 `;
 
 // 진단명, 진단일 텍스트
@@ -91,8 +79,8 @@ export const LogName = styled.div<LogTextProps>`
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: ${({ type }) => (type === 'name' ? 'black' : 'gray')};
-  font-weight: ${({ type }) => (type === 'name' ? 'bold' : 'normal')};
+  color: ${({ type }) => (type === 'black' ? 'black' : 'gray')};
+  font-weight: ${({ type }) => (type === 'black' ? 'bold' : 'normal')};
 `;
 
 // 페이지네이션 레이아웃
@@ -105,17 +93,29 @@ export const PaginationWrapper = styled.div`
 // 아이템 박스 내부 이미지
 export const LogImage = styled.img`
   width: 100%;
-  height: 12rem;
+  height: 10rem;
   object-fit: cover;
   border-radius: 0.5rem;
 `;
 
-// 진단명, 진단일 라운드 틀
-export const RoundBox = styled.div`
+// 라운드 틀
+export const RoundBox = styled.div<BoxType>`
   font-size: 0.7rem;
+  width: 4rem;
   font-weight: bold;
   border-radius: 1rem;
-  color: white;
-  background: black;
-  padding: 0.3rem 1rem;
+  color: black;
+  padding: 0.4rem 0.5rem;
+  background: ${({ type }) => {
+    switch (type) {
+      case 'name':
+        return '#FFF397';
+      case 'date':
+        return '#C6E5FF';
+      case 'show':
+        return '#FFDAF8';
+      default:
+        return 'black';
+    }
+  }};
 `;

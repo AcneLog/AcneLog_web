@@ -1,16 +1,16 @@
-import * as S from './PeoplesLog.styles';
-import Pagination from '@mui/material/Pagination';
-import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import * as S from './MyLog.styles';
+import { useState } from 'react';
 import {
   dummyData,
   diagnosisNameMap,
   dummyDataByA,
   dummyDataByB,
   dummyDataByC,
-} from './peoplesLogDummyData';
-import { useNavigate } from 'react-router-dom';
+} from '../PeoplesLog/peoplesLogDummyData';
+import { Pagination } from '@mui/material';
 
-function PeoplesLog() {
+function MyLog() {
   const navigate = useNavigate();
 
   const [page, setPage] = useState(1);
@@ -33,7 +33,7 @@ function PeoplesLog() {
 
   return (
     <S.Layout>
-      <S.Title>피플즈 로그</S.Title>
+      <S.Title>총 4번의 진단</S.Title>
       <S.CategoryBox>
         {categories.map((cat) => (
           <S.Category
@@ -51,20 +51,20 @@ function PeoplesLog() {
 
       <S.LogList>
         {logList.map((log, idx) => (
-          <S.LogItem
-            name={log.name as 'A' | 'B' | 'C'}
-            key={idx}
-            onClick={() => navigate(`/peoplesLogDetail/${log.id}`)}
-          >
+          <S.LogItem key={idx} onClick={() => navigate(`/peoplesLogDetail/${log.id}`)}>
             <S.LogImage src={log.image} alt={log.name} />
             <S.LogBox>
-              <S.LogName type="name">
-                <S.RoundBox>진단명</S.RoundBox>
+              <S.LogName type="black">
+                <S.RoundBox type="name">진단명</S.RoundBox>
                 {diagnosisNameMap[log.name]}
               </S.LogName>
-              <S.LogName type="date">
-                <S.RoundBox>진단일</S.RoundBox>
+              <S.LogName type="gray">
+                <S.RoundBox type="date">진단일</S.RoundBox>
                 {log.date.replace(/-/g, '.')}
+              </S.LogName>
+              <S.LogName type="gray">
+                <S.RoundBox type="show">공개 여부</S.RoundBox>
+                {log.show ? '공개' : '비공개'}
               </S.LogName>
             </S.LogBox>
           </S.LogItem>
@@ -78,4 +78,4 @@ function PeoplesLog() {
   );
 }
 
-export default PeoplesLog;
+export default MyLog;
