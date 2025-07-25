@@ -32,7 +32,7 @@ function AppRouter() {
 
           {/* 로그인한 사람만 접근 가능한 라우트 */}
           <Route element={<PrivateRoute />}>
-            <Route path="/mylog" element={<MyLog />} />
+            <Route path="/myLog" element={<MyLog />} />
             <Route path="/diagnosis" element={<Diagnosis />} />
             <Route path="/skin" element={<SkinDiagnosis />} />
             <Route path="/skin/result" element={<SkinDiagnosisResult />} />

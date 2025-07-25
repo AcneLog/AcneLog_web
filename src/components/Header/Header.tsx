@@ -21,7 +21,7 @@ function Header() {
         <S.Menu isActive={location.pathname === '/'} onClick={() => goToPage('/')}>
           홈
         </S.Menu>
-        <S.Menu isActive={location.pathname === '/mylog'} onClick={() => goToPage('/mylog')}>
+        <S.Menu isActive={location.pathname === '/myLog'} onClick={() => goToPage('/myLog')}>
           나의 진단로그
         </S.Menu>
       </S.HeaderListBox>
