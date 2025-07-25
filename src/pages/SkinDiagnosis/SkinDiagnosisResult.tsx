@@ -10,9 +10,30 @@ function SkinDiagnosisResult() {
   const [modalOpen, setModalOpen] = useState(false);
   const skinType = '건성';
 
-  const handleSave = () => {
-    // 저장 로직 (비동기 처리 가능)
-    setModalOpen(true); // 모달 열기
+  const [modalConfig, setModalConfig] = useState<{
+    message: string;
+    confirmLink: string;
+  }>({
+    message: '',
+    confirmLink: '/',
+  });
+
+  // 저장 버튼 모달
+  const openSaveModal = () => {
+    setModalConfig({
+      message: '저장하시겠습니까?',
+      confirmLink: `/`,
+    });
+    setModalOpen(true);
+  };
+
+  // 홈 버튼 모달
+  const openHomeModal = () => {
+    setModalConfig({
+      message: '진단 결과가 저장되지 않습니다. \n그래도 나가시겠습니까?',
+      confirmLink: '/',
+    });
+    setModalOpen(true);
   };
 
   return (
@@ -33,19 +54,19 @@ function SkinDiagnosisResult() {
         </S.Result>
       </S.ResultLayout>
       <S.BtnLayout>
-        <S.Btn type="save" onClick={handleSave}>
+        <S.Btn type="save" onClick={openSaveModal}>
           저장하기
         </S.Btn>
-        <S.Btn type="home" onClick={() => navigate('/')}>
+        <S.Btn type="home" onClick={openHomeModal}>
           홈
         </S.Btn>
       </S.BtnLayout>
+
       <BasicModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        message="저장하시겠습니까?"
-        confirmLink="/"
-        confirmText="저장"
+        message={modalConfig.message}
+        confirmLink={modalConfig.confirmLink}
       />
     </S.Layout>
   );

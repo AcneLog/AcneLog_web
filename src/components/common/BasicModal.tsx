@@ -45,7 +45,10 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={style}>
-        <Typography variant="body1" sx={{ mb: 3, fontFamily: 'Pretendard', fontWeight: 500 }}>
+        <Typography
+          variant="body1"
+          sx={{ mb: 3, fontFamily: 'Pretendard', fontWeight: 500, whiteSpace: 'pre-line' }}
+        >
           {message}
         </Typography>
         <Box display="flex" justifyContent="center">
