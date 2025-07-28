@@ -54,7 +54,7 @@ function PeoplesLog() {
           <S.LogItem
             name={log.name as 'A' | 'B' | 'C'}
             key={idx}
-            onClick={() => navigate(`/peoplesLogDetail/${log.id}`)}
+            onClick={() => navigate(`/peoplesLog/${log.id}`)}
           >
             <S.LogImage src={log.image} alt={log.name} />
             <S.LogBox>

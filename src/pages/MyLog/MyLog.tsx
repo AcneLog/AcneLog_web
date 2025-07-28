@@ -51,7 +51,7 @@ function MyLog() {
 
       <S.LogList>
         {logList.map((log, idx) => (
-          <S.LogItem key={idx} onClick={() => navigate(`/peoplesLogDetail/${log.id}`)}>
+          <S.LogItem key={idx} onClick={() => navigate(`/myLog/${log.id}`)}>
             <S.LogImage src={log.image} alt={log.name} />
             <S.LogBox>
               <S.LogName type="black">

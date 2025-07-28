@@ -12,7 +12,7 @@ import Home from '../pages/Home/Home';
 import Diagnosis from '../pages/Diagnosis/Diagnosis';
 import Result from '../pages/Diagnosis/Result';
 import PeoplesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
-import MyLogDetail from '../pages/MyLogDetail/MyLogDetail';
+import MyLogDetail from '../pages/MyLog/MyLogDetail';
 import NoticeDetail from '../pages/Notice/NoticeDetail';
 import SkinDiagnosisResult from '../pages/SkinDiagnosis/SkinDiagnosisResult';
 
@@ -26,7 +26,7 @@ function AppRouter() {
           <Route path="/login" element={<Login />} />
           <Route path="/my" element={<My />} />
           <Route path="/peoplesLog" element={<PeoplesLog />} />
-          <Route path="/peoplesLogDetail/:id" element={<PeoplesLogDetail />} />
+          <Route path="/peoplesLog/:id" element={<PeoplesLogDetail />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/notice/:id" element={<NoticeDetail />} />
 
@@ -37,7 +37,7 @@ function AppRouter() {
             <Route path="/skin" element={<SkinDiagnosis />} />
             <Route path="/skin/result" element={<SkinDiagnosisResult />} />
             <Route path="/result/:id" element={<Result />} />
-            <Route path="/myLogDetail/:id" element={<MyLogDetail />} />
+            <Route path="/myLog/:id" element={<MyLogDetail />} />
           </Route>
         </Route>
 
