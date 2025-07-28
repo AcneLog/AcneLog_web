@@ -42,7 +42,7 @@ function My() {
       <S.SidebarContainer_2>
         {!isLoggedIn ? (
           <>
-            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/mylog')}>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/myLog')}>
               나의 진단로그
             </p>
             <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/skin')}>
@@ -54,7 +54,7 @@ function My() {
           </>
         ) : (
           <>
-            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/mylog')}>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/myLog')}>
               나의 진단로그
             </p>
             <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/notice')}>

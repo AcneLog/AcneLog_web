@@ -1,13 +1,43 @@
 import { useParams } from 'react-router-dom';
-import useCustomNavigate from '../../hooks/useNavigate';
+// import useCustomNavigate from '../../hooks/useNavigate';
 import * as S from './Result.styles';
 import { resultMap } from './resultDummyData';
+import { useState } from 'react';
+import BasicModal from '../../components/common/BasicModal';
 
 const Result = () => {
-  const goToPage = useCustomNavigate();
+  // const goToPage = useCustomNavigate();
   const { id } = useParams(); // 주소창에서 /result/:id 를 가져옴
   const result = resultMap[id!]; // id에 해당하는 결과 불러오기
   const uploadedImage = localStorage.getItem('uploadedImage');
+
+  // 모달 적용
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalConfig, setModalConfig] = useState<{
+    message: string;
+    confirmLink: string;
+  }>({
+    message: '',
+    confirmLink: '/',
+  });
+
+  // 저장 버튼 모달
+  const openSaveModal = () => {
+    setModalConfig({
+      message: '진단 결과를 저장하시겠습니까?',
+      confirmLink: `/myLog`,
+    });
+    setModalOpen(true);
+  };
+
+  // 홈 버튼 모달
+  const openHomeModal = () => {
+    setModalConfig({
+      message: '진단 결과가 저장되지 않습니다. \n그래도 나가시겠습니까?',
+      confirmLink: '/',
+    });
+    setModalOpen(true);
+  };
 
   if (!result) return <p>결과를 찾을 수 없습니다.</p>;
 
@@ -70,9 +100,18 @@ const Result = () => {
         ))}
       </S.RecommendSection>
       <S.ButtonSection>
-        <S.BlueButton onClick={() => goToPage('/')}>저장하기</S.BlueButton>
-        <S.BlackButton onClick={() => goToPage('/')}>홈으로 돌아가기</S.BlackButton>
+        <S.BlueButton onClick={openSaveModal}>저장하기</S.BlueButton>
+        <S.BlackButton onClick={openHomeModal}>홈으로 돌아가기</S.BlackButton>
       </S.ButtonSection>
+
+      {/* 모달 컴포넌트 */}
+      <BasicModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        message={modalConfig.message}
+        confirmLink={modalConfig.confirmLink}
+      />
+
       <br />
       <br />
       <br />
