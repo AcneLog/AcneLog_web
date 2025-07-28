@@ -1,12 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import * as S from './SkinDiagnosis.styles';
-import XBtn from '../../assets/xIcon.svg';
 import skinIcon from '../../assets/skinResult.svg';
 import { useState } from 'react';
 import BasicModal from '../../components/common/BasicModal';
 
 function SkinDiagnosisResult() {
-  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const skinType = '건성';
 
@@ -38,12 +35,8 @@ function SkinDiagnosisResult() {
 
   return (
     <S.Layout>
-      <S.TitleLayout>
-        <S.X_Icon onClick={() => navigate('/my')}>
-          <img src={XBtn} alt="x-button" />
-        </S.X_Icon>
-        <S.Title>나의 피부 타입 진단하기</S.Title>
-      </S.TitleLayout>
+      <S.Title>나의 피부 타입 진단 결과</S.Title>
+
       <S.ResultLayout>
         <img src={skinIcon} alt="skin-icon" style={{ width: '110px' }} />
         <S.Result skinType={skinType}>

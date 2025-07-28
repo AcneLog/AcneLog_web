@@ -20,35 +20,17 @@ export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem 3rem 8rem 3rem;
-  gap: 4.5rem;
+  gap: 4rem;
 `;
 
-// [공고상세페이지] 타이틀 레이아웃
-export const TitleLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-// x 아이콘
-export const X_Icon = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  img {
-    width: 10%;
-    height: 1.5rem;
-    cursor: pointer;
-  }
-`;
-
-// [공고페이지] 타이틀
+// 타이틀
 export const Title = styled.h1`
   text-align: center;
   font-size: ${({ theme }) => theme.fontSize.base};
+  padding-top: 1.5rem;
 `;
 
-// [공고상세페이지] 타이틀 레이아웃
+// 피부타입 관련 레이아웃
 export const ResultLayout = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,7 +39,7 @@ export const ResultLayout = styled.div`
   gap: 1rem;
 `;
 
-// [공고상세페이지] 타이틀 레이아웃
+// 피부타입
 export const Result = styled.div<SkinTypeProps>`
   font-size: ${({ theme }) => theme.fontSize.sm};
   text-align: center;
@@ -65,14 +47,16 @@ export const Result = styled.div<SkinTypeProps>`
   line-height: 1.5;
 `;
 
-//
+// 버튼 레이아웃
 export const BtnLayout = styled.div`
   display: flex;
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  padding-top: 1rem;
 `;
 
+// 버튼
 export const Btn = styled.button<ButtonType>`
   padding: 1rem;
   border-radius: 1rem;
@@ -84,6 +68,7 @@ export const Btn = styled.button<ButtonType>`
   cursor: pointer;
 `;
 
+// 피부타입 별 색상 적용
 export const SkinTypeColor = styled.span<{ skinType: string }>`
   color: ${({ skinType }) => getColor(skinType)};
   font-weight: 900;
