@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-export const CloseButton = styled.button`
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 3rem;
-  position: absolute;
-  right: 38%;
-  top: 15%;
+export const CloseButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  img {
+    width: 10%;
+    height: 1.5rem;
+    cursor: pointer;
+  }
 `;
 
 export const Content = styled.div`
@@ -25,37 +25,37 @@ export const Image = styled.img`
 `;
 
 export const InfoSection = styled.section`
-  margin-bottom: 2rem;
+  margin-bottom: 3.5rem;
 `;
 
 export const BlueBadge = styled.div`
   background: #3182f6;
   color: white;
-  padding: 0.3rem 1.2rem;
+  padding: 0.6rem 1.3rem;
   border-radius: 20px;
   display: inline-block;
   font-size: 1rem;
   margin-right: 1rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 1rem;
 `;
 export const BlackBadge = styled.div`
   background: black;
   color: white;
-  padding: 0.3rem 1.2rem;
+  padding: 0.6rem 1.3rem;
   border-radius: 20px;
   display: inline-block;
   font-size: 1rem;
   margin-right: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 export const YellowBadge = styled.div`
-  background-color: rgba(255, 255, 0, 0.3);
+  background-color: rgba(246, 246, 161, 0.61);
   color: black;
   display: inline-block;
   font-size: 15px;
   font-weight: bold;
-  margin-bottom: 0.3rem;
+  padding-top: 0.2rem;
 `;
 export const Title = styled.h2`
   font-size: 1.5rem;
@@ -64,20 +64,28 @@ export const Title = styled.h2`
 
 export const DetailList = styled.ul`
   list-style: none;
-  padding-bottom: 2rem;
-  margin: 8px 0;
   font-size: 1rem;
+  div {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Description = styled.div`
-  background: #f8f8f8;
+  background: transparent;
   padding: 1rem;
   border-radius: 1rem;
+  border: 0.15rem dotted #ccc;
   font-size: 1rem;
+  font-weight: normal;
   color: gray;
 `;
-export const Section = styled.section`
+export const TreatmentSection = styled.section`
   margin-bottom: 2rem;
+  font-weight: normal;
+`;
+export const ManagementSection = styled.section`
+  margin-bottom: 2rem;
+  font-weight: normal;
   ul,
   ol {
     margin-bottom: 1rem;
@@ -85,11 +93,10 @@ export const Section = styled.section`
 
   li {
     font-size: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+    font-style: normal;
+    margin-bottom: 2rem;
   }
 `;
-
 export const RecommendSection = styled.section`
   display: flex;
   flex-direction: row;
@@ -109,6 +116,7 @@ export const RecommendSection = styled.section`
   }
   p {
     width: 100%;
+    color: gray;
   }
 `;
 

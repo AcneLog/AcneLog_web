@@ -33,7 +33,7 @@ export const MyLogDetailMap: Record<string, MyLogDetail> = {
     diagnosedAt: '2025-07-02 10:00',
     acneDescription:
       '화농성 여드름은 염증 반응이 심해 고름이 생기는 형태로, 자극 시 흉터가 남기 쉬우므로 전문적인 치료가 필요합니다.',
-    isPublic: '공개', // ✅ 추가된 부분
+    isPublic: '공개',
     treatment: {
       title: '항생제 및 염증 치료',
       description: '화농 부위에는 국소 항생제와 염증 주사 치료를 병행하여 빠르게 진정시킵니다.',
