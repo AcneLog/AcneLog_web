@@ -36,7 +36,7 @@ function AppRouter() {
             <Route path="/diagnosis" element={<Diagnosis />} />
             <Route path="/skin" element={<SkinDiagnosis />} />
             <Route path="/skin/result" element={<SkinDiagnosisResult />} />
-            <Route path="/result/:id" element={<Result />} />
+            <Route path="/diagnosis/:id" element={<Result />} />
             <Route path="/myLog/:id" element={<MyLogDetail />} />
           </Route>
         </Route>

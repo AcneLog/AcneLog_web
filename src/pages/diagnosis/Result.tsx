@@ -60,9 +60,8 @@ const Result = () => {
       <S.Title>치료 및 관리 가이드</S.Title>
       <S.TreatmentSection>
         <S.BlackBadge>치료법</S.BlackBadge>
-        <br />
-        {result.treatment.title}
-        {result.treatment.description}
+        <div className="treatment-title">{result.treatment.title}</div>
+        <div>{result.treatment.description}</div>
       </S.TreatmentSection>
 
       <S.ManagementSection>

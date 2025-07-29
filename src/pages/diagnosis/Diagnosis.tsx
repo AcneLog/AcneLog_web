@@ -21,7 +21,7 @@ const Diagnosis: React.FC = () => {
     if (!image) return;
     const generatedId = 'log1'; // 여기서 AI 결과에 따라 동적으로 지정 가능
     localStorage.setItem('uploadedImage', image);
-    goToPage(`/result/${generatedId}`);
+    goToPage(`/diagnosis/${generatedId}`);
   };
   const goToPage = useCustomNavigate();
   return (

@@ -43,10 +43,8 @@ const PeolesLogDetail = () => {
       <S.Title>치료 및 관리 가이드</S.Title>
       <S.TreatmentSection>
         <S.BlackBadge>치료법</S.BlackBadge>
-        <br />
-        {data.treatment.title}
-        <br />
-        {data.treatment.description}
+        <div className="treatment-title">{data.treatment.title}</div>
+        <div>{data.treatment.description}</div>
       </S.TreatmentSection>
 
       <S.ManagementSection>

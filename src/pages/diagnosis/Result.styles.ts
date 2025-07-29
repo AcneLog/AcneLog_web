@@ -84,6 +84,10 @@ export const Description = styled.div`
 export const TreatmentSection = styled.section`
   margin-bottom: 2rem;
   font-weight: normal;
+  .treatment-title {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
 `;
 export const ManagementSection = styled.section`
   margin-bottom: 2rem;
