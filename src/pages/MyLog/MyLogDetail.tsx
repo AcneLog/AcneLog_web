@@ -7,7 +7,7 @@ import xIcon from '../../assets/xIcon.svg';
 const MyLogDetail = () => {
   const { id } = useParams();
   const data = diagnosisDetailMap[id!];
-  const [isPublic, setIsPublic] = useState<'공개' | '비공개'>('공개');
+  const [isPublic, setIsPublic] = useState(data.isPublic ? 'true' : 'false');
   const navigate = useNavigate();
   if (!data) return <p>데이터 없음</p>;
 
@@ -31,9 +31,9 @@ const MyLogDetail = () => {
               <input
                 type="radio"
                 name="visibility"
-                value="공개"
-                checked={isPublic === '공개'}
-                onChange={() => setIsPublic('공개')}
+                value="true"
+                checked={isPublic === 'true'}
+                onChange={(e) => setIsPublic(e.target.value)}
               />
               공개
             </S.CustomRadio>
@@ -41,9 +41,9 @@ const MyLogDetail = () => {
               <input
                 type="radio"
                 name="visibility"
-                value="비공개"
-                checked={isPublic === '비공개'}
-                onChange={() => setIsPublic('비공개')}
+                value="false"
+                checked={isPublic === 'false'}
+                onChange={(e) => setIsPublic(e.target.value)}
               />
               비공개
             </S.CustomRadio>
