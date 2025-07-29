@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './MyLogDetail.styles';
-import { MyLogDetailMap } from './MyLogDetailDummyData';
+import { diagnosisDetailMap } from '../PeoplesLog/peoplesLogDetailDummyData';
 import { useState } from 'react';
 import xIcon from '../../assets/xIcon.svg';
 
 const MyLogDetail = () => {
   const { id } = useParams();
-  const data = MyLogDetailMap[id!];
+  const data = diagnosisDetailMap[id!];
   const [isPublic, setIsPublic] = useState<'공개' | '비공개'>('공개');
   const navigate = useNavigate();
   if (!data) return <p>데이터 없음</p>;
