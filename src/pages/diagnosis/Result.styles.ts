@@ -14,6 +14,7 @@ export const CloseButton = styled.button`
 export const Content = styled.div`
   padding: 3rem;
   width: 100%;
+  margin-bottom: 3rem;
 `;
 
 export const Image = styled.img`
