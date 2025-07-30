@@ -34,17 +34,22 @@ const Result = () => {
 
   return (
     <S.Content>
-      <S.Title>진단 결과 확인하기</S.Title>
+      <S.TitleSection>
+        <h2>진단 결과 확인하기</h2>
+      </S.TitleSection>
 
       <S.Image src={result.imageUrl} alt="업로드 이미지" />
-
+      <hr style={{ border: 'none', borderTop: '0.1rem dashed #ccc', margin: '2rem 0 2rem' }} />
       <S.InfoSection>
-        <S.BlackBadge>진단결과</S.BlackBadge>
-        <S.YellowBadge style={{ color: 'red' }}>{result.diagnosisName}</S.YellowBadge>일 확률이 가장
-        높습니다.
+        <p style={{ fontWeight: 'normal' }}>
+          <S.BlackBadge>진단결과</S.BlackBadge> 이미지 분석 결과,
+          <S.YellowBadge style={{ color: 'red' }}>{result.diagnosisName}</S.YellowBadge>일 확률이
+          가장 높습니다.
+        </p>
         <S.Description>
-          <h3 style={{ color: 'black' }}>☝️ '{result.diagnosisName}'이란?</h3>
-          <br />
+          <h4 style={{ color: 'black', marginBottom: '0.5rem' }}>
+            ☝🏻 '{result.diagnosisName}' 이란?
+          </h4>
           {result.acneDescription}
         </S.Description>
       </S.InfoSection>

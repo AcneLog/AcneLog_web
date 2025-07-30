@@ -15,11 +15,12 @@ export const Content = styled.div`
   padding: 3rem;
   width: 100%;
   margin-bottom: 3rem;
+  line-height: 1.6;
 `;
 
 export const Image = styled.img`
   width: 50%;
-  height: 70%;
+  height: 100%;
   border-radius: 12px;
   display: block;
   margin: 0 auto 2rem;
@@ -46,7 +47,7 @@ export const BlackBadge = styled.div`
   border-radius: 20px;
   display: inline-block;
   font-size: 1rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   margin-bottom: 1rem;
 `;
 
@@ -58,11 +59,16 @@ export const YellowBadge = styled.div`
   font-weight: bold;
   padding-top: 0.2rem;
 `;
-export const Title = styled.h2`
+export const TitleSection = styled.div`
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+`;
+export const Title = styled.div`
   font-size: 1.5rem;
   margin-bottom: 1rem;
 `;
-
 export const DetailList = styled.ul`
   list-style: none;
   padding-bottom: 2rem;
@@ -74,10 +80,10 @@ export const Description = styled.div`
   background: transparent;
   padding: 1rem;
   border-radius: 1rem;
-  border: 0.15rem dotted #ccc;
+  border: 0.1rem dashed #ccc;
   font-size: 1rem;
   font-weight: normal;
-  color: gray;
+  color: #737373;
   font-weight: normal;
   margin: 1rem 0 4rem;
 `;
@@ -135,7 +141,7 @@ export const ButtonSection = styled.div`
 export const BlueButton = styled.button`
   background: #3b82f6;
   color: white;
-  border-radius: 0.7rem;
+  border-radius: 1rem;
   padding: 1rem;
   border: none;
   width: 8rem;
@@ -144,7 +150,7 @@ export const BlueButton = styled.button`
 export const BlackButton = styled.button`
   background: #0e0e0eff;
   color: white;
-  border-radius: 0.7rem;
+  border-radius: 1rem;
   padding: 1rem;
   border: none;
   width: 8rem;

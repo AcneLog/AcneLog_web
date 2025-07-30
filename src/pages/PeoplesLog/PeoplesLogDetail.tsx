@@ -23,19 +23,20 @@ const PeolesLogDetail = () => {
             <S.BlueBadge>진단명</S.BlueBadge>
             {data.diagnosisName}
           </li>
-          <hr
-            style={{ border: 'none', borderTop: '0.15rem dotted #ccc', margin: '0.5rem 0 2rem' }}
-          />
+          <hr style={{ border: 'none', borderTop: '0.1rem dashed #ccc', margin: '0rem 0 2rem' }} />
           <li>
-            <S.BlackBadge>피플명</S.BlackBadge> {data.userNickname}
+            <S.BlackBadge>피플명</S.BlackBadge>
+            <S.DiagnosisValue>{data.userNickname}</S.DiagnosisValue>
           </li>
-          <S.BlackBadge>피부 타입</S.BlackBadge> {data.skinType}
+          <S.BlackBadge>피부 타입</S.BlackBadge>
+          <S.DiagnosisValue>{data.skinType}</S.DiagnosisValue>
           <li>
-            <S.BlackBadge>진단일</S.BlackBadge> {data.diagnosedAt}
+            <S.BlackBadge>진단일</S.BlackBadge>{' '}
+            <S.DiagnosisValue>{data.diagnosedAt}</S.DiagnosisValue>
           </li>
         </S.DetailList>
         <S.Description>
-          <h3 style={{ color: 'black', marginBottom: '1rem' }}>☝️ '{data.diagnosisName}'이란?</h3>
+          <h4 style={{ color: 'black', marginBottom: '0.5rem' }}>☝🏻 '{data.diagnosisName}'이란?</h4>
           {data.acneDescription}
         </S.Description>
       </S.InfoSection>
@@ -80,8 +81,6 @@ const PeolesLogDetail = () => {
           </div>
         ))}
       </S.RecommendSection>
-      <br />
-      <br />
     </S.Content>
   );
 };

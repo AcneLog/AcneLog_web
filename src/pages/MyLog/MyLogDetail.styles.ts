@@ -14,6 +14,8 @@ export const CloseButton = styled.div`
 export const Content = styled.div`
   padding: 3rem;
   width: 100%;
+  margin-bottom: 3rem;
+  line-height: 1.6;
 `;
 
 export const Image = styled.img`
@@ -31,22 +33,26 @@ export const InfoSection = styled.section`
 export const BlueBadge = styled.div`
   background: #3182f6;
   color: white;
-  padding: 0.6rem 1.3rem;
+  padding: 0.6rem 1rem;
   border-radius: 20px;
+  width: 6rem;
   display: inline-block;
   font-size: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 export const BlackBadge = styled.div`
   background: black;
   color: white;
-  padding: 0.6rem 1.3rem;
+  width: 6.5rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 20px;
   display: inline-block;
   font-size: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
 export const YellowBadge = styled.div`
@@ -65,19 +71,22 @@ export const Title = styled.h2`
 export const DetailList = styled.ul`
   list-style: none;
   font-size: 1rem;
+  margin-bottom: 1rem;
   div {
     margin-bottom: 1rem;
   }
 `;
-
+export const DiagnosisValue = styled.span`
+  font-weight: normal;
+`;
 export const Description = styled.div`
   background: transparent;
   padding: 1rem;
   border-radius: 1rem;
-  border: 0.15rem dotted #ccc;
+  border: 0.1rem dashed #ccc;
   font-size: 1rem;
   font-weight: normal;
-  color: gray;
+  color: #737373;
 `;
 export const TreatmentSection = styled.section`
   margin-bottom: 2rem;
@@ -119,6 +128,7 @@ export const RecommendSection = styled.section`
     border-radius: 14px;
   }
   p {
+    font-size: 1rem;
     width: 100%;
     color: gray;
   }

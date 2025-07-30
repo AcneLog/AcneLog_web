@@ -19,11 +19,12 @@ const MyLogDetail = () => {
 
       <S.Image src={data.imageUrl} alt="피부 사진" />
 
-      <hr style={{ border: 'none', borderTop: '0.15rem dotted #ccc', margin: '1rem 0' }} />
+      <hr style={{ border: 'none', borderTop: '0.1rem dashed #ccc', margin: '1rem 0' }} />
       <S.InfoSection>
         <S.DetailList>
           <li>
-            <S.BlackBadge>진단일</S.BlackBadge> {data.diagnosedAt}
+            <S.BlackBadge>진단일</S.BlackBadge>{' '}
+            <S.DiagnosisValue>{data.diagnosedAt}</S.DiagnosisValue>
           </li>
           <li>
             <S.BlackBadge>공개 여부</S.BlackBadge>
@@ -50,13 +51,12 @@ const MyLogDetail = () => {
           </li>
           <li>
             <S.BlueBadge>진단명</S.BlueBadge>
-            {data.diagnosisName}
+            <S.DiagnosisValue>{data.diagnosisName}</S.DiagnosisValue>
           </li>
         </S.DetailList>
         <S.Description>
-          <h3 style={{ color: 'black' }}>☝️ '{data.diagnosisName}'이란?</h3>
-          <br />
-          {data.acneDescription}
+          <h4 style={{ color: 'black', marginBottom: '0.5rem' }}>☝🏻 '{data.diagnosisName}'이란?</h4>
+          <S.DiagnosisValue>{data.acneDescription}</S.DiagnosisValue>
         </S.Description>
       </S.InfoSection>
 
@@ -100,8 +100,6 @@ const MyLogDetail = () => {
           </div>
         ))}
       </S.RecommendSection>
-      <br />
-      <br />
     </S.Content>
   );
 };
