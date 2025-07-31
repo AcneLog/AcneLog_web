@@ -1,78 +1,85 @@
-import { useParams } from 'react-router-dom';
-import useCustomNavigate from '../../hooks/useNavigate';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './MyLogDetail.styles';
-import { MyLogDetailMap } from './MyLogDetailDummyData';
+import { diagnosisDetailMap } from '../PeoplesLog/peoplesLogDetailDummyData';
 import { useState } from 'react';
+import xIcon from '../../assets/xIcon.svg';
 
 const MyLogDetail = () => {
-  const goToPage = useCustomNavigate();
   const { id } = useParams();
-  const data = MyLogDetailMap[id!];
-  const [isPublic, setIsPublic] = useState<'공개' | '비공개'>('공개');
+  const data = diagnosisDetailMap[id!];
+  const [isPublic, setIsPublic] = useState(data.isPublic ? 'true' : 'false');
+  const navigate = useNavigate();
   if (!data) return <p>데이터 없음</p>;
 
   return (
     <S.Content>
-      <S.CloseButton onClick={() => goToPage('/peoplesLog')}>&times;</S.CloseButton>
+      <S.CloseButton onClick={() => navigate(-1)}>
+        <img src={xIcon} />
+      </S.CloseButton>
 
       <S.Image src={data.imageUrl} alt="피부 사진" />
 
-      <hr style={{ border: 'none', borderTop: '1px solid #ccc', margin: '1rem 0' }} />
+      <hr style={{ border: 'none', borderTop: '0.1rem dashed #ccc', margin: '1rem 0' }} />
       <S.InfoSection>
         <S.DetailList>
-          <S.BlackBadge>진단일</S.BlackBadge> {data.diagnosedAt}
-          <br />
-          <S.BlackBadge>공개 여부</S.BlackBadge>
-          <S.CustomRadio className="custom-radio">
-            <input
-              type="radio"
-              name="visibility"
-              value="공개"
-              checked={isPublic === '공개'}
-              onChange={() => setIsPublic('공개')}
-            />
-            공개
-          </S.CustomRadio>
-          <S.CustomRadio style={{ marginLeft: '1rem' }} className="custom-radio">
-            <input
-              type="radio"
-              name="visibility"
-              value="비공개"
-              checked={isPublic === '비공개'}
-              onChange={() => setIsPublic('비공개')}
-            />
-            비공개
-          </S.CustomRadio>
-          <br />
-          <S.BlueBadge>진단명</S.BlueBadge>
-          {data.diagnosisName}
-          <br />
+          <li>
+            <S.BlackBadge>진단일</S.BlackBadge>{' '}
+            <S.DiagnosisValue>{data.diagnosedAt}</S.DiagnosisValue>
+          </li>
+          <li>
+            <S.BlackBadge>공개 여부</S.BlackBadge>
+            <S.CustomRadio className="custom-radio">
+              <input
+                type="radio"
+                name="visibility"
+                value="true"
+                checked={isPublic === 'true'}
+                onChange={(e) => setIsPublic(e.target.value)}
+              />
+              공개
+            </S.CustomRadio>
+            <S.CustomRadio style={{ marginLeft: '1rem' }} className="custom-radio">
+              <input
+                type="radio"
+                name="visibility"
+                value="false"
+                checked={isPublic === 'false'}
+                onChange={(e) => setIsPublic(e.target.value)}
+              />
+              비공개
+            </S.CustomRadio>
+          </li>
+          <li>
+            <S.BlueBadge>진단명</S.BlueBadge>
+            <S.DiagnosisValue>{data.diagnosisName}</S.DiagnosisValue>
+          </li>
         </S.DetailList>
         <S.Description>
-          <h3>☝️ '{data.diagnosisName}'이란?</h3>
-          <br />
-          {data.acneDescription}
+          <h4 style={{ color: 'black', marginBottom: '0.5rem' }}>☝🏻 '{data.diagnosisName}'이란?</h4>
+          <S.DiagnosisValue>{data.acneDescription}</S.DiagnosisValue>
         </S.Description>
       </S.InfoSection>
 
       <S.Title>치료 및 관리 가이드</S.Title>
-      <S.Section>
+      <S.TreatmentSection>
         <S.BlackBadge>치료법</S.BlackBadge>
-        <br />
-        {data.treatment.title}
-        <br />
-        {data.treatment.description}
-      </S.Section>
+        <div className="treatment-title">{data.treatment.title}</div>
+        <div>{data.treatment.description}</div>
+      </S.TreatmentSection>
 
-      <S.Section>
+      <S.ManagementSection>
         <S.BlackBadge>관리 가이드</S.BlackBadge>
         {data.managementTips.map((tip) => (
-          <ul>
-            <S.YellowBadge>✔ {tip.title}</S.YellowBadge>
-            <li>{tip.description}</li>
-          </ul>
+          <div key={tip.title}>
+            <div style={{ marginBottom: '0.5rem' }}>
+              <S.YellowBadge>✔ {tip.title}</S.YellowBadge>
+            </div>
+            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+              <li>{tip.description}</li>
+            </ul>
+          </div>
         ))}
-      </S.Section>
+      </S.ManagementSection>
 
       <S.Title>이 영상 추천해요!</S.Title>
       <S.RecommendSection>
@@ -93,8 +100,6 @@ const MyLogDetail = () => {
           </div>
         ))}
       </S.RecommendSection>
-      <br />
-      <br />
     </S.Content>
   );
 };
