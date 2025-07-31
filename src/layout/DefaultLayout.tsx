@@ -1,13 +1,18 @@
-import Header from '../components/Header';
-import { Outlet } from 'react-router-dom';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
+import { Outlet, useLocation } from 'react-router-dom';
 
 function DefaultLayout() {
+  const location = useLocation();
+  const isMyPage = location.pathname === '/my';
+
   return (
     <>
-      <Header />
+      {!isMyPage && <Header />}
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }

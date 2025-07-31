@@ -1,0 +1,76 @@
+import * as S from './My.styles';
+import useCustomNavigate from '../../hooks/useNavigate';
+import Switch from '@mui/material/Switch';
+
+function My() {
+  const isLoggedIn = true; // [TODO] 사용자 로그인 여부
+  const goToPage = useCustomNavigate();
+
+  // [TODO] api: 사용자 피부타입
+  const skinType = '건성';
+
+  return (
+    <S.MainContainer>
+      <S.SidebarContainer_1>
+        <S.Title>마이</S.Title>
+        <S.GreyBox>
+          {!isLoggedIn ? (
+            <>
+              <h2>로그인해주세요</h2>
+              <S.LoginBtn onClick={() => goToPage('/login')}>로그인 / 회원가입 {'>'}</S.LoginBtn>
+            </>
+          ) : (
+            <>
+              <S.GreyBoxLogin skinType={skinType}>
+                <h2>홍길동 님, 반갑습니다</h2> {/* [TODO] api: 사용자 이름 */}
+                <p>
+                  나의 피부타입은 '<S.SkinTypeColor skinType={skinType}>{skinType}</S.SkinTypeColor>
+                  '
+                </p>
+              </S.GreyBoxLogin>
+              <S.dashedLine />
+              <div>
+                {/* [TODO] api: 피부타입 검사일 */}
+                <S.blackBoxText>최근 검사일 2025-04-11</S.blackBoxText>
+                <S.blackBox onClick={() => goToPage('/skin')}>나의 피부 타입 진단하기</S.blackBox>
+              </div>
+            </>
+          )}
+        </S.GreyBox>
+      </S.SidebarContainer_1>
+      <S.dashedLine />
+      <S.SidebarContainer_2>
+        {!isLoggedIn ? (
+          <>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/myLog')}>
+              나의 진단로그
+            </p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/skin')}>
+              나의 피부 타입 진단하기
+            </p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/notice')}>
+              공지사항
+            </p>
+          </>
+        ) : (
+          <>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/myLog')}>
+              나의 진단로그
+            </p>
+            <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/notice')}>
+              공지사항
+            </p>
+            <S.switchBar>
+              <p>알림 수신 여부</p>
+              <Switch />
+            </S.switchBar>
+            <p style={{ cursor: 'pointer' }}>개인정보보호처리방침</p>
+          </>
+        )}
+      </S.SidebarContainer_2>
+      {isLoggedIn && <S.bottomInfo>로그아웃</S.bottomInfo>}
+    </S.MainContainer>
+  );
+}
+
+export default My;

@@ -1,8 +1,9 @@
 const fontSize = {
   xxs: '1.2rem',
+  xms: '1.4rem',
   xs: '1.6rem',
-  //   sm: '2rem',
-  //   base: '2.5rem',
+  sm: '1.8rem',
+  base: '2rem',
   //   m: '3rem',
   //   md: '3.5rem',
   //   ml: '4.375rem',
@@ -12,7 +13,12 @@ const fontSize = {
   //   xlg: '6.875rem',
 } as const;
 
-const colorSystem = {};
+const colorSystem = {
+  mainBlue: '#4E8CFF',
+  mainGrey: '#E9E9E9',
+  subGrey: '#676767',
+  roundBlue: '#3988F5',
+};
 
 const defaultfont = {
   blueFont: '#4E8CFF',

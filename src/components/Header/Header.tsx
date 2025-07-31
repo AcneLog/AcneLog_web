@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import * as S from './Header.styles';
-import useCustomNavigate from '../hooks/useNavigate';
+import useCustomNavigate from '../../hooks/useNavigate';
 
 function Header() {
   const location = useLocation();
@@ -13,7 +13,7 @@ function Header() {
       </p>
       <S.HeaderListBox>
         <S.Menu
-          isActive={location.pathname === '/diagnosis'}
+          isActive={location.pathname.startsWith('/diagnosis')}
           onClick={() => goToPage('/diagnosis')}
         >
           아크네 진단
@@ -21,7 +21,10 @@ function Header() {
         <S.Menu isActive={location.pathname === '/'} onClick={() => goToPage('/')}>
           홈
         </S.Menu>
-        <S.Menu isActive={location.pathname === '/mylog'} onClick={() => goToPage('/mylog')}>
+        <S.Menu
+          isActive={location.pathname.startsWith('/myLog')}
+          onClick={() => goToPage('/myLog')}
+        >
           나의 진단로그
         </S.Menu>
       </S.HeaderListBox>
