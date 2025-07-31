@@ -2,10 +2,15 @@ import * as S from './SkinDiagnosis.styles';
 import skinIcon from '../../assets/skinResult.svg';
 import { useState } from 'react';
 import BasicModal from '../../components/common/BasicModal';
+import { useLocation } from 'react-router-dom';
+import NotFound from '../NotFound';
 
 function SkinDiagnosisResult() {
+  const location = useLocation();
   const [modalOpen, setModalOpen] = useState(false);
-  const skinType = '건성';
+
+  // 피부 타입 진단하기 페이지에서 받아오는 진단 결과
+  const { skinType } = location.state || {};
 
   const [modalConfig, setModalConfig] = useState<{
     message: string;
@@ -32,6 +37,11 @@ function SkinDiagnosisResult() {
     });
     setModalOpen(true);
   };
+
+  // 만약, 잘못된 경로로 들어올 시 not found 페이지로 이동
+  if (!skinType) {
+    return <NotFound />;
+  }
 
   return (
     <S.Layout>
