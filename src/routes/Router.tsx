@@ -7,12 +7,12 @@ import NotFound from '../pages/NotFound';
 import My from '../pages/My/My';
 import SkinDiagnosis from '../pages/SkinDiagnosis/SkinDiagnosis';
 import Notice from '../pages/Notice/Notice';
-import Home from '../pages/Home/Home';
+import Home from '../pages/Homepage/Home';
 import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import NoticeDetail from '../pages/Notice/NoticeDetail';
-import Diagnosis from '../pages/Diagnosis/Diagnosis';
+import Diagnosis from '../pages/Diagnosispage/Diagnosis';
 import SkinDiagnosisResult from '../pages/SkinDiagnosis/SkinDiagnosisResult';
-import Result from '../pages/Diagnosis/Result';
+import Result from '../pages/Diagnosispage/Result';
 import MyLogDetail from '../pages/MyLog/MyLogDetail';
 import PeolesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
 
