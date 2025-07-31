@@ -7,14 +7,14 @@ import NotFound from '../pages/NotFound';
 import My from '../pages/My/My';
 import SkinDiagnosis from '../pages/SkinDiagnosis/SkinDiagnosis';
 import Notice from '../pages/Notice/Notice';
-import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import Home from '../pages/Home/Home';
-import Diagnosis from '../pages/Diagnosis/Diagnosis';
-import Result from '../pages/Diagnosis/Result';
-import PeoplesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
-import MyLogDetail from '../pages/MyLog/MyLogDetail';
+import PeoplesLog from '../pages/PeoplesLog/PeoplesLog';
 import NoticeDetail from '../pages/Notice/NoticeDetail';
+import Diagnosis from '../pages/Diagnosis/Diagnosis';
 import SkinDiagnosisResult from '../pages/SkinDiagnosis/SkinDiagnosisResult';
+import Result from '../pages/Diagnosis/Result';
+import MyLogDetail from '../pages/MyLog/MyLogDetail';
+import PeolesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
 
 function AppRouter() {
   return (
@@ -26,7 +26,7 @@ function AppRouter() {
           <Route path="/login" element={<Login />} />
           <Route path="/my" element={<My />} />
           <Route path="/peoplesLog" element={<PeoplesLog />} />
-          <Route path="/peoplesLog/:id" element={<PeoplesLogDetail />} />
+          <Route path="/peoplesLog/:id" element={<PeolesLogDetail />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/notice/:id" element={<NoticeDetail />} />
 
