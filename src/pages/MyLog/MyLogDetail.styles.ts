@@ -33,9 +33,9 @@ export const InfoSection = styled.section`
 export const BlueBadge = styled.div`
   background: #3182f6;
   color: white;
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 20px;
-  width: 6rem;
+  width: 6.5rem;
   display: inline-block;
   font-size: 1rem;
   margin-right: 1rem;
@@ -46,7 +46,7 @@ export const BlackBadge = styled.div`
   background: black;
   color: white;
   width: 6.5rem;
-  padding: 0.6rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 20px;
   display: inline-block;
   font-size: 1rem;

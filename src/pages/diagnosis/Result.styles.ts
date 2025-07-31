@@ -33,22 +33,26 @@ export const InfoSection = styled.section`
 export const BlueBadge = styled.div`
   background: #3182f6;
   color: white;
-  padding: 0.6rem 1.3rem;
+  width: 6.5rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 20px;
   display: inline-block;
   font-size: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 export const BlackBadge = styled.div`
   background: black;
   color: white;
-  padding: 0.6rem 1.3rem;
+  width: 6.5rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 20px;
   display: inline-block;
   font-size: 1rem;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
 export const YellowBadge = styled.div`
