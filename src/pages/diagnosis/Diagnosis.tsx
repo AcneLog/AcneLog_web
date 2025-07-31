@@ -1,39 +1,67 @@
 import React, { useState } from 'react';
+// import axios from 'axios';
 import * as S from './Diagnosis.styles';
-import useCustomNavigate from '../../hooks/useNavigate';
+import { resultMap } from './resultDummyData';
+import { NavigateOptions, useNavigate } from 'react-router-dom';
 
 const Diagnosis: React.FC = () => {
-  const [image, setImage] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [file, setFile] = useState<File | null>(null); // 실제 파일 저장
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+
       const reader = new FileReader();
-      reader.onload = () => setImage(reader.result as string);
-      reader.readAsDataURL(file);
+      reader.onload = () => setImagePreview(reader.result as string);
+      reader.readAsDataURL(selectedFile);
     }
   };
 
   const handleCancel = () => {
-    setImage(null);
+    setImagePreview(null);
+    setFile(null);
   };
-  const handleDiagnose = () => {
-    if (!image) return;
-    const generatedId = 'log1'; // 여기서 AI 결과에 따라 동적으로 지정 가능
-    localStorage.setItem('uploadedImage', image);
-    goToPage(`/result/${generatedId}`);
+
+  const goToPage = (path: string, options?: NavigateOptions) => {
+    navigate(path, options);
   };
-  const goToPage = useCustomNavigate();
+
+  const handleDiagnosis = async () => {
+    if (!file) return;
+
+    try {
+      setIsLoading(true);
+
+      // 백엔드 없이 더미 결과 사용
+      const dummyResult = resultMap['log1'];
+
+      goToPage('/diagnosis/result', {
+        state: {
+          result: dummyResult,
+        },
+      });
+    } catch {
+      alert('에러가 발생했습니다.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <S.UploadBox>
       <S.Title>
         피부 이미지 업로드 <span>*파일 1장만 가능합니다</span>
       </S.Title>
 
-      {image ? (
+      {imagePreview ? (
         <S.PreviewWrapper>
           <S.CloseButton onClick={handleCancel}>&times;</S.CloseButton>
-          <S.PreviewImage src={image} alt="선택 이미지" />
+          <S.PreviewImage src={imagePreview} alt="선택 이미지" />
           <p>선택 이미지</p>
         </S.PreviewWrapper>
       ) : (
@@ -53,8 +81,8 @@ const Diagnosis: React.FC = () => {
       </S.GuideBox>
 
       <S.ButtonGroup>
-        <S.ActionButton primary disabled={!image} onClick={handleDiagnose}>
-          진단하기
+        <S.ActionButton primary disabled={!file || isLoading} onClick={handleDiagnosis}>
+          {isLoading ? '진단 중...' : '진단하기'}
         </S.ActionButton>
         <S.ActionButton onClick={() => goToPage('/')}>취소하기</S.ActionButton>
       </S.ButtonGroup>

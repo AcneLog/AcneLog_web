@@ -6,6 +6,7 @@ export type DiagnosisDetail = {
   diagnosedAt: string;
   userNickname: string;
   acneDescription: string;
+  isPublic: boolean;
   treatment: {
     title: string;
     description: string;
@@ -37,6 +38,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
     skinType: '지성',
     acneDescription:
       '화농성 여드름은 염증 반응이 심해 고름이 생기는 형태로, 자극 시 흉터가 남기 쉬우므로 전문적인 치료가 필요합니다.',
+    isPublic: false,
     treatment: {
       title: '항생제 및 염증 치료',
       description: '화농 부위에는 국소 항생제와 염증 주사 치료를 병행하여 빠르게 진정시킵니다.',
@@ -103,6 +105,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
     skinType: '복합성',
     acneDescription:
       '염증성 여드름은 모낭 내 세균 증식으로 인해 피부에 붉은 염증 반응이 생기며, 통증을 동반하는 경우가 많습니다.',
+    isPublic: false,
     treatment: {
       title: '스테로이드 및 항생제 복합 치료',
       description: '염증이 심한 경우에는 항생제와 스테로이드를 병행하여 효과를 높입니다.',
@@ -169,6 +172,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
     skinType: '건성',
     acneDescription:
       '좁쌀 여드름은 모공이 막혀 생기는 비염증성 여드름으로, 작고 흰 돌기 형태로 나타납니다.',
+    isPublic: true,
     treatment: {
       title: '레티노이드 치료 및 각질 제거',
       description:
@@ -232,6 +236,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
     skinType: '지성',
     acneDescription:
       '화농성 여드름은 염증 반응이 심해 고름이 생기는 형태로, 자극 시 흉터가 남기 쉬우므로 전문적인 치료가 필요합니다.',
+    isPublic: true,
     treatment: {
       title: '전문 압출 및 항염 레이저 치료',
       description: '전문가의 여드름 압출 치료와 항염증 레이저를 병행하여 염증을 완화합니다.',
@@ -295,6 +300,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
     skinType: '복합성',
     acneDescription:
       '좁쌀 여드름은 모공이 막혀 생기는 비염증성 여드름으로, 작고 흰 돌기 형태로 나타납니다.',
+    isPublic: true,
     treatment: {
       title: '스케일링 및 피지조절 치료',
       description: '스케일링 시술로 각질과 피지를 제거하고, 필요 시 피지억제제를 사용합니다.',
