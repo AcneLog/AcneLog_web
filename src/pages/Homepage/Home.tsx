@@ -32,7 +32,7 @@ function Home() {
                   gap: '0.25rem',
                 }}
               >
-                <img src="src/assets/img/샵아이콘.svg" width="20%" />
+                <img src="src/assets/img/sharpIcon.svg" width="20%" />
                 <span>{item.description}</span>
               </div>
               <S.PostCountText>게시글 10개</S.PostCountText>
