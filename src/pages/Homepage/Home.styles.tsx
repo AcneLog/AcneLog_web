@@ -10,7 +10,7 @@ export const HomeSection = styled.div`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 `;
 
 //리스트 공통
@@ -35,7 +35,8 @@ export const Itm = styled.div`
   text-align: center;
   cursor: pointer;
   img {
-    border-radius: 0.35rem;
+    padding: 0.2rem;
+    border-radius: 1rem;
   }
 `;
 

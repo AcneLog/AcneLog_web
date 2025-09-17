@@ -24,7 +24,7 @@ function Home() {
         <S.List>
           {acneImages.map((item) => (
             <S.Itm key={item.id}>
-              <img src={item.src} width="100%" />
+              <img src={item.src} width="100%" height="120rem" />
               <div
                 style={{
                   display: 'flex',
@@ -47,7 +47,7 @@ function Home() {
         <S.List>
           {youtubeThumbnails.map((item) => (
             <S.Itm key={item.id}>
-              <img src={item.src} width="100%" />
+              <img src={item.src} width="100%" height="120rem" />
               <span>{item.title}</span>
             </S.Itm>
           ))}
@@ -60,7 +60,7 @@ function Home() {
         <S.List>
           {productRecommendations.map((item) => (
             <S.TodaysItemItm key={item.id}>
-              <img src={item.src} width="100%" />
+              <img src={item.src} width="100%" height="140rem" />
               <span>{item.title}</span>
             </S.TodaysItemItm>
           ))}
