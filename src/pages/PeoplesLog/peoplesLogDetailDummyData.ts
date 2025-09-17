@@ -340,7 +340,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
         id: 'p15',
         name: '라로슈포제 시카플라스트 밤 B5',
         imageUrl:
-          'https://thumbnail8.coupangcdn.com/thumbnails/remote/320x320ex/image/vendor_inventory/666d/7b8ec5ba3043d0a0f6f1e6d1312ed2a8b98c530aa09255006bf5afc1468c.jpg',
+          'https://thumbnail9.coupangcdn.com/thumbnails/remote/320x320ex/image/retail/images/436373378704216-e22b0220-3a52-4b02-87f3-063431bdfc27.jpg',
       },
     ],
 
@@ -348,7 +348,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
       {
         id: 'v9',
         title: '여드름 피부의 생활 루틴',
-        thumbnailUrl: 'https://img.youtube.com/vi/rz7oQ0UBoQc/mqdefault.jpg',
+        thumbnailUrl: 'https://img.youtube.com/vi/HMI1z9l2gC4/mqdefault.jpg',
       },
       {
         id: 'v10',
