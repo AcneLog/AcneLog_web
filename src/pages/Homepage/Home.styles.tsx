@@ -52,8 +52,7 @@ export const TodaysItemItm = styled.div`
   width: 100%;
   cursor: pointer;
   img {
-    padding: 0.2rem;
-    border-radius: 0.75rem;
+    border-radius: 1.7rem;
   }
   margin-bottom: 6.25rem;
 `;
