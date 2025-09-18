@@ -17,7 +17,6 @@ export const Header = styled.div`
 export const List = styled.div`
   display: flex;
   gap: 0.4rem;
-  overflow-x: auto;
 `;
 //전체보기 버튼
 export const PeoplesLogButton = styled.button`
@@ -44,7 +43,9 @@ export const Itm = styled.div`
 export const PostCountText = styled.p`
   font-size: 0.75rem;
   color: #737373;
-  margin-left: -2.5rem;
+  margin-right: 2.5rem;
+  margin-top: -0.2rem;
+  font-weight: normal;
 `;
 
 export const TodaysItemItm = styled.div`
