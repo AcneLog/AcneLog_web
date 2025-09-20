@@ -2,6 +2,7 @@ import useCustomNavigate from '../../hooks/useNavigate';
 import * as S from './Home.styles';
 import { acneImages, youtubeThumbnails, productRecommendations } from './homeDummyData';
 import Banner from '../../assets/banner.svg';
+import sharp from '../../assets/img/sharpIcon.svg';
 
 function Home() {
   const goToPage = useCustomNavigate();
@@ -29,10 +30,10 @@ function Home() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.25rem',
+                  gap: '0.5rem',
                 }}
               >
-                <img src="src/assets/img/sharpIcon.svg" width="20%" />
+                <img src={sharp} width="20%" />
                 <span>{item.description}</span>
               </div>
               <S.PostCountText>게시글 10개</S.PostCountText>

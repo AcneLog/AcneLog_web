@@ -16,8 +16,7 @@ export const Header = styled.div`
 //리스트 공통
 export const List = styled.div`
   display: flex;
-  gap: 0.55rem;
-  overflow-x: auto;
+  gap: 0.4rem;
 `;
 //전체보기 버튼
 export const PeoplesLogButton = styled.button`
@@ -35,8 +34,8 @@ export const Itm = styled.div`
   text-align: center;
   cursor: pointer;
   img {
-    padding: 0.2rem;
-    border-radius: 1rem;
+    margin-bottom: 0.3rem;
+    border-radius: 1.7rem;
   }
 `;
 
@@ -44,8 +43,9 @@ export const Itm = styled.div`
 export const PostCountText = styled.p`
   font-size: 0.75rem;
   color: #737373;
-  margin-left: -2.5rem;
-  margin-top: -0.4rem;
+  margin-right: 2.5rem;
+  margin-top: -0.2rem;
+  font-weight: normal;
 `;
 
 export const TodaysItemItm = styled.div`
@@ -53,8 +53,7 @@ export const TodaysItemItm = styled.div`
   width: 100%;
   cursor: pointer;
   img {
-    padding: 0.2rem;
-    border-radius: 0.75rem;
+    border-radius: 1.7rem;
   }
   margin-bottom: 6.25rem;
 `;
