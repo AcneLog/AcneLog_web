@@ -88,7 +88,6 @@ export const Description = styled.div`
   font-size: 1rem;
   font-weight: normal;
   color: #737373;
-  font-weight: normal;
   margin: 1rem 0 4rem;
 `;
 
@@ -148,8 +147,9 @@ export const BlueButton = styled.button`
   border-radius: 1rem;
   padding: 1rem;
   border: none;
-  width: 8rem;
+  width: 10rem;
   height: 3rem;
+  font-size: 1rem;
 `;
 export const BlackButton = styled.button`
   background: #0e0e0eff;
@@ -157,6 +157,7 @@ export const BlackButton = styled.button`
   border-radius: 1rem;
   padding: 1rem;
   border: none;
-  width: 8rem;
+  width: 10rem;
   height: 3rem;
+  font-size: 1rem;
 `;

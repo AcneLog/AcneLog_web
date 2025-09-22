@@ -34,13 +34,14 @@ export const CategoryBox = styled.div`
 
 // 카테고리
 export const Category = styled.button<CategoryProps>`
-  padding: 0.7rem 1.7rem;
+  padding: 0.5rem 1.7rem;
   border-radius: 1rem;
-  border: none;
+  border: ${({ isSelected }) => (isSelected ? 'none' : '0.3px solid #919191ff')};
   cursor: pointer;
 
-  background-color: ${({ isSelected, theme }) => (isSelected ? 'black' : theme.mainGrey)};
+  background-color: ${({ isSelected }) => (isSelected ? 'black' : 'white')};
   color: ${({ isSelected }) => (isSelected ? 'white' : 'black')};
+  font-size: 0.9rem;
 `;
 
 // 2x2 grid box
@@ -55,19 +56,7 @@ export const LogList = styled.ul`
 // 각 아이템 박스
 // [TODO] 실제 enum 타입으로 변경
 export const LogItem = styled.li<LogItemProps>`
-  border: 2px solid
-    ${({ name }) => {
-      switch (name) {
-        case 'A':
-          return '#FFBFBF';
-        case 'B':
-          return '#A6E0FF';
-        case 'C':
-          return '#C9C9C9';
-        default:
-          return '#ccc';
-      }
-    }};
+  background: #ededed;
   border-radius: 1rem;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -77,6 +66,9 @@ export const LogItem = styled.li<LogItemProps>`
   justify-content: space-between;
   gap: 1.5rem;
   cursor: pointer;
+  &:hover {
+    border: 1px solid #676767;
+  }
 `;
 
 // 진단명, 진단일 담는 박스

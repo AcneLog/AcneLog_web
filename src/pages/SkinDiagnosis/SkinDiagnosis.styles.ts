@@ -26,7 +26,7 @@ export const Layout = styled.div`
 // 타이틀
 export const Title = styled.h1`
   text-align: center;
-  font-size: ${({ theme }) => theme.fontSize.base};
+  font-size: ${({ theme }) => theme.fontSize.sm};
   padding-top: 1.5rem;
 `;
 

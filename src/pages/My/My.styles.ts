@@ -13,7 +13,7 @@ export const getColor = (skinType: string) => {
 
 // 전체 컨테이너
 export const MainContainer = styled.div`
-  padding: 2rem 3rem;
+  padding: 2rem 3rem 20rem 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;

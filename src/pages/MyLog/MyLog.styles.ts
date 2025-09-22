@@ -23,7 +23,7 @@ export const Layout = styled.div`
 
 // 타이틀
 export const Title = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  font-size: ${({ theme }) => theme.fontSize.xms};
 `;
 
 // 카테고리 박스
@@ -38,6 +38,7 @@ export const Category = styled.button<CategoryProps>`
   border-radius: 1rem;
   border: none;
   cursor: pointer;
+  font-size: 0.9rem;
 
   background-color: ${({ isSelected, theme }) => (isSelected ? 'black' : theme.mainGrey)};
   color: ${({ isSelected }) => (isSelected ? 'white' : 'black')};
@@ -65,6 +66,10 @@ export const LogItem = styled.li`
   justify-content: space-between;
   gap: 1.5rem;
   cursor: pointer;
+
+  &:hover {
+    background: #ededed;
+  }
 `;
 
 // 진단명, 진단일 담는 박스
