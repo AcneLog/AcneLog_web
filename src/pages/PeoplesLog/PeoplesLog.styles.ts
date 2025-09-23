@@ -34,13 +34,14 @@ export const CategoryBox = styled.div`
 
 // 카테고리
 export const Category = styled.button<CategoryProps>`
-  padding: 0.5rem 1.7rem;
+  padding: 0.6rem 0;
+  width: 5.5rem;
   border-radius: 1rem;
   border: ${({ isSelected }) => (isSelected ? 'none' : '0.3px solid #919191ff')};
   cursor: pointer;
 
-  background-color: ${({ isSelected }) => (isSelected ? 'black' : 'white')};
-  color: ${({ isSelected }) => (isSelected ? 'white' : 'black')};
+  background-color: ${({ isSelected }) => (isSelected ? '#17171b' : 'white')};
+  color: ${({ isSelected }) => (isSelected ? 'white' : '#17171b')};
   font-size: 0.9rem;
 `;
 
@@ -56,9 +57,10 @@ export const LogList = styled.ul`
 // 각 아이템 박스
 // [TODO] 실제 enum 타입으로 변경
 export const LogItem = styled.li<LogItemProps>`
-  background: #ededed;
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
+  background: #f1f4f8;
+  border-radius: 1.5rem;
+  border: 1px solid #d8dfe9;
+  padding: 1.5rem;
   text-align: center;
   box-sizing: border-box;
   display: flex;
@@ -67,7 +69,7 @@ export const LogItem = styled.li<LogItemProps>`
   gap: 1.5rem;
   cursor: pointer;
   &:hover {
-    border: 1px solid #676767;
+    border: 1.5px solid #b3cdf1ff;
   }
 `;
 
@@ -75,7 +77,7 @@ export const LogItem = styled.li<LogItemProps>`
 export const LogBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.5rem;
 `;
 
 // 진단명, 진단일 텍스트
@@ -83,7 +85,7 @@ export const LogName = styled.div<LogTextProps>`
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: ${({ type }) => (type === 'name' ? 'black' : 'gray')};
+  color: ${({ type }) => (type === 'name' ? '#17171b' : 'gray')};
   font-weight: ${({ type }) => (type === 'name' ? 'bold' : 'normal')};
 `;
 
@@ -99,15 +101,15 @@ export const LogImage = styled.img`
   width: 100%;
   height: 12rem;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 `;
 
 // 진단명, 진단일 라운드 틀
-export const RoundBox = styled.div`
-  font-size: 0.7rem;
+export const RoundBox = styled.div<LogTextProps>`
+  font-size: 0.75rem;
   font-weight: bold;
   border-radius: 1rem;
-  color: white;
-  background: black;
-  padding: 0.3rem 1rem;
+  color: #17171b;
+  background: ${({ type }) => (type === 'name' ? '#92CDFF' : '#C0E2FF')};
+  padding: 0.4rem 1rem;
 `;

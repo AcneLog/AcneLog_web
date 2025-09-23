@@ -59,11 +59,11 @@ function PeoplesLog() {
             <S.LogImage src={log.image} alt={log.name} />
             <S.LogBox>
               <S.LogName type="name">
-                <S.RoundBox>진단명</S.RoundBox>
+                <S.RoundBox type="name">진단명</S.RoundBox>
                 {diagnosisNameMap[log.name]}
               </S.LogName>
               <S.LogName type="date">
-                <S.RoundBox>진단일</S.RoundBox>
+                <S.RoundBox type="date">진단일</S.RoundBox>
                 {log.date.replace(/-/g, '.')}
               </S.LogName>
             </S.LogBox>

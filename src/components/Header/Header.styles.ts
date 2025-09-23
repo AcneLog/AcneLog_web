@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: rgb(0, 0, 0);
+  background-color: #17171b;
   color: white;
   font-family: 'Playfair Display', serif;
   font-weight: bold;
@@ -51,7 +51,7 @@ export const Menu = styled.p<{ isActive?: boolean }>`
     transform: translate(-50%, 25%);
     width: 0.8rem;
     height: 0.8rem;
-    background-color: black;
+    background-color: #17171b;
     border-radius: 3.2rem;
     opacity: ${({ isActive }) => (isActive ? 1 : 0)};
     z-index: 2;

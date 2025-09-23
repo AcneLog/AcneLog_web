@@ -47,7 +47,7 @@ const Result = () => {
           가장 높습니다.
         </p>
         <S.Description>
-          <h4 style={{ color: 'black', marginBottom: '0.5rem' }}>
+          <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>
             ☝🏻 '{result.diagnosisName}' 이란?
           </h4>
           {result.acneDescription}

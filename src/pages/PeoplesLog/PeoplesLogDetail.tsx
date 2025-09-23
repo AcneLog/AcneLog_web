@@ -36,7 +36,9 @@ const PeolesLogDetail = () => {
           </li>
         </S.DetailList>
         <S.Description>
-          <h4 style={{ color: 'black', marginBottom: '0.5rem' }}>☝🏻 '{data.diagnosisName}'이란?</h4>
+          <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>
+            ☝🏻 '{data.diagnosisName}'이란?
+          </h4>
           {data.acneDescription}
         </S.Description>
       </S.InfoSection>
