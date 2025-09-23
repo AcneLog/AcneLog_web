@@ -7,7 +7,7 @@ export const UploadBox = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 
@@ -52,7 +52,7 @@ export const PreviewImage = styled.img`
 
 export const CloseButton = styled.button`
   position: absolute;
-  top: -0.5em;
+  top: -0.5rem;
   right: 8.5rem;
   width: 2rem;
   height: 2rem;
@@ -71,7 +71,7 @@ export const GuideBox = styled.div`
   padding: 0.75rem;
   border-radius: 0.5rem;
   color: ${({ theme }) => theme.greyFont1};
-  margin-bottom: 1.5rem;
+  margin: 3rem 0;
 
   ul {
     padding-left: 1.5rem;
@@ -89,11 +89,11 @@ export const ButtonGroup = styled.div`
 export const ActionButton = styled.button<{ primary?: boolean }>`
   background-color: ${(props) => (props.primary ? '#3b82f6' : '#000')};
   color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
+  padding: 1rem 4rem;
+  border-radius: 1rem;
   border: none;
   cursor: pointer;
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   margin-bottom: 6.25rem;
+  font-size: 1rem;
 `;

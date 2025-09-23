@@ -43,7 +43,7 @@ export const BlueBadge = styled.div`
   text-align: center;
 `;
 export const BlackBadge = styled.div`
-  background: black;
+  background: #17171b;
   color: white;
   width: 6.5rem;
   padding: 0.4rem 0.8rem;
@@ -57,7 +57,7 @@ export const BlackBadge = styled.div`
 
 export const YellowBadge = styled.div`
   background-color: rgba(246, 246, 161, 0.61);
-  color: black;
+  color: #17171b;
   display: inline-block;
   font-size: 15px;
   font-weight: bold;

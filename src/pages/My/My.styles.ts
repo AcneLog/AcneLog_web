@@ -13,7 +13,7 @@ export const getColor = (skinType: string) => {
 
 // 전체 컨테이너
 export const MainContainer = styled.div`
-  padding: 2rem 3rem;
+  padding: 2rem 3rem 20rem 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -74,7 +74,7 @@ export const GreyBoxLogin = styled.div<SkinTypeProps>`
   flex-wrap: wrap;
   align-items: flex-end;
   p {
-    color: black;
+    color: #17171b;
   }
 `;
 
@@ -95,7 +95,7 @@ export const bottomInfo = styled.p`
 // [로그인O] '나의 피부 타입 진단하기' 버튼
 export const blackBox = styled.div`
   width: 100%;
-  background: black;
+  background: #17171b;
   border-radius: 0.5rem;
   color: white;
   padding: 1rem;
@@ -106,7 +106,7 @@ export const blackBox = styled.div`
 
 // [로그인O] '최근 검사일' 텍스트
 export const blackBoxText = styled.div`
-  color: black;
+  color: #17171b;
   font-size: 0.6rem;
   padding: 0.3rem;
 `;

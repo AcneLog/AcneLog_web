@@ -23,7 +23,7 @@ export const Layout = styled.div`
 
 // 타이틀
 export const Title = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.xxs};
+  font-size: ${({ theme }) => theme.fontSize.xms};
 `;
 
 // 카테고리 박스
@@ -34,13 +34,15 @@ export const CategoryBox = styled.div`
 
 // 카테고리
 export const Category = styled.button<CategoryProps>`
-  padding: 0.7rem 1.7rem;
+  padding: 0.6rem 0;
+  width: 5.5rem;
   border-radius: 1rem;
   border: none;
   cursor: pointer;
+  font-size: 0.9rem;
 
-  background-color: ${({ isSelected, theme }) => (isSelected ? 'black' : theme.mainGrey)};
-  color: ${({ isSelected }) => (isSelected ? 'white' : 'black')};
+  background-color: ${({ isSelected, theme }) => (isSelected ? '#17171b' : theme.mainGrey)};
+  color: ${({ isSelected }) => (isSelected ? 'white' : '#17171b')};
 `;
 
 // 2x2 grid box
@@ -55,16 +57,20 @@ export const LogList = styled.ul`
 // 각 아이템 박스
 // [TODO] 실제 enum 타입으로 변경
 export const LogItem = styled.li`
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
+  border: 1px solid #b3cdf1ff;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
   text-align: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.3rem;
   cursor: pointer;
+
+  &:hover {
+    background: #f1f4f8;
+  }
 `;
 
 // 진단명, 진단일 담는 박스
@@ -79,7 +85,7 @@ export const LogName = styled.div<LogTextProps>`
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: ${({ type }) => (type === 'black' ? 'black' : 'gray')};
+  color: ${({ type }) => (type === 'black' ? '#17171b' : 'gray')};
   font-weight: ${({ type }) => (type === 'black' ? 'bold' : 'normal')};
 `;
 
@@ -95,25 +101,25 @@ export const LogImage = styled.img`
   width: 100%;
   height: 10rem;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 `;
 
 // 라운드 틀
 export const RoundBox = styled.div<BoxType>`
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   width: 4rem;
   font-weight: bold;
   border-radius: 1rem;
-  color: black;
+  color: #17171b;
   padding: 0.4rem 0.5rem;
   background: ${({ type }) => {
     switch (type) {
       case 'name':
-        return '#FFF397';
+        return '#d1bbffff';
       case 'date':
-        return '#C6E5FF';
+        return '#80C4FF';
       case 'show':
-        return '#FFDAF8';
+        return '#B2DCFF';
       default:
         return 'black';
     }

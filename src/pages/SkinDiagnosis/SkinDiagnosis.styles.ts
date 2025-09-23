@@ -26,7 +26,7 @@ export const Layout = styled.div`
 // 타이틀
 export const Title = styled.h1`
   text-align: center;
-  font-size: ${({ theme }) => theme.fontSize.base};
+  font-size: ${({ theme }) => theme.fontSize.sm};
   padding-top: 1.5rem;
 `;
 
@@ -64,7 +64,7 @@ export const Btn = styled.button<ButtonType>`
   border: none;
   color: white;
   width: 10rem;
-  background: ${({ type, theme }) => (type === 'save' ? theme.roundBlue : 'black')};
+  background: ${({ type, theme }) => (type === 'save' ? theme.roundBlue : '#17171b')};
   font-size: 1rem;
   cursor: pointer;
 `;
@@ -167,7 +167,7 @@ export const Label = styled.label`
 export const SubmitButton = styled.button`
   width: 50%;
   padding: 1rem;
-  background-color: black;
+  background-color: #17171b;
   color: white;
   border-radius: 12px;
   font-size: ${({ theme }) => theme.fontSize.xxs};

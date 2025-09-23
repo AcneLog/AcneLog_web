@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 //섹션 공통
 export const HomeSection = styled.div`
-  padding: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
   width: 100%;
 `;
 
@@ -11,6 +11,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.65rem;
+  padding: 0 0.7rem;
 `;
 
 //리스트 공통
@@ -56,4 +57,5 @@ export const TodaysItemItm = styled.div`
     border-radius: 1.7rem;
   }
   margin-bottom: 6.25rem;
+  text-align: center;
 `;
