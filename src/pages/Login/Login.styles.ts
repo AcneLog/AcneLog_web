@@ -9,7 +9,7 @@ const BTN_STYLES: Record<BtnType, { bg: string; border: string }> = {
 
 interface LoginBtnProps {
   type: BtnType;
-  isSmall?: boolean;
+  $isSmall?: boolean;
 }
 
 export const MainContainer = styled.div`
@@ -38,9 +38,9 @@ export const LoginBtn = styled.div<LoginBtnProps>`
   display: flex;
   gap: 1.7rem;
   width: 100%;
-  justify-content: ${({ isSmall }) => (isSmall ? 'center' : 'none')};
+  justify-content: ${({ $isSmall }) => ($isSmall ? 'center' : 'none')};
   align-items: center;
-  padding: ${({ isSmall }) => (isSmall ? '1.3rem' : '1.3rem 4rem')};
+  padding: ${({ $isSmall }) => ($isSmall ? '1.3rem' : '1.3rem 4rem')};
   background: ${({ type }) => BTN_STYLES[type].bg};
   font-size: ${({ theme }) => theme.fontSize.xxs};
   border: ${({ type }) => BTN_STYLES[type].border};

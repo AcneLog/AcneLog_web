@@ -1,13 +1,31 @@
 import * as S from './My.styles';
 import useCustomNavigate from '../../hooks/useNavigate';
 import Switch from '@mui/material/Switch';
+import { useIsAuthed, useAuth } from '../../auth/authStore';
+import { useEffect, useState } from 'react';
+import { userService } from '../../services/userService';
 
 function My() {
-  const isLoggedIn = true; // [TODO] 사용자 로그인 여부
   const goToPage = useCustomNavigate();
+  const isLoggedIn = useIsAuthed();
+  const [name, setName] = useState<string>('사용자');
+  const logout = useAuth((s) => s.logout);
 
   // [TODO] api: 사용자 피부타입
   const skinType = '건성';
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
+
+    (async () => {
+      try {
+        const res = await userService.getProfile();
+        setName(res.name ?? '사용자');
+      } catch (e) {
+        console.error('프로필 불러오기 실패:', e);
+      }
+    })();
+  }, [isLoggedIn]);
 
   return (
     <S.MainContainer>
@@ -22,7 +40,7 @@ function My() {
           ) : (
             <>
               <S.GreyBoxLogin skinType={skinType}>
-                <h2>홍길동 님, 반갑습니다</h2> {/* [TODO] api: 사용자 이름 */}
+                <h2>{name} 님, 반갑습니다</h2>
                 <p>
                   나의 피부타입은 '<S.SkinTypeColor skinType={skinType}>{skinType}</S.SkinTypeColor>
                   '
@@ -68,7 +86,7 @@ function My() {
           </>
         )}
       </S.SidebarContainer_2>
-      {isLoggedIn && <S.bottomInfo>로그아웃</S.bottomInfo>}
+      {isLoggedIn && <S.bottomInfo onClick={logout}>로그아웃</S.bottomInfo>}
     </S.MainContainer>
   );
 }

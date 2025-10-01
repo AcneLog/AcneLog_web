@@ -15,6 +15,7 @@ import SkinDiagnosisResult from '../pages/SkinDiagnosis/SkinDiagnosisResult';
 import Result from '../pages/Diagnosispage/Result';
 import MyLogDetail from '../pages/MyLog/MyLogDetail';
 import PeolesLogDetail from '../pages/PeoplesLog/PeoplesLogDetail';
+import LoginCallback from '../auth/LoginCallback';
 
 function AppRouter() {
   return (
@@ -29,6 +30,7 @@ function AppRouter() {
           <Route path="/peoplesLog/:id" element={<PeolesLogDetail />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/notice/:id" element={<NoticeDetail />} />
+          <Route path="/login/callback/:provider" element={<LoginCallback />} />
 
           {/* 로그인한 사람만 접근 가능한 라우트 */}
           <Route element={<PrivateRoute />}>
