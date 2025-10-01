@@ -25,7 +25,7 @@ export const HeaderListBox = styled.div`
   }
 `;
 
-export const Menu = styled.p<{ isActive?: boolean }>`
+export const Menu = styled.p<{ $isActive?: boolean }>`
   font-family: 'Pretendard';
   position: relative;
   cursor: pointer;
@@ -40,7 +40,7 @@ export const Menu = styled.p<{ isActive?: boolean }>`
     height: 1.3rem;
     background-color: white;
     border-radius: 3.2rem 3.2rem 0 0;
-    opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+    opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
   }
 
   &::before {
@@ -53,7 +53,7 @@ export const Menu = styled.p<{ isActive?: boolean }>`
     height: 0.8rem;
     background-color: #17171b;
     border-radius: 3.2rem;
-    opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+    opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
     z-index: 2;
   }
 `;
