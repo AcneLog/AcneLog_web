@@ -7,6 +7,7 @@ import {
   dummyDataByA,
   dummyDataByB,
   dummyDataByC,
+  dummyDataByD,
 } from './peoplesLogDummyData';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,13 +16,14 @@ function PeoplesLog() {
 
   const [page, setPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('전체');
-  const categories = ['전체', '화농성', '염증성', '좁쌀'];
+  const categories = ['전체', '화농성', '염증성', '좁쌀', '모낭염'];
 
   // [TODO] dummyData로 임시 지정
   const getCurrentData = () => {
     if (selectedCategory === '화농성') return dummyDataByA;
     if (selectedCategory === '염증성') return dummyDataByB;
     if (selectedCategory === '좁쌀') return dummyDataByC;
+    if (selectedCategory === '모낭염') return dummyDataByD;
     return dummyData;
   };
 
