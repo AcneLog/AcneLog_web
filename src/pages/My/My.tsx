@@ -1,6 +1,5 @@
 import * as S from './My.styles';
 import useCustomNavigate from '../../hooks/useNavigate';
-import Switch from '@mui/material/Switch';
 import { useIsAuthed, useAuth } from '../../auth/authStore';
 import { useEffect, useState } from 'react';
 import { userService } from '../../services/userService';
@@ -78,10 +77,6 @@ function My() {
             <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/notice')}>
               공지사항
             </p>
-            <S.switchBar>
-              <p>알림 수신 여부</p>
-              <Switch />
-            </S.switchBar>
             <p style={{ cursor: 'pointer' }}>개인정보보호처리방침</p>
           </>
         )}
