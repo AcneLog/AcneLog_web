@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useAuth } from '../auth/authStore';
 
-const API_BASE = import.meta.env.VITE_PUBLIC_BASE_URL;
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 // 인증 필요 없는 API
 export const apiPublic = axios.create({
