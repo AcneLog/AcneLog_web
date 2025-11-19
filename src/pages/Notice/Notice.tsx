@@ -1,20 +1,23 @@
 import * as S from './Notice.styles';
 import leftBtn from '../../assets/leftIcon.svg';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Notice, noticeService } from '../../services/noticeService';
 
-function Notice() {
-  // [TODO] 더미데이터 (삭제 예정)
-  const noticeData = [
-    { id: 1, title: '서비스 점검 안내', author: '아크네로그장', date: '2025-07-24' },
-    { id: 2, title: '신규 기능 출시', author: '아크네로그장', date: '2025-07-20' },
-    { id: 3, title: '이용약관 변경 안내', author: '아크네로그장', date: '2025-07-15' },
-    { id: 4, title: '서비스 점검 안내', author: '아크네로그장', date: '2025-07-24' },
-    { id: 5, title: '신규 기능 출시', author: '아크네로그장', date: '2025-07-20' },
-    { id: 6, title: '이용약관 변경 안내', author: '아크네로그장', date: '2025-07-15' },
-  ];
-
+function NoticePage() {
   const navigate = useNavigate();
+  const [noticeData, setNoticeData] = useState<Notice[]>([]);
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await noticeService.getNoticeList();
+        setNoticeData(data);
+      } catch (e) {
+        console.error('공지사항 목록 불러오기 실패', e);
+      }
+    })();
+  }, []);
   const handleClick = (id: number) => {
     navigate(`/notice/${id}`);
   };
@@ -30,11 +33,10 @@ function Notice() {
 
       <S.TableLayout>
         {noticeData.map((notice) => (
-          <S.Notice type="main" key={notice.id} onClick={() => handleClick(notice.id)}>
+          <S.Notice type="main" key={notice.boardId} onClick={() => handleClick(notice.boardId)}>
             <S.NoticeTitle type="main">{notice.title}</S.NoticeTitle>
             <div style={{ display: 'flex' }}>
-              <S.NoticeDetailText>{notice.author} | </S.NoticeDetailText>
-              <S.NoticeDetailText>{notice.date}</S.NoticeDetailText>
+              <S.NoticeDetailText>{notice.updatedAt.split('T')[0]}</S.NoticeDetailText>
             </div>
           </S.Notice>
         ))}
@@ -43,4 +45,4 @@ function Notice() {
   );
 }
 
-export default Notice;
+export default NoticePage;
