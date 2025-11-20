@@ -75,7 +75,7 @@ function Home() {
           <h2>오늘의 유튜브</h2>
         </S.Header>
         <S.List>
-          {youtubeThumbnails.map((item) => (
+          {youtubeThumbnails.slice(0, 3).map((item) => (
             <S.Itm key={item.id}>
               <img src={item.src} width="100%" height="140rem" />
               <span>{item.title}</span>
