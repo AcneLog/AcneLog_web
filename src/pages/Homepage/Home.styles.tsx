@@ -17,6 +17,7 @@ export const Header = styled.div`
 //리스트 공통
 export const List = styled.div`
   display: flex;
+  flex-direction: row;
   gap: 0.4rem;
 `;
 //전체보기 버튼
@@ -44,7 +45,7 @@ export const Itm = styled.div`
 export const PostCountText = styled.p`
   font-size: 0.75rem;
   color: #737373;
-  margin-right: 2.5rem;
+  margin-right: 1.5rem;
   margin-top: -0.2rem;
   font-weight: normal;
 `;
