@@ -41,8 +41,8 @@ function My() {
               <S.GreyBoxLogin $skinType={skinType}>
                 <h2>{name} 님, 반갑습니다</h2>
                 <p>
-                  나의 피부타입은 '<S.SkinTypeColor skinType={skinType}>{skinType}</S.SkinTypeColor>
-                  '
+                  나의 피부타입은 '
+                  <S.SkinTypeColor $skinType={skinType}>{skinType}</S.SkinTypeColor>'
                 </p>
               </S.GreyBoxLogin>
               <S.dashedLine />
