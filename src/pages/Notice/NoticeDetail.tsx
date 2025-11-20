@@ -32,7 +32,7 @@ function NoticeDetail() {
         <S.Notice type="detail">
           <S.NoticeTitle type="detail">{data?.title}</S.NoticeTitle>
           <div style={{ display: 'flex', paddingLeft: '0.1rem' }}>
-            <S.NoticeDetailText> 관리자 </S.NoticeDetailText>
+            <S.NoticeDetailText> 아크네주인장 </S.NoticeDetailText>
             <S.NoticeDetailText>{data?.updatedAt.split('T')[0]}</S.NoticeDetailText>
           </div>
         </S.Notice>

@@ -17,7 +17,7 @@ export const noticeService = {
 export const noticeDetailService = {
   async getNoticeDetail(boardId: number): Promise<Notice> {
     const res = await apiPublic.get(`/board/${boardId}`);
-    console.log('[Notice Detail Response]', res.data.data);
+    //console.log('[Notice Detail Response]', res.data.data);
     return res.data.data;
   },
 };

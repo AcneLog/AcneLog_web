@@ -1,12 +1,39 @@
 import useCustomNavigate from '../../hooks/useNavigate';
 import * as S from './Home.styles';
-import { acneImages, youtubeThumbnails, productRecommendations } from './homeDummyData';
+import { youtubeThumbnails, productRecommendations } from './homeDummyData';
 import Banner from '../../assets/banner.svg';
 import sharp from '../../assets/img/sharpIcon.svg';
+import { useEffect, useState } from 'react';
+import {
+  AcnePostCountData,
+  HomeAcneImg,
+  homePeoplesLogService,
+} from '../../services/homeAcneService';
 
+/*데이터는 영어여서 한글로 UI에 표시하기 위함 */
+const acneTypeKR: Record<string, string> = {
+  COMEDONES: '좁쌀 여드름',
+  PUSTULES: '화농성 여드름',
+  PAPULES: '염증성 여드름',
+  FOLLICULTIS: '모낭염',
+};
 function Home() {
   const goToPage = useCustomNavigate();
+  const [postCounts, setPostCounts] = useState<AcnePostCountData>({
+    comedones: 0,
+    pustules: 0,
+    papules: 0,
+    follicultis: 0,
+  });
+  const [acneImages, setAcneImages] = useState<HomeAcneImg[]>([]);
+  useEffect(() => {
+    (async () => {
+      const res = await homePeoplesLogService.getPeoplesLog();
 
+      setAcneImages(res.analysisRes);
+      setPostCounts(res.postCounts);
+    })();
+  }, []);
   return (
     <div>
       <S.HomeSection>
@@ -24,8 +51,8 @@ function Home() {
         </S.Header>
         <S.List>
           {acneImages.map((item) => (
-            <S.Itm key={item.id}>
-              <img src={item.src} width="100%" height="140rem" />
+            <S.Itm key={item.analysisId}>
+              <img src={item.imageUrl} width="100%" height="140rem" />
               <div
                 style={{
                   display: 'flex',
@@ -34,9 +61,11 @@ function Home() {
                 }}
               >
                 <img src={sharp} width="20%" />
-                <span>{item.description}</span>
+                <span>{acneTypeKR[item.acneType]}</span>
               </div>
-              <S.PostCountText>게시글 10개</S.PostCountText>
+              <S.PostCountText>
+                게시물 {postCounts[item.acneType.toLowerCase() as keyof AcnePostCountData]}개
+              </S.PostCountText>
             </S.Itm>
           ))}
         </S.List>
