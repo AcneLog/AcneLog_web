@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface SkinTypeProps {
-  skinType: string;
+  $skinType: string;
 }
 
 export const getColor = (skinType: string) => {
