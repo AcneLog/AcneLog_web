@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface CategoryProps {
-  isSelected: boolean;
+  $isSelected: boolean;
 }
 
 interface LogTextProps {
@@ -37,11 +37,11 @@ export const Category = styled.button<CategoryProps>`
   padding: 0.6rem 0;
   width: 5.5rem;
   border-radius: 1rem;
-  border: ${({ isSelected }) => (isSelected ? 'none' : '0.3px solid #919191ff')};
+  border: ${({ $isSelected }) => ($isSelected ? 'none' : '0.3px solid #919191ff')};
   cursor: pointer;
 
-  background-color: ${({ isSelected }) => (isSelected ? '#17171b' : 'white')};
-  color: ${({ isSelected }) => (isSelected ? 'white' : '#17171b')};
+  background-color: ${({ $isSelected }) => ($isSelected ? '#17171b' : 'white')};
+  color: ${({ $isSelected }) => ($isSelected ? 'white' : '#17171b')};
   font-size: 0.9rem;
 `;
 

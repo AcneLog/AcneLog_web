@@ -40,7 +40,7 @@ function MyLog() {
         {categories.map((cat) => (
           <S.Category
             key={cat}
-            isSelected={selectedCategory === cat}
+            $isSelected={selectedCategory === cat}
             onClick={() => {
               setSelectedCategory(cat);
               setPage(1);
