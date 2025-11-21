@@ -41,7 +41,10 @@ function Home() {
         </S.Header>
         <S.List>
           {acneType.map((item) => (
-            <S.Itm key={item.typeId} onClick={() => goToPage('/peoplesLog')}>
+            <S.Itm
+              key={item.typeId}
+              onClick={() => goToPage(`/peoplesLog?acneType=${item.acneTypeAPI}`)}
+            >
               <img src={item.imgUrl} width="100%" height="140rem" />
               <div
                 style={{
