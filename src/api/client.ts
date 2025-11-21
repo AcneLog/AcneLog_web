@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useAuth } from '../auth/authStore';
 
-const API_BASE = import.meta.env.VITE_API_BASE;
-//dev로 merge할 때에는 VITE_PUBLIC_BASE_URL로 수정할 것
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 // 인증 필요 없는 API
 export const apiPublic = axios.create({

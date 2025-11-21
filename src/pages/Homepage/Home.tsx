@@ -41,7 +41,7 @@ function Home() {
         </S.Header>
         <S.List>
           {acneType.map((item) => (
-            <S.Itm key={item.typeId}>
+            <S.Itm key={item.typeId} onClick={() => goToPage('/peoplesLog')}>
               <img src={item.imgUrl} width="100%" height="140rem" />
               <div
                 style={{
