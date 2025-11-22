@@ -3,6 +3,7 @@ import * as S from './MyLogDetail.styles';
 import { useEffect, useState } from 'react';
 import xIcon from '../../assets/xIcon.svg';
 import { myLogDetailService, MyLogItem } from '../../services/myLogservice';
+import { acneTypeMap } from '../../constants/acneTypeMap';
 
 const MyLogDetail = () => {
   const { id } = useParams();
@@ -41,7 +42,7 @@ const MyLogDetail = () => {
         <S.DetailList>
           <li>
             <S.BlackBadge>진단일</S.BlackBadge>{' '}
-            <S.DiagnosisValue>{data.createdAt ? data.createdAt : '-'}</S.DiagnosisValue>
+            <S.DiagnosisValue>{data.createdAt ? data.createdAt : '진단일 없음'}</S.DiagnosisValue>
           </li>
           <li>
             <S.BlackBadge>공개 여부</S.BlackBadge>
@@ -68,11 +69,15 @@ const MyLogDetail = () => {
           </li>
           <li>
             <S.BlueBadge>진단명</S.BlueBadge>
-            <S.DiagnosisValue>{data.acneType}</S.DiagnosisValue>
+            <S.DiagnosisValue>
+              {acneTypeMap[data.acneType as keyof typeof acneTypeMap] || '알 수 없음'}
+            </S.DiagnosisValue>
           </li>
         </S.DetailList>
         <S.Description>
-          <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>☝🏻 '{data.acneType}'이란?</h4>
+          <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>
+            ☝🏻 '{acneTypeMap[data.acneType as keyof typeof acneTypeMap] || '알 수 없음'}'이란?
+          </h4>
           <S.DiagnosisValue>{data.description}</S.DiagnosisValue>
         </S.Description>
       </S.InfoSection>
@@ -80,7 +85,7 @@ const MyLogDetail = () => {
       <S.Title>치료 및 관리 가이드</S.Title>
       <S.TreatmentSection>
         <S.BlackBadge>치료법</S.BlackBadge>
-        <div className="treatment-title">{data.careMethod}</div>
+        {/* <div className="treatment-title">{data.careMethod}</div> */}
         <div>{data.careMethod}</div>
       </S.TreatmentSection>
 
@@ -89,7 +94,7 @@ const MyLogDetail = () => {
 
         <div key={data.guide}>
           <div style={{ marginBottom: '0.5rem' }}>
-            <S.YellowBadge>✔ {data.guide}</S.YellowBadge>
+            {/* <S.YellowBadge>✔ {data.guide}</S.YellowBadge> */}
           </div>
           <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
             <li>{data.guide}</li>
@@ -100,14 +105,14 @@ const MyLogDetail = () => {
       <S.Title>이 영상 추천해요!</S.Title>
       <S.RecommendSection>
         {data.videoList.map((video, idx) => (
-          <div
+          <S.ImgDiv
             className="product-item"
             key={video.videoId}
             onClick={() => window.open(video.videoUrl, '_blank')}
           >
             <img src={video.thumbnailUrl} alt={`추천 영상 ${idx + 1} `} />
             <p> {video.videoTitle}</p>
-          </div>
+          </S.ImgDiv>
         ))}
       </S.RecommendSection>
 
@@ -115,10 +120,14 @@ const MyLogDetail = () => {
       <S.RecommendSection>
         {data.productList.length ? (
           data.productList.map((product, idx) => (
-            <div className="product-item" key={product.id}>
-              <img src={product.imageUrl} alt={`추천 제품 ${idx + 1}`} />
-              <p>{product.name}</p>
-            </div>
+            <S.ImgDiv
+              className="product-item"
+              key={product.productId}
+              onClick={() => window.open(product.productUrl, '_blank')}
+            >
+              <img src={product.productImage} alt={`추천 제품 ${idx + 1}`} />
+              <p>{product.productName}</p>
+            </S.ImgDiv>
           ))
         ) : (
           <p>추천 제품이 없습니다.</p>

@@ -51,7 +51,9 @@ const PeolesLogDetail = () => {
           </li>
         </S.DetailList>
         <S.Description>
-          <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>☝🏻 '{data.acneType}'이란?</h4>
+          <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>
+            ☝🏻 '{acneTypeMap[data.acneType as keyof typeof acneTypeMap] || '알 수 없음'}'이란?
+          </h4>
           {data.description}
         </S.Description>
       </S.InfoSection>

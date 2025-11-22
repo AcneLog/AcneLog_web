@@ -169,3 +169,32 @@ export const CustomRadio = styled.label`
     justify-content: center;
   }
 `;
+export const ImgDiv = styled.div`
+  width: 10rem; // 고정 가로
+  height: 12.5rem; // 고정 세로 (이미지 + 텍스트)
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 8.75rem; // 이미지 영역
+    object-fit: cover; // 영역에 맞게 자르기
+    border-radius: 0.5rem;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem; // 14px 정도
+    line-height: 1.2;
+    text-align: center;
+
+    /* 글자 길이 일정하게 표시 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // 2줄까지만 표시
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`;

@@ -21,9 +21,10 @@ export interface MyLogItem {
     thumbnailUrl: string;
   }[]; // 배열로 표시
   productList: {
-    id: number;
-    name: string;
-    imageUrl: string;
+    productId: number;
+    productName: string;
+    productImage: string;
+    productUrl: string;
   }[]; // 배열로 표시
 }
 export interface MyLogResponse {
@@ -46,7 +47,7 @@ export const myLogService = {
         size,
       },
     });
-    console.log('Peopleslog API Response:', res.data.data);
+    // console.log('Peopleslog API Response:', res.data.data);
     return res.data.data;
   },
 };
@@ -54,7 +55,7 @@ export const myLogService = {
 export const myLogDetailService = {
   getMyLogDetail: async (analysisId: string): Promise<MyLogItem> => {
     const res = await apiPrivate.get(`/analysis/detail/${analysisId}`);
-    console.log('MyLog Detail API Response:', res.data.data);
+    // console.log('MyLog Detail API Response:', res.data.data);
     return res.data.data;
   },
 };
