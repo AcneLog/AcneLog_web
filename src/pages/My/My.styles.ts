@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface SkinTypeProps {
-  skinType: string;
+  $skinType: string;
 }
 
 export const getColor = (skinType: string) => {
@@ -79,8 +79,8 @@ export const GreyBoxLogin = styled.div<SkinTypeProps>`
 `;
 
 // 피부타입에 따른 텍스트 색상 효과
-export const SkinTypeColor = styled.span<{ skinType: string }>`
-  color: ${({ skinType }) => getColor(skinType)};
+export const SkinTypeColor = styled.span<{ $skinType: string }>`
+  color: ${({ $skinType }) => getColor($skinType)};
   font-weight: 900;
 `;
 
@@ -109,13 +109,6 @@ export const blackBoxText = styled.div`
   color: #17171b;
   font-size: 0.6rem;
   padding: 0.3rem;
-`;
-
-// [로그인O] '알림 수신 여부' 메뉴 컨테이너
-export const switchBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 // 점선

@@ -81,7 +81,7 @@ const Diagnosis: React.FC = () => {
       </S.GuideBox>
 
       <S.ButtonGroup>
-        <S.ActionButton primary disabled={!file || isLoading} onClick={handleDiagnosis}>
+        <S.ActionButton $primary disabled={!file || isLoading} onClick={handleDiagnosis}>
           {isLoading ? '진단 중...' : '진단하기'}
         </S.ActionButton>
         <S.ActionButton onClick={() => goToPage('/')}>취소하기</S.ActionButton>

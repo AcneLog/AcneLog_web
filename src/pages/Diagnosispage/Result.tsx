@@ -41,11 +41,11 @@ const Result = () => {
       <S.Image src={result.imageUrl} alt="업로드 이미지" />
       <hr style={{ border: 'none', borderTop: '0.1rem dashed #ccc', margin: '2rem 0 2rem' }} />
       <S.InfoSection>
-        <p style={{ fontWeight: 'normal' }}>
+        <div style={{ fontWeight: 'normal' }}>
           <S.BlackBadge>진단결과</S.BlackBadge> 이미지 분석 결과,
           <S.YellowBadge style={{ color: 'red' }}>{result.diagnosisName}</S.YellowBadge>일 확률이
           가장 높습니다.
-        </p>
+        </div>
         <S.Description>
           <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>
             ☝🏻 '{result.diagnosisName}' 이란?

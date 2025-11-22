@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface CategoryProps {
-  isSelected: boolean;
+  $isSelected: boolean;
 }
 
 interface LogTextProps {
@@ -41,8 +41,8 @@ export const Category = styled.button<CategoryProps>`
   cursor: pointer;
   font-size: 0.9rem;
 
-  background-color: ${({ isSelected, theme }) => (isSelected ? '#17171b' : theme.mainGrey)};
-  color: ${({ isSelected }) => (isSelected ? 'white' : '#17171b')};
+  background-color: ${({ $isSelected, theme }) => ($isSelected ? '#17171b' : theme.mainGrey)};
+  color: ${({ $isSelected }) => ($isSelected ? 'white' : '#17171b')};
 `;
 
 // 2x2 grid box

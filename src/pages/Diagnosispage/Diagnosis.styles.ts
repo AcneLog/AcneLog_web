@@ -86,8 +86,8 @@ export const ButtonGroup = styled.div`
   gap: 1rem;
 `;
 
-export const ActionButton = styled.button<{ primary?: boolean }>`
-  background-color: ${(props) => (props.primary ? '#3b82f6' : '#000')};
+export const ActionButton = styled.button<{ $primary?: boolean }>`
+  background-color: ${(props) => (props.$primary ? '#3b82f6' : '#000')};
   color: white;
   padding: 1rem 4rem;
   border-radius: 1rem;
