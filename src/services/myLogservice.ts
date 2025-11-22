@@ -27,7 +27,7 @@ export const myLogService = {
         size,
       },
     });
-    console.log('MyLog API Response:', res.data.data);
+    // console.log('MyLog API Response:', res.data.data);
     return res.data.data;
   },
 };

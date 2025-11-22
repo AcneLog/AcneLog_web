@@ -3,18 +3,7 @@ import * as S from './MyLog.styles';
 import { useEffect, useState } from 'react';
 import { Pagination } from '@mui/material';
 import { myLogService, MyLogResponse } from '../../services/myLogservice';
-import { acneTypeMap } from './AcneTypeMap';
-
-const categories = ['전체', '화농성', '염증성', '좁쌀'] as const;
-type Category = (typeof categories)[number];
-
-const categoryToTypeMap = {
-  전체: 'ALL',
-  화농성: 'PUSTULES',
-  염증성: 'PAPULES',
-  좁쌀: 'COMEDONES',
-  모낭염: 'FOLLICULITIS',
-} as const;
+import { acneTypeMap, categoryToTypeMap, categories, Category } from './acneTypeMap';
 
 function MyLog() {
   const navigate = useNavigate();
@@ -67,28 +56,31 @@ function MyLog() {
           </S.Category>
         ))}
       </S.CategoryBox>
-
-      <S.LogList>
-        {content.map((log) => (
-          <S.LogItem key={log.analysisId} onClick={() => navigate(`/myLog/${log.analysisId}`)}>
-            <S.LogImage src={log.imageUrl} alt={log.acneType} />
-            <S.LogBox>
-              <S.LogName type="black">
-                <S.RoundBox type="name">진단명</S.RoundBox>
-                {acneTypeMap[log.acneType as keyof typeof acneTypeMap] || '알 수 없음'}
-              </S.LogName>
-              <S.LogName type="gray">
-                <S.RoundBox type="date">진단일</S.RoundBox>
-                {/*log.date.replace(/-/g, '.')*/}
-              </S.LogName>
-              <S.LogName type="gray">
-                <S.RoundBox type="show">공개 여부</S.RoundBox>
-                {log.isPublic ? '공개' : '비공개'}
-              </S.LogName>
-            </S.LogBox>
-          </S.LogItem>
-        ))}
-      </S.LogList>
+      {content.length === 0 ? (
+        <p>진단 기록이 없습니다.</p>
+      ) : (
+        <S.LogList>
+          {content.map((log) => (
+            <S.LogItem key={log.analysisId} onClick={() => navigate(`/myLog/${log.analysisId}`)}>
+              <S.LogImage src={log.imageUrl} alt={log.acneType} />
+              <S.LogBox>
+                <S.LogName type="black">
+                  <S.RoundBox type="name">진단명</S.RoundBox>
+                  {acneTypeMap[log.acneType as keyof typeof acneTypeMap] || '알 수 없음'}
+                </S.LogName>
+                <S.LogName type="gray">
+                  <S.RoundBox type="date">진단일</S.RoundBox>
+                  {log.createdAt ? log.createdAt.slice(0, 10).replace(/-/g, '.') : '날짜 없음'}
+                </S.LogName>
+                <S.LogName type="gray">
+                  <S.RoundBox type="show">공개 여부</S.RoundBox>
+                  {log.isPublic ? '공개' : '비공개'}
+                </S.LogName>
+              </S.LogBox>
+            </S.LogItem>
+          ))}
+        </S.LogList>
+      )}
 
       <S.PaginationWrapper>
         <Pagination count={totalPages} page={page} onChange={handlePageChange} />
