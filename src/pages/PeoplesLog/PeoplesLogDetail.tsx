@@ -3,6 +3,7 @@ import * as S from './PeoplesLogDetail.styles';
 import xIcon from '../../assets/xIcon.svg';
 import { useEffect, useState } from 'react';
 import { peoplesLogDetailService, PeopleslogItem } from '../../services/peopleslogService';
+import { acneTypeMap } from '../../constants/acneTypeMap';
 const PeolesLogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -33,18 +34,20 @@ const PeolesLogDetail = () => {
         <S.DetailList>
           <li>
             <S.BlueBadge>진단명</S.BlueBadge>
-            {data.acneType}
+            {acneTypeMap[data.acneType as keyof typeof acneTypeMap] || '알 수 없음'}
           </li>
           <hr style={{ border: 'none', borderTop: '0.1rem dashed #ccc', margin: '0rem 0 2rem' }} />
           <li>
             <S.BlackBadge>피플명</S.BlackBadge>
-            <S.DiagnosisValue>{data.userName ? data.userName : '사용자 이름'}</S.DiagnosisValue>
+            <S.DiagnosisValue>
+              {data.userName ? data.userName : '사용자 이름 없음'}
+            </S.DiagnosisValue>
           </li>
           <S.BlackBadge>피부 타입</S.BlackBadge>
-          <S.DiagnosisValue>{data.skinType}</S.DiagnosisValue>
+          <S.DiagnosisValue>{data.skinType ? data.skinType : '피부 타입 없음'}</S.DiagnosisValue>
           <li>
             <S.BlackBadge>진단일</S.BlackBadge>{' '}
-            <S.DiagnosisValue>{data.createdAt}</S.DiagnosisValue>
+            <S.DiagnosisValue>{data.createdAt ? data.createdAt : '진단일 없음'}</S.DiagnosisValue>
           </li>
         </S.DetailList>
         <S.Description>
@@ -61,8 +64,8 @@ const PeolesLogDetail = () => {
 
       <S.ManagementSection>
         <S.BlackBadge>관리 가이드</S.BlackBadge>
-        {data.guide}
-        <S.YellowBadge>✔ {data.guide}</S.YellowBadge>
+        {/* {data.guide} */}
+        {/* <S.YellowBadge>✔ {data.guide}</S.YellowBadge> */}
         <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
           <li>{data.guide}</li>
         </ul>
@@ -71,28 +74,28 @@ const PeolesLogDetail = () => {
       <S.Title>이 영상 추천해요!</S.Title>
       <S.RecommendSection>
         {data.videoList.map((video, idx) => (
-          <div
+          <S.ImgDiv
             className="product-item"
             key={video.videoId}
             onClick={() => window.open(video.videoUrl, '_blank')}
           >
             <img src={video.thumbnailUrl} alt={`추천 영상 ${idx + 1} `} />
             <p> {video.videoTitle}</p>
-          </div>
+          </S.ImgDiv>
         ))}
       </S.RecommendSection>
 
       <S.Title>이 제품 추천해요!</S.Title>
       <S.RecommendSection>
         {data.productList.map((product, idx) => (
-          <div
+          <S.ImgDiv
             className="product-item"
             key={product.productId}
             onClick={() => window.open(product.productUrl, '_blank')}
           >
             <img src={product.productImage} alt={`추천 제품 ${idx + 1}`} />
             <p>{product.productName}</p>
-          </div>
+          </S.ImgDiv>
         ))}
       </S.RecommendSection>
     </S.Content>

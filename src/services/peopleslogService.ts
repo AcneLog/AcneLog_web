@@ -49,7 +49,7 @@ export const peoplelogService = {
         size,
       },
     });
-    console.log('Peopleslog API Response:', res.data.data);
+    // console.log('Peopleslog API Response:', res.data.data);
     return res.data.data;
   },
 };
@@ -57,7 +57,7 @@ export const peoplelogService = {
 export const peoplesLogDetailService = {
   peopleslogMyLogDetail: async (analysisId: string): Promise<PeopleslogItem> => {
     const res = await apiPrivate.get(`/analysis/log/${analysisId}`);
-    console.log('Peopleslog Detail API Response:', res.data.data);
+    // console.log('Peopleslog Detail API Response:', res.data.data);
     return res.data.data;
   },
 };

@@ -81,28 +81,32 @@ function PeoplesLog() {
           </S.Category>
         ))}
       </S.CategoryBox>
+      {content.length === 0 ? (
+        <p>진단 기록이 없습니다.</p>
+      ) : (
+        <S.LogList>
+          {content.map((log) => (
+            <S.LogItem
+              key={log.analysisId}
+              name={log.acneType as 'ALL' | 'PUSTULES' | 'PAPULES' | 'COMEDONES' | 'FOLLICULITIS'}
+              onClick={() => navigate(`/peoplesLog/${log.analysisId}`)}
+            >
+              <S.LogImage src={log.imageUrl} alt={log.acneType} />
+              <S.LogBox>
+                <S.LogName type="name">
+                  <S.RoundBox type="name">진단명</S.RoundBox>
 
-      <S.LogList>
-        {content.map((log) => (
-          <S.LogItem
-            key={log.analysisId}
-            name={log.acneType as 'ALL' | 'PUSTULES' | 'PAPULES' | 'COMEDONES' | 'FOLLICULITIS'}
-            onClick={() => navigate(`/peoplesLog/${log.analysisId}`)}
-          >
-            <S.LogImage src={log.imageUrl} alt={log.acneType} />
-            <S.LogBox>
-              <S.LogName type="name">
-                <S.RoundBox type="name">진단명</S.RoundBox>
-                {acneTypeMap[log.acneType as keyof typeof acneTypeMap] || '알 수 없음'}
-              </S.LogName>
-              <S.LogName type="date">
-                <S.RoundBox type="date">진단일</S.RoundBox>
-                {log.createdAt ? log.createdAt.slice(0, 10).replace(/-/g, '.') : '날짜 없음'}
-              </S.LogName>
-            </S.LogBox>
-          </S.LogItem>
-        ))}
-      </S.LogList>
+                  {acneTypeMap[log.acneType as keyof typeof acneTypeMap] || '알 수 없음'}
+                </S.LogName>
+                <S.LogName type="date">
+                  <S.RoundBox type="date">진단일</S.RoundBox>
+                  {log.createdAt ? log.createdAt.slice(0, 10).replace(/-/g, '.') : '날짜 없음'}
+                </S.LogName>
+              </S.LogBox>
+            </S.LogItem>
+          ))}
+        </S.LogList>
+      )}
 
       <S.PaginationWrapper>
         <Pagination count={totalPages} page={page} onChange={handlePageChange} />
