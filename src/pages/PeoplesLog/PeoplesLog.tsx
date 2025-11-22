@@ -16,7 +16,6 @@ function PeoplesLog() {
   const [page, setPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const categories = ['전체', '화농성', '염증성', '좁쌀'];
-
   // [TODO] dummyData로 임시 지정
   const getCurrentData = () => {
     if (selectedCategory === '화농성') return dummyDataByA;
