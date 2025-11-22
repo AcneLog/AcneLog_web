@@ -5,12 +5,12 @@ import XBtn from '../../assets/xIcon.svg';
 import { skinTypeService, SurveyQuestion } from '../../services/skinTypeService';
 
 // 건성, 지성, 수부지 별 문항 인덱스
-const dryIndexes = [0, 3, 4, 7, 10, 14];
-const oilyIndexes = [1, 5, 8, 11, 12];
-const dehydratedIndexes = [2, 6, 9, 13];
+const dryIndexes = [0, 3, 4, 7, 10];
+const oilyIndexes = [1, 5, 8, 11];
+const dehydratedIndexes = [2, 6, 9];
 
 function SkinDiagnosis() {
-  const [answers, setAnswers] = useState<(number | null)[]>(Array(15).fill(null));
+  const [answers, setAnswers] = useState<(number | null)[]>(Array(12).fill(null));
   const [questions, setQuestions] = useState<SurveyQuestion[]>([]);
   const navigate = useNavigate();
 
