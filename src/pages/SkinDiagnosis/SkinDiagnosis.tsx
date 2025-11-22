@@ -18,7 +18,7 @@ function SkinDiagnosis() {
     (async () => {
       try {
         const data = await skinTypeService.getSurveyQuestions();
-        setQuestions(data); // API에서 받아온 questions를 상태에 저장
+        setQuestions(data);
       } catch (e) {
         console.error('설문조사 불러오기 실패', e);
       }
