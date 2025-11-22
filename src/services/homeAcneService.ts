@@ -1,7 +1,7 @@
 import { apiPublic } from '../api/client';
 
 export type AcnePostCountData = Record<
-  'comedones' | 'pustules' | 'papules' | 'follicultis',
+  'COMEDONES' | 'PUSTULES' | 'PAPULES' | 'FOLLICULITIS',
   number
 >;
 
@@ -11,10 +11,10 @@ export const homePeoplesLogService = {
     const data = res.data.data;
 
     return {
-      comedones: data.comedones,
-      pustules: data.pustules,
-      papules: data.papules,
-      follicultis: data.follicultis,
+      COMEDONES: data.comedones,
+      PUSTULES: data.pustules,
+      PAPULES: data.papules,
+      FOLLICULITIS: data.follicultis,
     };
   },
 };

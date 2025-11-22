@@ -15,3 +15,20 @@ export const categoryToTypeMap = {
 
 export const categories = ['전체', '화농성', '염증성', '좁쌀', '모낭염'] as const;
 export type Category = (typeof categories)[number];
+
+// CATEGORY_MAP 소문자
+export const CATEGORY_MAP = {
+  전체: 'all',
+  화농성: 'pustules',
+  염증성: 'papules',
+  좁쌀: 'comedones',
+  모낭염: 'folliculitis',
+};
+// REVERSE_MAP (영어 -> 한글)
+export const REVERSE_CATEGORY_MAP: Record<string, Category> = {
+  ALL: '전체',
+  PUSTULES: '화농성',
+  PAPULES: '염증성',
+  COMEDONES: '좁쌀',
+  FOLLICULITIS: '모낭염',
+};

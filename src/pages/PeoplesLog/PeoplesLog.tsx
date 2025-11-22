@@ -1,65 +1,58 @@
 import * as S from './PeoplesLog.styles';
 import Pagination from '@mui/material/Pagination';
-import React, { useEffect, useMemo, useState } from 'react';
-import {
-  dummyData,
-  diagnosisNameMap,
-  dummyDataByA,
-  dummyDataByB,
-  dummyDataByC,
-  dummyDataByD,
-} from './peoplesLogDummyData';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { peoplelogService, PeopleslogResponse } from '../../services/peopleslogService';
+import {
+  acneTypeMap,
+  categories,
+  CATEGORY_MAP,
+  Category,
+  REVERSE_CATEGORY_MAP,
+} from '../../constants/acneTypeMap';
 
 function PeoplesLog() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = (() => {
+    const urlCode = searchParams.get('acneType');
+    return urlCode ? REVERSE_CATEGORY_MAP[urlCode.toUpperCase()] : '전체';
+  })();
+  const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
   const [page, setPage] = useState(1);
-<<<<<<< HEAD
-  const [selectedCategory, setSelectedCategory] = useState('전체');
-  const categories = ['전체', '화농성', '염증성', '좁쌀'];
-  // [TODO] dummyData로 임시 지정
-=======
-
-  const CATEGORY_MAP = {
-    전체: 'all',
-    화농성: 'pustules',
-    염증성: 'papules',
-    좁쌀: 'comedones',
-    모낭염: 'follicultis',
-  };
-  const REVERSE_CATEGORY_MAP = Object.fromEntries(
-    Object.entries(CATEGORY_MAP).map(([kr, en]) => [en, kr])
-  );
-  const categories = useMemo(() => ['전체', '화농성', '염증성', '좁쌀', '모낭염'], []);
-  const urlAcneType = searchParams.get('acneType');
-  const categoryByUrl = urlAcneType ? REVERSE_CATEGORY_MAP[urlAcneType] : undefined;
-  const initialCategory =
-    categoryByUrl && categories.includes(categoryByUrl) ? categoryByUrl : '전체';
-
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
-
+  const [peoplelogResponse, setPeopleslogResponse] = useState<PeopleslogResponse | null>(null);
+  // URL 파라미터 변경 시 카테고리 동기화
   useEffect(() => {
     const currentUrlCode = searchParams.get('acneType');
-    const categoryFromUrl = currentUrlCode ? REVERSE_CATEGORY_MAP[currentUrlCode] : '전체';
-    const newCategory = categories.includes(categoryFromUrl) ? categoryFromUrl : '전체';
-
-    if (selectedCategory !== newCategory) {
-      setSelectedCategory(newCategory);
+    const categoryFromUrl = currentUrlCode
+      ? REVERSE_CATEGORY_MAP[currentUrlCode.toUpperCase()]
+      : '전체';
+    if (categoryFromUrl !== selectedCategory) {
+      setSelectedCategory(categoryFromUrl as Category);
       setPage(1);
     }
   }, [searchParams]);
+  // 데이터 fetch
+  useEffect(() => {
+    const fetchPeopleslogData = async () => {
+      try {
+        const type =
+          selectedCategory === '전체'
+            ? 'all'
+            : CATEGORY_MAP[selectedCategory as keyof typeof CATEGORY_MAP]; // 소문자 값
+        const data = await peoplelogService.getPeopleslog(type, { page, size: 4 });
+        setPeopleslogResponse(data);
+      } catch (err) {
+        console.error('API 호출 오류:', err);
+      }
+    };
 
->>>>>>> 5dc804d39c739a7b3e9217ca4abbc37dd92c09c5
-  const getCurrentData = () => {
-    if (selectedCategory === '화농성') return dummyDataByA;
-    if (selectedCategory === '염증성') return dummyDataByB;
-    if (selectedCategory === '좁쌀') return dummyDataByC;
-    if (selectedCategory === '모낭염') return dummyDataByD;
-    return dummyData;
-  };
+    fetchPeopleslogData();
+  }, [selectedCategory, page]);
 
-  const { logList, totalPages } = getCurrentData()[page];
+  if (!peoplelogResponse) return <div>로딩중...</div>;
+
+  const { content, totalPages } = peoplelogResponse;
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -68,6 +61,7 @@ function PeoplesLog() {
   return (
     <S.Layout>
       <S.Title>피플즈 로그</S.Title>
+
       <S.CategoryBox>
         {categories.map((cat) => (
           <S.Category
@@ -75,11 +69,11 @@ function PeoplesLog() {
             $isSelected={selectedCategory === cat}
             onClick={() => {
               setPage(1);
+              setSelectedCategory(cat);
               if (cat === '전체') {
                 setSearchParams({});
               } else {
-                const englishCode = CATEGORY_MAP[cat as keyof typeof CATEGORY_MAP];
-                setSearchParams({ acneType: englishCode });
+                setSearchParams({ acneType: CATEGORY_MAP[cat as keyof typeof CATEGORY_MAP] });
               }
             }}
           >
@@ -89,21 +83,21 @@ function PeoplesLog() {
       </S.CategoryBox>
 
       <S.LogList>
-        {logList.map((log) => (
+        {content.map((log) => (
           <S.LogItem
-            name={log.name as 'A' | 'B' | 'C'}
-            key={log.id}
-            onClick={() => navigate(`/peoplesLog/${log.id}`)}
+            key={log.analysisId}
+            name={log.acneType as 'ALL' | 'PUSTULES' | 'PAPULES' | 'COMEDONES' | 'FOLLICULITIS'}
+            onClick={() => navigate(`/peoplesLog/${log.analysisId}`)}
           >
-            <S.LogImage src={log.image} alt={log.name} />
+            <S.LogImage src={log.imageUrl} alt={log.acneType} />
             <S.LogBox>
               <S.LogName type="name">
                 <S.RoundBox type="name">진단명</S.RoundBox>
-                {diagnosisNameMap[log.name]}
+                {acneTypeMap[log.acneType as keyof typeof acneTypeMap] || '알 수 없음'}
               </S.LogName>
               <S.LogName type="date">
                 <S.RoundBox type="date">진단일</S.RoundBox>
-                {log.date.replace(/-/g, '.')}
+                {log.createdAt ? log.createdAt.slice(0, 10).replace(/-/g, '.') : '날짜 없음'}
               </S.LogName>
             </S.LogBox>
           </S.LogItem>

@@ -1,27 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import * as S from './MyLog.styles';
-<<<<<<< HEAD
 import { useEffect, useState } from 'react';
-=======
-import { useState } from 'react';
-import {
-  dummyData,
-  diagnosisNameMap,
-  dummyDataByA,
-  dummyDataByB,
-  dummyDataByC,
-  dummyDataByD,
-} from '../PeoplesLog/peoplesLogDummyData';
->>>>>>> 5dc804d39c739a7b3e9217ca4abbc37dd92c09c5
+
 import { Pagination } from '@mui/material';
 import { myLogService, MyLogResponse } from '../../services/myLogservice';
-import { acneTypeMap, categoryToTypeMap, categories, Category } from './acneTypeMap';
+import { acneTypeMap, categoryToTypeMap, categories, Category } from '../../constants/acneTypeMap';
 
 function MyLog() {
   const navigate = useNavigate();
 
   const [page, setPage] = useState(1);
-<<<<<<< HEAD
+
   const [selectedCategory, setSelectedCategory] = useState<Category>('전체');
   const [myLogResponse, setMyLogResponse] = useState<MyLogResponse | null>(null);
 
@@ -37,18 +26,6 @@ function MyLog() {
     } catch (err) {
       console.error('API 호출 오류:', err);
     }
-=======
-  const [selectedCategory, setSelectedCategory] = useState('전체');
-  const categories = ['전체', '화농성', '염증성', '좁쌀', '모낭염'];
-
-  // [TODO] dummyData로 임시 지정
-  const getCurrentData = () => {
-    if (selectedCategory === '화농성') return dummyDataByA;
-    if (selectedCategory === '염증성') return dummyDataByB;
-    if (selectedCategory === '좁쌀') return dummyDataByC;
-    if (selectedCategory === '모낭염') return dummyDataByD;
-    return dummyData;
->>>>>>> 5dc804d39c739a7b3e9217ca4abbc37dd92c09c5
   };
 
   useEffect(() => {
