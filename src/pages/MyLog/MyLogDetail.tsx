@@ -24,10 +24,24 @@ const MyLogDetail = () => {
 
   useEffect(() => {
     fetchMyLogDetailData();
-  }, []);
+  }, [id]);
   if (!myLogDetailResponse) return <p>데이터 없음</p>;
 
   const data = myLogDetailResponse;
+
+  //공개여부 변경 함수, API 개발 후 수정 예정
+  const handleVisibilityChange = async (value: boolean) => {
+    try {
+      setIsPublic(value); // 상태 먼저 바꿔서 UI 반영
+
+      //await myLogDetailService.updateVisibility(id!, value); // API 호출
+      console.log('공개 여부 변경 성공');
+    } catch (err) {
+      console.error('공개 여부 변경 실패', err);
+      // 실패하면 UI 상태 원복
+      setIsPublic(!value);
+    }
+  };
 
   return (
     <S.Content>
@@ -52,7 +66,7 @@ const MyLogDetail = () => {
                 name="visibility"
                 value="true"
                 checked={isPublic === true}
-                onChange={() => setIsPublic(true)}
+                onChange={() => handleVisibilityChange(true)}
               />
               공개
             </S.CustomRadio>
@@ -62,7 +76,7 @@ const MyLogDetail = () => {
                 name="visibility"
                 value="false"
                 checked={isPublic === false}
-                onChange={() => setIsPublic(false)}
+                onChange={() => handleVisibilityChange(false)}
               />
               비공개
             </S.CustomRadio>
