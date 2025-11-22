@@ -79,8 +79,8 @@ export const GreyBoxLogin = styled.div<SkinTypeProps>`
 `;
 
 // 피부타입에 따른 텍스트 색상 효과
-export const SkinTypeColor = styled.span<{ skinType: string }>`
-  color: ${({ skinType }) => getColor(skinType)};
+export const SkinTypeColor = styled.span<{ $skinType: string }>`
+  color: ${({ $skinType }) => getColor($skinType)};
   font-weight: 900;
 `;
 

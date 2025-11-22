@@ -10,6 +10,7 @@ export interface MyLogItem {
 export interface MyLogResponse {
   content: MyLogItem[];
   totalPages: number;
+  totalElements: number;
 }
 
 export const myLogService = {

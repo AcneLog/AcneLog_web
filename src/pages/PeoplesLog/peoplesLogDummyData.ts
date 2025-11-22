@@ -2,6 +2,7 @@ export const diagnosisNameMap: Record<string, string> = {
   A: '화농성 여드름',
   B: '염증성 여드름',
   C: '좁쌀 여드름',
+  D: '모낭염',
 };
 
 // Diagnosis 타입 확장 (진단 기록에 ID 추가)t
