@@ -4,15 +4,33 @@ export interface MyLogItem {
   analysisId: number;
   imageUrl: string;
   acneType: string;
-  createdAt: string;
   isPublic: boolean;
+  createdAt?: string;
+  description: string;
+  careMethod: string;
+  guide: string;
+  managementTips: {
+    title: string;
+    description: string;
+  };
+  videoList: {
+    videoId: string;
+    videoTitle: string;
+    videoUrl: string;
+    channelName: string;
+    thumbnailUrl: string;
+  }[]; // 배열로 표시
+  productList: {
+    id: number;
+    name: string;
+    imageUrl: string;
+  }[]; // 배열로 표시
 }
 export interface MyLogResponse {
   content: MyLogItem[];
   totalPages: number;
-  totalElements: number;
 }
-
+// 마이 로그 조회 서비스
 export const myLogService = {
   getMyLog: async (
     type: string,
@@ -28,6 +46,14 @@ export const myLogService = {
       },
     });
     // console.log('MyLog API Response:', res.data.data);
+    return res.data.data;
+  },
+};
+//마이로그 상세페이지 조회
+export const myLogDetailService = {
+  getMyLogDetail: async (analysisId: string): Promise<MyLogItem> => {
+    const res = await apiPrivate.get(`/analysis/detail/${analysisId}`);
+    console.log('MyLog Detail API Response:', res.data.data);
     return res.data.data;
   },
 };
