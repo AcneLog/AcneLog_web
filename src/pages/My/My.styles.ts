@@ -111,13 +111,6 @@ export const blackBoxText = styled.div`
   padding: 0.3rem;
 `;
 
-// [로그인O] '알림 수신 여부' 메뉴 컨테이너
-export const switchBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 // 점선
 export const dashedLine = styled.div`
   border-top: 0.05rem dashed black;

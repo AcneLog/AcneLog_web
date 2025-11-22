@@ -103,3 +103,10 @@ export const NoticeContent = styled.div`
   font-weight: normal;
   line-height: 1.8;
 `;
+
+// 페이지네이션 레이아웃
+export const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+`;
