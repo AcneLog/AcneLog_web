@@ -11,19 +11,17 @@ const MyLogDetail = () => {
   const [myLogDetailResponse, setMyLogDetailResponse] = useState<MyLogItem | null>(null);
   const [isPublic, setIsPublic] = useState<true | false>(false);
 
-  const fetchMyLogDetailData = async () => {
-    try {
-      const data = await myLogDetailService.getMyLogDetail(id!);
-
-      setMyLogDetailResponse(data);
-      setIsPublic(data.isPublic ? true : false);
-    } catch (err) {
-      console.error('API 호출 오류:', err);
-    }
-  };
-
   useEffect(() => {
-    fetchMyLogDetailData();
+    (async () => {
+      try {
+        const data = await myLogDetailService.getMyLogDetail(id!);
+
+        setMyLogDetailResponse(data);
+        setIsPublic(data.isPublic ? true : false);
+      } catch (err) {
+        console.error('API 호출 오류:', err);
+      }
+    })();
   }, [id]);
   if (!myLogDetailResponse) return <p>데이터 없음</p>;
 
