@@ -1,11 +1,28 @@
 import useCustomNavigate from '../../hooks/useNavigate';
 import * as S from './Home.styles';
-import { acneImages, youtubeThumbnails, productRecommendations } from './homeDummyData';
+import { youtubeThumbnails, productRecommendations } from './homeDummyData';
 import Banner from '../../assets/banner.svg';
 import sharp from '../../assets/img/sharpIcon.svg';
+import { useEffect, useState } from 'react';
+import { AcnePostCountData, homePeoplesLogService } from '../../services/homeAcneService';
+import { acneTypeData } from './homeAcneData';
 
 function Home() {
   const goToPage = useCustomNavigate();
+  const [acneType] = useState(acneTypeData);
+  const [postCounts, setPostCounts] = useState<AcnePostCountData>({
+    comedones: 0,
+    pustules: 0,
+    papules: 0,
+    follicultis: 0,
+  });
+
+  useEffect(() => {
+    (async () => {
+      const res = await homePeoplesLogService.getPeoplesLog();
+      setPostCounts(res);
+    })();
+  }, []);
 
   return (
     <div>
@@ -23,9 +40,12 @@ function Home() {
           </S.PeoplesLogButton>
         </S.Header>
         <S.List>
-          {acneImages.map((item) => (
-            <S.Itm key={item.id}>
-              <img src={item.src} width="100%" height="140rem" />
+          {acneType.map((item) => (
+            <S.Itm
+              key={item.typeId}
+              onClick={() => goToPage(`/peoplesLog?acneType=${item.acneTypeAPI}`)}
+            >
+              <img src={item.imgUrl} width="100%" height="140rem" />
               <div
                 style={{
                   display: 'flex',
@@ -34,9 +54,9 @@ function Home() {
                 }}
               >
                 <img src={sharp} width="20%" />
-                <span>{item.description}</span>
+                <span>{item.acneTypeKR}</span>
               </div>
-              <S.PostCountText>게시글 10개</S.PostCountText>
+              <S.PostCountText>게시물 {postCounts[item.acneTypeAPI]}개</S.PostCountText>
             </S.Itm>
           ))}
         </S.List>
@@ -46,7 +66,7 @@ function Home() {
           <h2>오늘의 유튜브</h2>
         </S.Header>
         <S.List>
-          {youtubeThumbnails.map((item) => (
+          {youtubeThumbnails.slice(0, 3).map((item) => (
             <S.Itm key={item.id}>
               <img src={item.src} width="100%" height="140rem" />
               <span>{item.title}</span>

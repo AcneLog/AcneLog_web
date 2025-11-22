@@ -2,6 +2,7 @@ export const diagnosisNameMap: Record<string, string> = {
   A: '화농성 여드름',
   B: '염증성 여드름',
   C: '좁쌀 여드름',
+  D: '모낭염',
 };
 
 // Diagnosis 타입 확장 (진단 기록에 ID 추가)t
@@ -124,9 +125,17 @@ export const dummyDataByC: Record<number, PageData> = {
           'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/366/31d186c3833990b970a3639f34daf4f9_res.jpeg',
         show: true,
       },
+    ],
+    pageNum: 1,
+    totalPages: 1,
+  },
+};
+export const dummyDataByD: Record<number, PageData> = {
+  1: {
+    logList: [
       {
         id: 'log5',
-        name: 'C',
+        name: 'D',
         date: '2025-07-10',
         image:
           'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/452/a70e98f85203fd1408b6c174869e7b93_res.jpeg',

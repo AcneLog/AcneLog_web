@@ -7,6 +7,7 @@ import {
   dummyDataByA,
   dummyDataByB,
   dummyDataByC,
+  dummyDataByD,
 } from '../PeoplesLog/peoplesLogDummyData';
 import { Pagination } from '@mui/material';
 
@@ -15,13 +16,14 @@ function MyLog() {
 
   const [page, setPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('전체');
-  const categories = ['전체', '화농성', '염증성', '좁쌀'];
+  const categories = ['전체', '화농성', '염증성', '좁쌀', '모낭염'];
 
   // [TODO] dummyData로 임시 지정
   const getCurrentData = () => {
     if (selectedCategory === '화농성') return dummyDataByA;
     if (selectedCategory === '염증성') return dummyDataByB;
     if (selectedCategory === '좁쌀') return dummyDataByC;
+    if (selectedCategory === '모낭염') return dummyDataByD;
     return dummyData;
   };
 
@@ -38,7 +40,7 @@ function MyLog() {
         {categories.map((cat) => (
           <S.Category
             key={cat}
-            isSelected={selectedCategory === cat}
+            $isSelected={selectedCategory === cat}
             onClick={() => {
               setSelectedCategory(cat);
               setPage(1);

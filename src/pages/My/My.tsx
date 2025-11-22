@@ -1,6 +1,5 @@
 import * as S from './My.styles';
 import useCustomNavigate from '../../hooks/useNavigate';
-import Switch from '@mui/material/Switch';
 import { useIsAuthed, useAuth } from '../../auth/authStore';
 import { useEffect, useState } from 'react';
 import { userService } from '../../services/userService';
@@ -39,11 +38,11 @@ function My() {
             </>
           ) : (
             <>
-              <S.GreyBoxLogin skinType={skinType}>
+              <S.GreyBoxLogin $skinType={skinType}>
                 <h2>{name} 님, 반갑습니다</h2>
                 <p>
-                  나의 피부타입은 '<S.SkinTypeColor skinType={skinType}>{skinType}</S.SkinTypeColor>
-                  '
+                  나의 피부타입은 '
+                  <S.SkinTypeColor $skinType={skinType}>{skinType}</S.SkinTypeColor>'
                 </p>
               </S.GreyBoxLogin>
               <S.dashedLine />
@@ -78,10 +77,6 @@ function My() {
             <p style={{ cursor: 'pointer' }} onClick={() => goToPage('/notice')}>
               공지사항
             </p>
-            <S.switchBar>
-              <p>알림 수신 여부</p>
-              <Switch />
-            </S.switchBar>
             <p style={{ cursor: 'pointer' }}>개인정보보호처리방침</p>
           </>
         )}

@@ -294,7 +294,7 @@ export const diagnosisDetailMap: Record<string, DiagnosisDetail> = {
     id: 'log5',
     imageUrl:
       'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/452/a70e98f85203fd1408b6c174869e7b93_res.jpeg',
-    diagnosisName: '좁쌀 여드름',
+    diagnosisName: '모낭염',
     diagnosedAt: '2025-07-10 20:00',
     userNickname: '클린페이스도전',
     skinType: '복합성',
