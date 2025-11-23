@@ -10,7 +10,7 @@ interface LogTextProps {
 
 // [TODO] 실제 enum 타입으로 변경
 interface LogItemProps {
-  name: 'A' | 'B' | 'C';
+  name: 'ALL' | 'PUSTULES' | 'PAPULES' | 'COMEDONES' | 'FOLLICULITIS';
 }
 
 // 전체 레이아웃

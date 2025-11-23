@@ -4,17 +4,17 @@ import { youtubeThumbnails, productRecommendations } from './homeDummyData';
 import Banner from '../../assets/banner.svg';
 import sharp from '../../assets/img/sharpIcon.svg';
 import { useEffect, useState } from 'react';
-import { AcnePostCountData, homePeoplesLogService } from '../../services/homeAcneService';
+import { AcnePostCountData, homePeoplesLogService } from '../../services/homeService';
 import { acneTypeData } from './homeAcneData';
 
 function Home() {
   const goToPage = useCustomNavigate();
   const [acneType] = useState(acneTypeData);
   const [postCounts, setPostCounts] = useState<AcnePostCountData>({
-    comedones: 0,
-    pustules: 0,
-    papules: 0,
-    follicultis: 0,
+    COMEDONES: 0,
+    PUSTULES: 0,
+    PAPULES: 0,
+    FOLLICULITIS: 0,
   });
 
   useEffect(() => {
@@ -56,7 +56,10 @@ function Home() {
                 <img src={sharp} width="20%" />
                 <span>{item.acneTypeKR}</span>
               </div>
-              <S.PostCountText>게시물 {postCounts[item.acneTypeAPI]}개</S.PostCountText>
+              <S.PostCountText>
+                게시물 {postCounts[item.acneTypeAPI.toUpperCase() as keyof AcnePostCountData] || 0}
+                개
+              </S.PostCountText>
             </S.Itm>
           ))}
         </S.List>
