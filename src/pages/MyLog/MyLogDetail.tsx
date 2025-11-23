@@ -2,7 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './MyLogDetail.styles';
 import { useEffect, useState } from 'react';
 import xIcon from '../../assets/xIcon.svg';
-import { myLogDetailService, MyLogItem } from '../../services/myLogservice';
+import { myLogDetailService, MyLogItem, myLogPublicService } from '../../services/myLogservice';
 import { acneTypeMap } from '../../constants/acneTypeMap';
 
 const MyLogDetail = () => {
@@ -27,17 +27,14 @@ const MyLogDetail = () => {
 
   const data = myLogDetailResponse;
 
-  //공개여부 변경 함수, API 개발 후 수정 예정
+  //공개여부 변경 함수,
   const handleVisibilityChange = async (value: boolean) => {
+    if (!id) return;
     try {
-      setIsPublic(value); // 상태 먼저 바꿔서 UI 반영
-
-      //await myLogDetailService.updateVisibility(id!, value); // API 호출
-      console.log('공개 여부 변경 성공');
-    } catch (err) {
-      console.error('공개 여부 변경 실패', err);
-      // 실패하면 UI 상태 원복
-      setIsPublic(!value);
+      const updatedLog = await myLogPublicService.patchMyLogPublic(id, value);
+      setIsPublic(updatedLog.isPublic);
+    } catch (error) {
+      console.error(error);
     }
   };
 

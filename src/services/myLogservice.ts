@@ -55,7 +55,18 @@ export const myLogService = {
 export const myLogDetailService = {
   getMyLogDetail: async (analysisId: string): Promise<MyLogItem> => {
     const res = await apiPrivate.get(`/analysis/detail/${analysisId}`);
-    // console.log('MyLog Detail API Response:', res.data.data);
+    console.log('MyLog Detail API Response:', res.data.data);
+    return res.data.data;
+  },
+};
+//마이로그 상세페이지 공개 여부 변경
+export const myLogPublicService = {
+  patchMyLogPublic: async (analysisId: string, isPublic: boolean): Promise<MyLogItem> => {
+    const res = await apiPrivate.patch(`/analysis/public`, {
+      analysisId: Number(analysisId), //useParams는 항상 string 반환, string -> number로 변환
+      isPublic,
+    });
+    console.log('MyLog Detail API Response:', res.data.data);
     return res.data.data;
   },
 };

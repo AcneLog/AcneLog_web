@@ -1,4 +1,4 @@
-import { apiPrivate } from '../api/client';
+import { apiPrivate, apiPublic } from '../api/client';
 
 export interface PeopleslogItem {
   analysisId: number;
@@ -42,7 +42,7 @@ export const peoplelogService = {
   ): Promise<PeopleslogResponse> => {
     const { page, size } = pageable;
 
-    const res = await apiPrivate.get('/analysis/log', {
+    const res = await apiPublic.get('/analysis/log', {
       params: {
         type,
         page: page - 1,
@@ -53,10 +53,10 @@ export const peoplelogService = {
     return res.data.data;
   },
 };
-//마이로그 상세페이지 조회
+//피플즈로그 상세페이지 조회
 export const peoplesLogDetailService = {
   peopleslogMyLogDetail: async (analysisId: string): Promise<PeopleslogItem> => {
-    const res = await apiPrivate.get(`/analysis/log/${analysisId}`);
+    const res = await apiPublic.get(`/analysis/log/${analysisId}`);
     // console.log('Peopleslog Detail API Response:', res.data.data);
     return res.data.data;
   },

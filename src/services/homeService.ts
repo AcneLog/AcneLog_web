@@ -8,6 +8,7 @@ export type AcnePostCountData = Record<
 export const homePeoplesLogService = {
   async getPeoplesLog(): Promise<AcnePostCountData> {
     const res = await apiPublic.get('/analysis/main');
+    // console.log(res.data.data);
     return res.data.data;
   },
 };
