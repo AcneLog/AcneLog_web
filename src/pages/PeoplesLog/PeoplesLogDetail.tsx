@@ -3,7 +3,7 @@ import * as S from './PeoplesLogDetail.styles';
 import xIcon from '../../assets/xIcon.svg';
 import { useEffect, useState } from 'react';
 import { peoplesLogDetailService, PeopleslogItem } from '../../services/peopleslogService';
-import { acneTypeMap } from '../../constants/acneTypeMap';
+import { acneTypeMap, skinTypeMap } from '../../constants/acneTypeMap';
 const PeolesLogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -44,7 +44,11 @@ const PeolesLogDetail = () => {
             </S.DiagnosisValue>
           </li>
           <S.BlackBadge>피부 타입</S.BlackBadge>
-          <S.DiagnosisValue>{data.skinType ? data.skinType : '피부 타입 없음'}</S.DiagnosisValue>
+          <S.DiagnosisValue>
+            {data.userSkinType
+              ? skinTypeMap[data.userSkinType as keyof typeof skinTypeMap]
+              : '피부 타입 없음'}
+          </S.DiagnosisValue>
           <li>
             <S.BlackBadge>진단일</S.BlackBadge>{' '}
             <S.DiagnosisValue>{data.createdAt ? data.createdAt : '진단일 없음'}</S.DiagnosisValue>

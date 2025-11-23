@@ -32,3 +32,8 @@ export const REVERSE_CATEGORY_MAP: Record<string, Category> = {
   COMEDONES: '좁쌀',
   FOLLICULITIS: '모낭염',
 };
+export const skinTypeMap = {
+  OILY: '지성',
+  DRY: '건성',
+  COMBINATION: '수부지',
+};

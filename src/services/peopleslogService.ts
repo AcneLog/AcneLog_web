@@ -1,4 +1,4 @@
-import { apiPrivate, apiPublic } from '../api/client';
+import { apiPublic } from '../api/client';
 
 export interface PeopleslogItem {
   analysisId: number;
@@ -6,7 +6,7 @@ export interface PeopleslogItem {
   acneType: string;
   isPublic: boolean;
   userName: string;
-  skinType: string;
+  userSkinType: string;
   createdAt: string;
   description: string;
   careMethod: string;
@@ -57,7 +57,7 @@ export const peoplelogService = {
 export const peoplesLogDetailService = {
   peopleslogMyLogDetail: async (analysisId: string): Promise<PeopleslogItem> => {
     const res = await apiPublic.get(`/analysis/log/${analysisId}`);
-    // console.log('Peopleslog Detail API Response:', res.data.data);
+    console.log('Peopleslog Detail API Response:', res.data.data);
     return res.data.data;
   },
 };
