@@ -4,7 +4,7 @@ import { youtubeThumbnails, productRecommendations } from './homeDummyData';
 import Banner from '../../assets/banner.svg';
 import sharp from '../../assets/img/sharpIcon.svg';
 import { useEffect, useState } from 'react';
-import { AcnePostCountData, homePeoplesLogService } from '../../services/homeAcneService';
+import { AcnePostCountData, homePeoplesLogService } from '../../services/homeService';
 import { acneTypeData } from './homeAcneData';
 
 function Home() {
