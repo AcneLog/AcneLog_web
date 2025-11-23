@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 // import axios from 'axios';
 import * as S from './Diagnosis.styles';
-import { resultMap } from './resultDummyData';
 import { NavigateOptions, useNavigate } from 'react-router-dom';
+import { diagnosisService } from '../../services/diagnosisService';
 
 const Diagnosis: React.FC = () => {
   const navigate = useNavigate();
@@ -32,17 +32,18 @@ const Diagnosis: React.FC = () => {
   };
 
   const handleDiagnosis = async () => {
-    if (!file) return;
-
+    if (!file || !imagePreview) return;
     try {
       setIsLoading(true);
 
-      // 백엔드 없이 더미 결과 사용
-      const dummyResult = resultMap['log1'];
+      // 1) 이미지 업로드
+      const imageUrl = await diagnosisService.uploadImage(file);
 
+      // 2) 이미지 분석
+      const result = await diagnosisService.analyzeImage(file);
       goToPage('/diagnosis/result', {
         state: {
-          result: dummyResult,
+          result: result,
         },
       });
     } catch {
