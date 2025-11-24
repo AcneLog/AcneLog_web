@@ -46,7 +46,7 @@ export const diagnosisService = {
     const res = await apiPrivate.post<{ data: AnalysisResult }>('/analysis/perform', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
-    console.log('analyzeImage response data:', res.data);
+    // console.log('analyzeImage response data:', res.data);
     return res.data.data;
   },
 };

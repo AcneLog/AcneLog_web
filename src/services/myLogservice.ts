@@ -66,7 +66,7 @@ export const myLogPublicService = {
       analysisId,
       isPublic,
     });
-    console.log('MyLog Detail API Response:', res.data.data);
+    // console.log('MyLog Detail API Response:', res.data.data);
     return res.data.data;
   },
 };
