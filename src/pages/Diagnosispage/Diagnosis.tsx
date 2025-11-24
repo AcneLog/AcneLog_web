@@ -37,7 +37,7 @@ const Diagnosis: React.FC = () => {
       setIsLoading(true);
 
       // 1) 이미지 업로드
-      const imageUrl = await diagnosisService.uploadImage(file);
+      await diagnosisService.uploadImage(file);
 
       // 2) 이미지 분석
       const result = await diagnosisService.analyzeImage(file);

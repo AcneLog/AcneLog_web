@@ -36,7 +36,7 @@ export const diagnosisService = {
       params: { dir: 'skin' },
       headers: { 'Content-Type': 'multipart/form-data' },
     });
-    console.log('uploadImage response data:', res.data);
+    // console.log('uploadImage response data:', res.data);
     return res.data.data.imageUrl;
   },
   analyzeImage: async (file: File): Promise<AnalysisResult> => {

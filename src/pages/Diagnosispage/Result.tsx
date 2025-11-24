@@ -1,33 +1,34 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as S from './Result.styles';
 import BasicModal from '../../components/common/BasicModal';
 import { useState } from 'react';
 import { acneTypeMap } from '../../constants/acneTypeMap';
+import { AnalysisResult } from '../../services/diagnosisService';
+import { myLogPublicService } from '../../services/myLogservice';
 
 const Result = () => {
   const location = useLocation();
-  const result = location.state?.result;
-
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalConfig, setModalConfig] = useState({
-    message: '',
-    confirmLink: '/',
-  });
 
-  // const openSaveModal = () => {
-  //   setModalConfig({
-  //     message: '진단 결과를 저장하시겠습니까?',
-  //     confirmLink: `/myLog`,
-  //   });
-  //   setModalOpen(true);
-  // };
-
-  const openHomeModal = () => {
-    setModalConfig({
-      message: '진단 결과를 공개하시겠습니까?',
-      confirmLink: '/',
-    });
-    setModalOpen(true);
+  const result = location.state?.result as AnalysisResult | null;
+  const openHomeModal = () => setModalOpen(true);
+  // 예 버튼 동작
+  const handleConfirm = () => {
+    setModalOpen(false);
+    navigate('/');
+  };
+  // 아니오 버튼 동작
+  const handleReject = async () => {
+    try {
+      if (!result) return;
+      await myLogPublicService.patchMyLogPublic(result.analysisId, false);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setModalOpen(false);
+      navigate('/');
+    }
   };
 
   if (!result) return <p>결과를 찾을 수 없습니다.</p>;
@@ -65,14 +66,6 @@ const Result = () => {
 
       <S.ManagementSection>
         <S.BlackBadge>관리 가이드</S.BlackBadge>
-        {/* {result.guide.map((g) => (
-          <div key={g.id}>
-            <div style={{ marginBottom: '0.5rem' }}></div>
-            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
-              <li>{g}</li>
-            </ul>
-          </div>
-        ))} */}
         <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
           <li>{result.guide}</li>
         </ul>
@@ -107,15 +100,15 @@ const Result = () => {
       </S.RecommendSection>
 
       <S.ButtonSection>
-        {/* <S.BlueButton onClick={openSaveModal}>저장하기</S.BlueButton> */}
         <S.BlackButton onClick={openHomeModal}>홈으로 돌아가기</S.BlackButton>
       </S.ButtonSection>
 
       <BasicModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        message={modalConfig.message}
-        confirmLink={modalConfig.confirmLink}
+        message="진단 결과를 공개하시겠습니까?"
+        onConfirm={handleConfirm}
+        onReject={handleReject}
       />
     </S.Content>
   );
