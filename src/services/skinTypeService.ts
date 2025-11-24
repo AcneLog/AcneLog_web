@@ -26,7 +26,7 @@ export const skinTypeService = {
   },
   async submitSurveyAnswers(answers: Record<string, number>) {
     const res = await apiPrivate.post('/survey/response', { answers });
-    console.log('[Submit Survey Response]', res.data);
+    // console.log('[Submit Survey Response]', res.data);
     return res.data;
   },
 };
