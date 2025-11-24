@@ -24,7 +24,7 @@ interface ConfirmModalProps {
   onClose: () => void;
   message: string; // 모달에 표시할 메시지
   onConfirm: () => void; // 예 클릭 시
-  onReject: () => void; // 아니오 클릭 시
+  onReject?: () => void; // 아니오 클릭 시
   confirmText?: string; // 확인 버튼 텍스트 (기본: "예")
   rejectText?: string; // 취소 버튼 텍스트 (기본: "아니오")
 }
