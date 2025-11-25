@@ -66,7 +66,6 @@ const GlobalStyle = createGlobalStyle`
 
   @media (max-width: 600px) {
     #root {
-        background-color: pink;
         box-shadow: none;
     }
   }
