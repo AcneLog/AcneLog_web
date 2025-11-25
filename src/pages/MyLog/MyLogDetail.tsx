@@ -31,7 +31,7 @@ const MyLogDetail = () => {
   const handleVisibilityChange = async (value: boolean) => {
     if (!id) return;
     try {
-      const updatedLog = await myLogPublicService.patchMyLogPublic(id, value);
+      const updatedLog = await myLogPublicService.patchMyLogPublic(Number(id), value);
       setIsPublic(updatedLog.isPublic);
     } catch (error) {
       console.error(error);
