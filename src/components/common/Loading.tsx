@@ -9,7 +9,7 @@ export default function Loading() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: '65vh',
       }}
     >
       <Lottie loop animationData={loadingAnimation} play style={{ width: 200, height: 200 }} />
