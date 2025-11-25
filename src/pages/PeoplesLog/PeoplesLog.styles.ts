@@ -113,3 +113,12 @@ export const RoundBox = styled.div<LogTextProps>`
   background: ${({ type }) => (type === 'name' ? '#92CDFF' : '#C0E2FF')};
   padding: 0.4rem 1rem;
 `;
+
+export const NoDataBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 6rem 0rem;
+  gap: 2rem;
+`;
