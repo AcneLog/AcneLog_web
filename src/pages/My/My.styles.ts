@@ -5,9 +5,9 @@ interface SkinTypeProps {
 }
 
 export const getColor = (skinType: string) => {
-  if (skinType === '건성') return '#4E8CFF';
-  if (skinType === '지성') return '#FF2D57';
-  if (skinType === '수부지') return '#34A853';
+  if (skinType === 'DRY') return '#4E8CFF';
+  if (skinType === 'OILY') return '#FF2D57';
+  if (skinType === 'COMBINATION') return '#34A853';
   return '#888';
 };
 
@@ -106,8 +106,8 @@ export const blackBox = styled.div`
 
 // [로그인O] '최근 검사일' 텍스트
 export const blackBoxText = styled.div`
-  color: #17171b;
-  font-size: 0.6rem;
+  color: #747474ff;
+  font-size: 0.75rem;
   padding: 0.3rem;
 `;
 
@@ -115,4 +115,9 @@ export const blackBoxText = styled.div`
 export const dashedLine = styled.div`
   border-top: 0.05rem dashed black;
   width: 100%;
+`;
+
+export const showText = styled.div`
+  color: #747474ff;
+  font-size: 0.75rem;
 `;
