@@ -85,7 +85,7 @@ function PeoplesLog() {
       {content.length === 0 ? (
         <S.NoDataBox>
           <img src={noData} alt="no-data-icon" style={{ width: '5rem' }} />
-          <p>아직 로그를 올린 피플이 없어요</p>
+          <p>아직 공개된 로그가 없어요</p>
         </S.NoDataBox>
       ) : (
         <S.LogList>
