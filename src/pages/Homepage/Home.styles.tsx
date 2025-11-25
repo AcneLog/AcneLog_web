@@ -36,17 +36,35 @@ export const Itm = styled.div`
   text-align: center;
   cursor: pointer;
   img {
-    margin-bottom: 0.3rem;
-    border-radius: 1.7rem;
+    width: 100%;
+    height: 8.75rem;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+  p {
+    font-size: 0.875rem; // 14px 정도
+    line-height: 1.2;
+    text-align: center;
+
+    /* 글자 길이 일정하게 표시 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // 2줄까지만 표시
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
-
+export const SharpIcon = styled.span`
+  img {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+`;
 //피플즈로그 게시물 개수
 export const PostCountText = styled.p`
   font-size: 0.75rem;
   color: #737373;
-  margin-right: 1.5rem;
-  margin-top: -0.2rem;
+  margin-right: 1.4rem;
   font-weight: normal;
 `;
 
@@ -55,7 +73,23 @@ export const TodaysItemItm = styled.div`
   width: 100%;
   cursor: pointer;
   img {
-    border-radius: 1.7rem;
+    width: 100%;
+    height: 8.75rem; // 이미지 영역
+    object-fit: cover; // 영역에 맞게 자르기
+    border-radius: 1rem;
+  }
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem; // 14px 정도
+    line-height: 1.2;
+    text-align: center;
+
+    /* 글자 길이 일정하게 표시 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // 2줄까지만 표시
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   margin-bottom: 6.25rem;
   text-align: center;
