@@ -1,33 +1,34 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as S from './Result.styles';
 import BasicModal from '../../components/common/BasicModal';
-import { Result as ResultType } from './resultDummyData';
 import { useState } from 'react';
+import { acneTypeMap } from '../../constants/acneTypeMap';
+import { AnalysisResult } from '../../services/diagnosisService';
+import { myLogPublicService } from '../../services/myLogservice';
 
 const Result = () => {
   const location = useLocation();
-  const result = location.state?.result as ResultType | undefined;
-
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalConfig, setModalConfig] = useState({
-    message: '',
-    confirmLink: '/',
-  });
 
-  const openSaveModal = () => {
-    setModalConfig({
-      message: '진단 결과를 저장하시겠습니까?',
-      confirmLink: `/myLog`,
-    });
-    setModalOpen(true);
+  const result = location.state?.result as AnalysisResult | null;
+  const openHomeModal = () => setModalOpen(true);
+  // 예 버튼 동작
+  const handleConfirm = () => {
+    setModalOpen(false);
+    navigate('/');
   };
-
-  const openHomeModal = () => {
-    setModalConfig({
-      message: '진단 결과가 저장되지 않습니다. \n그래도 나가시겠습니까?',
-      confirmLink: '/',
-    });
-    setModalOpen(true);
+  // 아니오 버튼 동작
+  const handleReject = async () => {
+    try {
+      if (!result) return;
+      await myLogPublicService.patchMyLogPublic(result.analysisId, false);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setModalOpen(false);
+      navigate('/');
+    }
   };
 
   if (!result) return <p>결과를 찾을 수 없습니다.</p>;
@@ -43,68 +44,71 @@ const Result = () => {
       <S.InfoSection>
         <div style={{ fontWeight: 'normal' }}>
           <S.BlackBadge>진단결과</S.BlackBadge> 이미지 분석 결과,
-          <S.YellowBadge style={{ color: 'red' }}>{result.diagnosisName}</S.YellowBadge>일 확률이
-          가장 높습니다.
+          <S.YellowBadge style={{ color: 'red' }}>
+            {acneTypeMap[result.acneType as keyof typeof acneTypeMap]}
+          </S.YellowBadge>
+          일 확률이 가장 높습니다.
         </div>
         <S.Description>
           <h4 style={{ color: '#17171b', marginBottom: '0.5rem' }}>
-            ☝🏻 '{result.diagnosisName}' 이란?
+            ☝🏻 ' {acneTypeMap[result.acneType as keyof typeof acneTypeMap]}' 이란?
           </h4>
-          {result.acneDescription}
+          {result.description}
         </S.Description>
       </S.InfoSection>
 
       <S.Title>치료 및 관리 가이드</S.Title>
       <S.TreatmentSection>
         <S.BlackBadge>치료법</S.BlackBadge>
-        <div className="treatment-title">{result.treatment.title}</div>
-        <div>{result.treatment.description}</div>
+        {/* <div className="treatment-title">{result.careMethod}</div> */}
+        <div>{result.careMethod}</div>
       </S.TreatmentSection>
 
       <S.ManagementSection>
         <S.BlackBadge>관리 가이드</S.BlackBadge>
-        {result.managementTips.map((tip) => (
-          <div key={tip.title}>
-            <div style={{ marginBottom: '0.5rem' }}>
-              <S.YellowBadge>✔ {tip.title}</S.YellowBadge>
-            </div>
-            <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
-              <li>{tip.description}</li>
-            </ul>
-          </div>
-        ))}
+        <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+          <li>{result.guide}</li>
+        </ul>
       </S.ManagementSection>
 
       <S.Title>이 영상 추천해요!</S.Title>
       <S.RecommendSection>
-        {result.recommendedVideos.map((video, idx) => (
-          <div className="product-item" key={video.id}>
+        {result.videoList.map((video, idx) => (
+          <S.ImgDiv
+            className="product-item"
+            key={video.videoId}
+            onClick={() => window.open(video.videoUrl, '_blank')}
+          >
             <img src={video.thumbnailUrl} alt={`추천 영상 ${idx + 1}`} />
-            <p>{video.title}</p>
-          </div>
+            <p>{video.videoTitle}</p>
+          </S.ImgDiv>
         ))}
       </S.RecommendSection>
 
       <S.Title>이 제품 추천해요!</S.Title>
       <S.RecommendSection>
-        {result.recommendedProducts.map((product, idx) => (
-          <div className="product-item" key={product.id}>
-            <img src={product.imageUrl} alt={`추천 제품 ${idx + 1}`} />
-            <p>{product.name}</p>
-          </div>
+        {result.productList.map((product, idx) => (
+          <S.ImgDiv
+            className="product-item"
+            key={product.productId}
+            onClick={() => window.open(product.productUrl, '_blank')}
+          >
+            <img src={product.productImage} alt={`추천 제품 ${idx + 1}`} />
+            <p>{product.productName}</p>
+          </S.ImgDiv>
         ))}
       </S.RecommendSection>
 
       <S.ButtonSection>
-        <S.BlueButton onClick={openSaveModal}>저장하기</S.BlueButton>
         <S.BlackButton onClick={openHomeModal}>홈으로 돌아가기</S.BlackButton>
       </S.ButtonSection>
 
       <BasicModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        message={modalConfig.message}
-        confirmLink={modalConfig.confirmLink}
+        message="진단 결과를 공개하시겠습니까?"
+        onConfirm={handleConfirm}
+        onReject={handleReject}
       />
     </S.Content>
   );

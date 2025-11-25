@@ -3,6 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { peoplelogService, PeopleslogResponse } from '../../services/peopleslogService';
+import noData from '../../assets/noData.svg';
 import {
   acneTypeMap,
   categories,
@@ -82,7 +83,10 @@ function PeoplesLog() {
         ))}
       </S.CategoryBox>
       {content.length === 0 ? (
-        <p>진단 기록이 없습니다.</p>
+        <S.NoDataBox>
+          <img src={noData} alt="no-data-icon" style={{ width: '5rem' }} />
+          <p>아직 공개된 로그가 없어요</p>
+        </S.NoDataBox>
       ) : (
         <S.LogList>
           {content.map((log) => (

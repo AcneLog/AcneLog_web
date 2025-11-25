@@ -1,10 +1,15 @@
 import useCustomNavigate from '../../hooks/useNavigate';
 import * as S from './Home.styles';
-import { youtubeThumbnails, productRecommendations } from './homeDummyData';
 import Banner from '../../assets/banner.svg';
 import sharp from '../../assets/img/sharpIcon.svg';
 import { useEffect, useState } from 'react';
-import { AcnePostCountData, homePeoplesLogService } from '../../services/homeService';
+import {
+  AcnePostCountData,
+  homePeoplesLogService,
+  RecommendProductItem,
+  recommendService,
+  RecommendViedoItem,
+} from '../../services/homeService';
 import { acneTypeData } from './homeAcneData';
 
 function Home() {
@@ -16,11 +21,17 @@ function Home() {
     PAPULES: 0,
     FOLLICULITIS: 0,
   });
+  const [youtube, setYoutube] = useState<RecommendViedoItem[]>([]);
+  const [product, setProduct] = useState<RecommendProductItem[]>([]);
 
   useEffect(() => {
     (async () => {
       const res = await homePeoplesLogService.getPeoplesLog();
+      const youtube = await recommendService.getRecommendVideo();
+      const product = await recommendService.getRecommendProduct();
       setPostCounts(res);
+      setYoutube(youtube);
+      setProduct(product);
     })();
   }, []);
 
@@ -53,7 +64,9 @@ function Home() {
                   gap: '0.5rem',
                 }}
               >
-                <img src={sharp} width="20%" />
+                <S.SharpIcon>
+                  <img src={sharp} />
+                </S.SharpIcon>
                 <span>{item.acneTypeKR}</span>
               </div>
               <S.PostCountText>
@@ -69,10 +82,10 @@ function Home() {
           <h2>오늘의 유튜브</h2>
         </S.Header>
         <S.List>
-          {youtubeThumbnails.slice(0, 3).map((item) => (
-            <S.Itm key={item.id}>
-              <img src={item.src} width="100%" height="140rem" />
-              <span>{item.title}</span>
+          {youtube.slice(0, 3).map((item) => (
+            <S.Itm key={item.videoId} onClick={() => window.open(item.videoUrl, '_blank')}>
+              <img src={item.thumbnailUrl} width="100%" height="140rem" />
+              <p>{item.videoTitle}</p>
             </S.Itm>
           ))}
         </S.List>
@@ -82,10 +95,13 @@ function Home() {
           <h2>오늘의 추천템</h2>
         </S.Header>
         <S.List>
-          {productRecommendations.map((item) => (
-            <S.TodaysItemItm key={item.id}>
-              <img src={item.src} width="100%" height="140rem" />
-              <span>{item.title}</span>
+          {product.map((item) => (
+            <S.TodaysItemItm
+              key={item.productId}
+              onClick={() => window.open(item.productUrl, '_blank')}
+            >
+              <img src={item.productImage} width="100%" height="140rem" />
+              <p>{item.productName}</p>
             </S.TodaysItemItm>
           ))}
         </S.List>

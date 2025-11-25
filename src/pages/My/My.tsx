@@ -3,6 +3,7 @@ import useCustomNavigate from '../../hooks/useNavigate';
 import { useIsAuthed, useAuth } from '../../auth/authStore';
 import { useEffect, useState } from 'react';
 import { userService } from '../../services/userService';
+import { skinTypeMap } from '../../constants/acneTypeMap';
 
 function My() {
   const goToPage = useCustomNavigate();
@@ -10,8 +11,9 @@ function My() {
   const [name, setName] = useState<string>('사용자');
   const logout = useAuth((s) => s.logout);
 
-  // [TODO] api: 사용자 피부타입
-  const skinType = '건성';
+  const [skinType, setSkinType] = useState<string>('');
+  const [surveyTime, setsurveyTime] = useState<string>('');
+  const hasSkinType = !!skinType;
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -20,6 +22,8 @@ function My() {
       try {
         const res = await userService.getProfile();
         setName(res.name ?? '사용자');
+        setSkinType(res?.skinType);
+        setsurveyTime(res?.surveyTime);
       } catch (e) {
         console.error('프로필 불러오기 실패:', e);
       }
@@ -40,17 +44,29 @@ function My() {
             <>
               <S.GreyBoxLogin $skinType={skinType}>
                 <h2>{name} 님, 반갑습니다</h2>
-                <p>
-                  나의 피부타입은 '
-                  <S.SkinTypeColor $skinType={skinType}>{skinType}</S.SkinTypeColor>'
-                </p>
+                {hasSkinType ? (
+                  <p>
+                    나의 피부타입은 '
+                    <S.SkinTypeColor $skinType={skinType}>
+                      {skinTypeMap[skinType as keyof typeof skinTypeMap]}
+                    </S.SkinTypeColor>
+                    '
+                  </p>
+                ) : (
+                  <S.showText>피부타입을 진단해보세요!</S.showText>
+                )}
               </S.GreyBoxLogin>
               <S.dashedLine />
-              <div>
-                {/* [TODO] api: 피부타입 검사일 */}
-                <S.blackBoxText>최근 검사일 2025-04-11</S.blackBoxText>
-                <S.blackBox onClick={() => goToPage('/skin')}>나의 피부 타입 진단하기</S.blackBox>
-              </div>
+              {hasSkinType ? (
+                <div>
+                  <S.blackBoxText>최근 검사일 {surveyTime}</S.blackBoxText>
+                  <S.blackBox onClick={() => goToPage('/skin')}>나의 피부 타입 진단하기</S.blackBox>
+                </div>
+              ) : (
+                <div>
+                  <S.blackBox onClick={() => goToPage('/skin')}>나의 피부 타입 진단하기</S.blackBox>
+                </div>
+              )}
             </>
           )}
         </S.GreyBox>

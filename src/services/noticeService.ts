@@ -26,7 +26,7 @@ export const noticeService = {
     const sort = 'createdAt,desc';
     const queryString = `?page=${page}&size=${size}&sort=${sort}`;
     const res = await apiPublic.get(`/board/list${queryString}`);
-    console.log('[Notice Response]', res.data.data.content);
+    // console.log('[Notice Response]', res.data.data.content);
     return res.data.data;
   },
 };

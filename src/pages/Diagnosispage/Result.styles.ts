@@ -55,10 +55,10 @@ export const BlackBadge = styled.div`
   text-align: center;
 `;
 
-export const YellowBadge = styled.div`
+export const YellowBadge = styled.span`
+  display: inline-block;
   background-color: rgba(246, 246, 161, 0.61);
   color: #17171b;
-  display: inline-block;
   font-size: 15px;
   font-weight: bold;
   padding-top: 0.2rem;
@@ -100,6 +100,8 @@ export const TreatmentSection = styled.section`
   }
 `;
 export const ManagementSection = styled.section`
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
   font-weight: normal;
   ul,
@@ -142,6 +144,7 @@ export const ButtonSection = styled.div`
   gap: 1rem;
 `;
 export const BlueButton = styled.button`
+  cursor: pointer;
   background: #3b82f6;
   color: white;
   border-radius: 1rem;
@@ -152,6 +155,7 @@ export const BlueButton = styled.button`
   font-size: 1rem;
 `;
 export const BlackButton = styled.button`
+  cursor: pointer;
   background: #0e0e0eff;
   color: white;
   border-radius: 1rem;
@@ -160,4 +164,33 @@ export const BlackButton = styled.button`
   width: 10rem;
   height: 3rem;
   font-size: 1rem;
+`;
+export const ImgDiv = styled.div`
+  width: 10rem; // 고정 가로
+  height: 12.5rem; // 고정 세로 (이미지 + 텍스트)
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 8.75rem; // 이미지 영역
+    object-fit: cover; // 영역에 맞게 자르기
+    border-radius: 0.5rem;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem; // 14px 정도
+    line-height: 1.2;
+    text-align: center;
+
+    /* 글자 길이 일정하게 표시 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // 2줄까지만 표시
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;

@@ -4,11 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import XBtn from '../../assets/xIcon.svg';
 import { skinTypeService, SurveyQuestion } from '../../services/skinTypeService';
 
-// 건성, 지성, 수부지 별 문항 인덱스
-const dryIndexes = [0, 3, 4, 7, 10];
-const oilyIndexes = [1, 5, 8, 11];
-const dehydratedIndexes = [2, 6, 9];
-
 function SkinDiagnosis() {
   const [answers, setAnswers] = useState<(number | null)[]>(Array(12).fill(null));
   const [questions, setQuestions] = useState<SurveyQuestion[]>([]);
@@ -31,33 +26,34 @@ function SkinDiagnosis() {
     setAnswers(updated);
   };
 
-  const calculateSkinType = () => {
+  const submitAnswers = async () => {
     if (answers.includes(null)) {
       alert('모든 문항에 응답해주세요.');
       return;
     }
-
-    const sum = (indexes: number[]) => indexes.reduce((acc, idx) => acc + (answers[idx] ?? 0), 0);
-
-    const dry = sum(dryIndexes);
-    const oily = sum(oilyIndexes);
-    const dehydrated = sum(dehydratedIndexes);
-
-    const max = Math.max(dry, oily, dehydrated);
-
-    let skinType = '';
-    if (max === dry) skinType = '건성';
-    else if (max === oily) skinType = '지성';
-    else skinType = '수부지';
-
-    // 다음 페이지로 진단 결과 넘기기
-    navigate('/skin/result', {
-      state: {
-        skinType,
-      },
+    // answers 객체 만들기
+    // answers 객체 만들기
+    const answerObj: Record<string, number> = {};
+    answers.forEach((value, index) => {
+      const questionId = questions[index].questionId; // Q001 형태
+      answerObj[questionId] = value as number;
     });
-  };
 
+    try {
+      // 백엔드에 전송
+      const res = await skinTypeService.submitSurveyAnswers(answerObj);
+
+      navigate('/skin/result', {
+        state: {
+          memberName: res.data.memberName,
+          skinType: res.data.skinType,
+        },
+      });
+    } catch (e) {
+      console.error('설문조사 제출 실패', e);
+      alert('설문조사 제출에 실패했습니다. 다시 시도해주세요.');
+    }
+  };
   return (
     <S.SkinLayout>
       <S.TitleLayout>
@@ -76,7 +72,7 @@ function SkinDiagnosis() {
               <p>{q.questionText}</p>
             </S.QuestionText>
             <S.RadioGroup>
-              {q.options.map((label, i) => (
+              {q.options.map((labels, i) => (
                 <S.Label key={i}>
                   <input
                     type="radio"
@@ -85,7 +81,7 @@ function SkinDiagnosis() {
                     checked={answers[index] === i + 1}
                     onChange={() => handleChange(index, i + 1)}
                   />
-                  <span>{label.optionText}</span>
+                  <span>{labels.label}</span>
                 </S.Label>
               ))}
             </S.RadioGroup>
@@ -93,7 +89,7 @@ function SkinDiagnosis() {
         ))}
       </S.Wrapper>
 
-      <S.SubmitButton onClick={calculateSkinType}>제출하기</S.SubmitButton>
+      <S.SubmitButton onClick={submitAnswers}>제출하기</S.SubmitButton>
     </S.SkinLayout>
   );
 }

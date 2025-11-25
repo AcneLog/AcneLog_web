@@ -8,6 +8,7 @@ const PeolesLogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [peopleslogDetail, setPeopleslogDetail] = useState<PeopleslogItem | null>(null);
+
   useEffect(() => {
     const fetchPeopleslogData = async () => {
       try {
@@ -22,6 +23,8 @@ const PeolesLogDetail = () => {
   }, [id]);
   if (!peopleslogDetail) return <p>데이터 없음</p>;
   const data = peopleslogDetail;
+  const hasSkinType = !!data.userSkinType;
+
   return (
     <S.Content>
       <S.CloseButton onClick={() => navigate(-1)}>
@@ -43,12 +46,18 @@ const PeolesLogDetail = () => {
               {data.userName ? data.userName : '사용자 이름 없음'}
             </S.DiagnosisValue>
           </li>
-          <S.BlackBadge>피부 타입</S.BlackBadge>
-          <S.DiagnosisValue>
-            {data.userSkinType
-              ? skinTypeMap[data.userSkinType as keyof typeof skinTypeMap]
-              : '피부 타입 없음'}
-          </S.DiagnosisValue>
+          {hasSkinType ? (
+            <>
+              <S.BlackBadge>피부 타입</S.BlackBadge>
+              <S.DiagnosisValue>
+                {data.userSkinType
+                  ? skinTypeMap[data.userSkinType as keyof typeof skinTypeMap]
+                  : '피부 타입 없음'}
+              </S.DiagnosisValue>
+            </>
+          ) : (
+            ''
+          )}
           <li>
             <S.BlackBadge>진단일</S.BlackBadge>{' '}
             <S.DiagnosisValue>{data.createdAt ? data.createdAt : '진단일 없음'}</S.DiagnosisValue>
