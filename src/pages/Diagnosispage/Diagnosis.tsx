@@ -63,7 +63,7 @@ const Diagnosis: React.FC = () => {
 
   return (
     <S.UploadBox>
-      {!isLoading ? (
+      {isLoading ? (
         <Loading />
       ) : (
         <>
