@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Pagination } from '@mui/material';
 import { myLogService, MyLogResponse } from '../../services/myLogservice';
 import { acneTypeMap, categoryToTypeMap, categories, Category } from '../../constants/acneTypeMap';
+import noData from '../../assets/noData.svg';
 
 function MyLog() {
   const navigate = useNavigate();
@@ -59,7 +60,10 @@ function MyLog() {
         ))}
       </S.CategoryBox>
       {content.length === 0 ? (
-        <p>진단 기록이 없습니다.</p>
+        <S.NoDataBox>
+          <img src={noData} alt="no-data-icon" style={{ width: '5rem' }} />
+          <p>진단 로그가 없어요</p>
+        </S.NoDataBox>
       ) : (
         <S.LogList>
           {content.map((log) => (
