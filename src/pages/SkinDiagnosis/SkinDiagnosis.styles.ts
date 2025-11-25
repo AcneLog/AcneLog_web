@@ -5,7 +5,7 @@ interface ButtonType {
 }
 
 interface SkinTypeProps {
-  skinType: string;
+  $skinType: string;
 }
 
 export const getColor = (skinType: string) => {
@@ -70,8 +70,8 @@ export const Btn = styled.button<ButtonType>`
 `;
 
 // 피부타입 별 색상 적용
-export const SkinTypeColor = styled.span<{ skinType: string }>`
-  color: ${({ skinType }) => getColor(skinType)};
+export const SkinTypeColor = styled.span<{ $skinType: string }>`
+  color: ${({ $skinType }) => getColor($skinType)};
   font-weight: 900;
   background: linear-gradient(
     to bottom,
