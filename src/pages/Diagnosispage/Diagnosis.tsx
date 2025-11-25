@@ -36,7 +36,7 @@ const Diagnosis: React.FC = () => {
     try {
       setIsLoading(true);
       const startTime = Date.now();
-      const minLoadingTime = 20000;
+      const minLoadingTime = 10000;
 
       // 1) 이미지 업로드
       await diagnosisService.uploadImage(file);
@@ -95,7 +95,7 @@ const Diagnosis: React.FC = () => {
 
           <S.ButtonGroup>
             <S.ActionButton $primary disabled={!file || isLoading} onClick={handleDiagnosis}>
-              {isLoading ? '진단 중...' : '진단하기'}
+              진단하기
             </S.ActionButton>
             <S.ActionButton onClick={() => goToPage('/')}>취소하기</S.ActionButton>
           </S.ButtonGroup>
