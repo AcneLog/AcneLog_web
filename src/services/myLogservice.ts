@@ -1,7 +1,7 @@
 import { apiPrivate } from '../api/client';
 
 export interface MyLogItem {
-  analysisId: number;
+  analysisId: string;
   imageUrl: string;
   acneType: string;
   isPublic: boolean;
@@ -61,9 +61,9 @@ export const myLogDetailService = {
 };
 //마이로그 상세페이지 공개 여부 변경
 export const myLogPublicService = {
-  patchMyLogPublic: async (analysisId: number, isPublic: boolean): Promise<MyLogItem> => {
+  patchMyLogPublic: async (analysisId: string, isPublic: boolean): Promise<MyLogItem> => {
     const res = await apiPrivate.patch(`/analysis/public`, {
-      analysisId,
+      analysisId: Number(analysisId),
       isPublic,
     });
     // console.log('MyLog Detail API Response:', res.data.data);
