@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { breakpoints } from '../../styles/theme';
 //섹션 공통
 export const HomeSection = styled.div`
   padding: 1rem 1rem 2rem 1rem;
@@ -28,7 +28,15 @@ export const PeoplesLogButton = styled.button`
   color: #888;
   cursor: pointer;
 `;
-
+export const TypeRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 0.8rem;
+    gap: 0.1rem;
+  }
+`;
 //아이템-공통부분
 export const Itm = styled.div`
   font-size: 1rem;
@@ -66,6 +74,10 @@ export const PostCountText = styled.p`
   color: #737373;
   margin-right: 1.4rem;
   font-weight: normal;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
 `;
 
 export const TodaysItemItm = styled.div`

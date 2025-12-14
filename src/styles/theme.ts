@@ -1,4 +1,5 @@
 const fontSize = {
+  xxxs: '1rem',
   xxs: '1.2rem',
   xms: '1.4rem',
   xs: '1.6rem',
@@ -38,3 +39,9 @@ export default theme;
 
 // ${({ theme }) => theme.Pink}
 // ${({ theme }) => theme.fontSize.Main1}
+
+export const breakpoints = {
+  mobile: '768px',
+  tablet: '1024px',
+  desktop: '1200px',
+};

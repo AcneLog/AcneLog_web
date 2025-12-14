@@ -6,7 +6,6 @@ import { Pagination } from '@mui/material';
 import { myLogService, MyLogResponse } from '../../services/myLogservice';
 import { acneTypeMap, categoryToTypeMap, categories, Category } from '../../constants/acneTypeMap';
 import noData from '../../assets/noData.svg';
-
 function MyLog() {
   const navigate = useNavigate();
 
