@@ -19,7 +19,7 @@ export const HeaderContainer = styled.header`
 export const HeaderListBox = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 4rem;
+  padding: 0 3rem;
   p {
     font-size: ${({ theme }) => theme.fontSize.xxs};
   }
