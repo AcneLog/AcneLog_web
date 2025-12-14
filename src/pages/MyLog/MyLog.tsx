@@ -6,7 +6,6 @@ import { Pagination } from '@mui/material';
 import { myLogService, MyLogResponse } from '../../services/myLogservice';
 import { acneTypeMap, categoryToTypeMap, categories, Category } from '../../constants/acneTypeMap';
 import noData from '../../assets/noData.svg';
-import { breakpoints } from '../../styles/theme';
 function MyLog() {
   const navigate = useNavigate();
 
@@ -14,16 +13,13 @@ function MyLog() {
 
   const [selectedCategory, setSelectedCategory] = useState<Category>('전체');
   const [myLogResponse, setMyLogResponse] = useState<MyLogResponse | null>(null);
-  const MOBILE_MAX_WIDTH = parseInt(breakpoints.mobile, 10);
-  const getPageSize = () => {
-    return window.innerWidth <= MOBILE_MAX_WIDTH ? 1 : 4;
-  };
+
   const fetchMyLogData = async () => {
     try {
       const type = categoryToTypeMap[selectedCategory];
       const data = await myLogService.getMyLog(type, {
         page,
-        size: getPageSize(),
+        size: 4,
       });
 
       setMyLogResponse(data);
