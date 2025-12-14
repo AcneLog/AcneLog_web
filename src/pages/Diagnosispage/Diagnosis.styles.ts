@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { breakpoints } from '../../styles/theme';
 export const UploadBox = styled.div`
   width: 100%;
   padding: 1.5rem;
@@ -96,4 +96,9 @@ export const ActionButton = styled.button<{ $primary?: boolean }>`
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   margin-bottom: 6.25rem;
   font-size: 1rem;
+  white-space: nowrap;
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+  }
 `;

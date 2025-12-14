@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { breakpoints } from '../../styles/theme';
 export const CloseButton = styled.div`
   width: 100%;
   display: flex;
@@ -133,14 +133,17 @@ export const RecommendSection = styled.section`
     color: gray;
   }
 `;
-
 export const CustomRadio = styled.label`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   margin-right: 1rem;
   gap: 0.5rem;
-
+  white-space: nowrap;
+  @media (max-width: ${breakpoints.mobile}) {
+    gap: 0.2rem;
+    font-size: 0.9rem;
+  }
   input[type='radio'] {
     appearance: none;
     -webkit-appearance: none;
