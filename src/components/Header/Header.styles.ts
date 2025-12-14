@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { breakpoints } from '../../styles/theme';
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 10rem;
@@ -19,10 +19,13 @@ export const HeaderContainer = styled.header`
 export const HeaderListBox = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 3rem;
+  padding: 0 4rem;
   p {
     font-size: ${({ theme }) => theme.fontSize.xxs};
   }
+  @media (max-width: ${breakpoints.mobile}) {
+  padding: 0 2rem;
+
 `;
 
 export const Menu = styled.p<{ $isActive?: boolean }>`
