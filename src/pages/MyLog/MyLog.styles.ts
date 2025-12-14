@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { breakpoints } from '../../styles/theme';
 interface CategoryProps {
   $isSelected: boolean;
 }
@@ -52,6 +52,8 @@ export const LogList = styled.ul`
   gap: 1rem;
   max-width: 100%;
   box-sizing: border-box;
+  @media (max-width: ${breakpoints.mobile}) {
+    grid-template-columns: 1fr;
 `;
 
 // 각 아이템 박스
@@ -67,7 +69,6 @@ export const LogItem = styled.li`
   justify-content: space-between;
   gap: 1.3rem;
   cursor: pointer;
-
   &:hover {
     background: #f1f4f8;
   }

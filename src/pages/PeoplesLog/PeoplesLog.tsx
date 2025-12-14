@@ -11,7 +11,6 @@ import {
   Category,
   REVERSE_CATEGORY_MAP,
 } from '../../constants/acneTypeMap';
-
 function PeoplesLog() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,6 +21,7 @@ function PeoplesLog() {
   const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
   const [page, setPage] = useState(1);
   const [peoplelogResponse, setPeopleslogResponse] = useState<PeopleslogResponse | null>(null);
+
   // URL 파라미터 변경 시 카테고리 동기화
   useEffect(() => {
     const currentUrlCode = searchParams.get('acneType');

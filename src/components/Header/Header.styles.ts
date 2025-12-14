@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { breakpoints } from '../../styles/theme';
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 10rem;
@@ -11,8 +11,8 @@ export const HeaderContainer = styled.header`
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   font-size: ${({ theme }) => theme.fontSize.xs};
-  // position: sticky;
-  // top: 0;
+  position: sticky;
+  top: 0;
   z-index: 10;
 `;
 
@@ -23,13 +23,15 @@ export const HeaderListBox = styled.div`
   p {
     font-size: ${({ theme }) => theme.fontSize.xxs};
   }
+  @media (max-width: ${breakpoints.mobile}) {
+  padding: 0 2rem;
+
 `;
 
 export const Menu = styled.p<{ $isActive?: boolean }>`
   font-family: 'Pretendard';
   position: relative;
   cursor: pointer;
-
   &::after {
     content: '';
     position: absolute;
