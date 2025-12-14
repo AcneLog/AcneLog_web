@@ -57,18 +57,12 @@ function Home() {
               onClick={() => goToPage(`/peoplesLog?acneType=${item.acneTypeAPI}`)}
             >
               <img src={item.imgUrl} width="100%" height="140rem" />
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                }}
-              >
+              <S.TypeRow>
                 <S.SharpIcon>
                   <img src={sharp} />
                 </S.SharpIcon>
                 <span>{item.acneTypeKR}</span>
-              </div>
+              </S.TypeRow>
               <S.PostCountText>
                 게시물 {postCounts[item.acneTypeAPI.toUpperCase() as keyof AcnePostCountData] || 0}
                 개
